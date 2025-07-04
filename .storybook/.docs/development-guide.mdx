@@ -31,43 +31,45 @@ The project uses the following technologies:
 
 ## Project Structure
 
-```plaintext
-jackanory/
-├── .github/           # GitHub Actions workflows
-├── .husky/            # Husky Git hooks configuration
-├── .storybook/        # Storybook configuration files
-├── docs/              # Project documentation (Markdown files)
-├── public/            # Static assets served by Next.js
-├── scripts/           # Utility and build scripts
-├── src/               # Main source code (components, pages, styles, etc.)
-│   ├── app/           # Next.js App Router pages and layouts
-│   ├── components/    # Reusable UI components
-│   ├── contexts/      # React context providers
-│   ├── language/      # Internationalization and language files
-│   ├── libs/          # Core libraries, helpers, hooks, services
-│   ├── partials/      # Page-specific component compositions
-│   ├── theme/         # Global styles and SCSS variables
-│   ├── types/         # TypeScript type definitions
-├── .gitignore         # Git ignore rules
-├── .prettierrc        # Prettier code formatting configuration
-├── .yarnrc            # Yarn configuration
-├── eslint.config.mjs  # ESLint configuration
-├── next-env.d.ts      # Next.js environment type definitions
-├── next.config.ts     # Next.js configuration
-├── package.json       # Project metadata and dependencies
-├── README.md          # Project overview
-├── tsconfig.json      # TypeScript configuration
-├── vitest.config.ts   # Vitest testing configuration
-└── yarn.lock          # Yarn lockfile
-```
+<Source
+  language="plaintext"
+  code={`jackanory/
+  ├── .github/           # GitHub Actions workflows
+  ├── .husky/            # Husky Git hooks configuration
+  ├── .storybook/        # Storybook configuration files
+  ├── docs/              # Project documentation (Markdown files)
+  ├── public/            # Static assets served by Next.js
+  ├── scripts/           # Utility and build scripts
+  ├── src/               # Main source code (components, pages, styles, etc.)
+  │   ├── app/           # Next.js App Router pages and layouts
+  │   ├── components/    # Reusable UI components
+  │   ├── contexts/      # React context providers
+  │   ├── language/      # Internationalization and language files
+  │   ├── libs/          # Core libraries, helpers, hooks, services
+  │   ├── partials/      # Page-specific component compositions
+  │   ├── theme/         # Global styles and SCSS variables
+  │   ├── types/         # TypeScript type definitions
+  ├── .gitignore         # Git ignore rules
+  ├── .prettierrc        # Prettier code formatting configuration
+  ├── .yarnrc            # Yarn configuration
+  ├── eslint.config.mjs  # ESLint configuration
+  ├── next-env.d.ts      # Next.js environment type definitions
+  ├── next.config.ts     # Next.js configuration
+  ├── package.json       # Project metadata and dependencies
+  ├── README.md          # Project overview
+  ├── tsconfig.json      # TypeScript configuration
+  ├── vitest.config.ts   # Vitest testing configuration
+└── yarn.lock          # Yarn lockfile`}
+/>
 
 ## Development Workflow
 
 ### 1. Starting Development
 
-```bash
-yarn dev
-```
+<Source
+  language="bash"
+  code={`yarn dev`}
+/>
 
 This will start both the storybook client and next in development mode.
 
@@ -96,9 +98,10 @@ The project enforces code quality through:
 
 ### 5. Building for Production
 
-```bash
-yarn build
-```
+<Source
+  language="bash"
+  code={`yarn build`}
+/>
 
 This will create a production build in the `.next` directory.
 
