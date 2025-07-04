@@ -1,0 +1,537 @@
+# Utility Classes
+
+The Jackanory design system provides a comprehensive set of utility classes for rapid development and consistent styling patterns.
+
+## Display and Visibility
+
+### Display Utilities
+
+```scss
+.db { display: block; }
+.hide { display: none; }
+.flex { display: flex; }
+```
+
+### Visibility Utilities
+
+```scss
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+```
+
+### Usage Example
+
+```tsx
+<div className="flex">
+  <span className="visually-hidden">Screen reader only text</span>
+  <button className="db">Visible button</button>
+</div>
+```
+
+## Layout Utilities
+
+### Application Layouts
+
+```scss
+.app-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+.app-content {
+  display: grid;
+  grid-template-rows: 1fr;
+  height: 100%;
+  position: relative;
+}
+
+.dashboard-layout {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  width: 100vw;
+  padding: padding(4);
+}
+```
+
+### Vertical Layout System
+
+```scss
+.vertical-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  width: 100%;
+}
+
+.vertical-layout__top {
+  grid-row: 1;
+}
+
+.vertical-layout__main {
+  position: relative;
+  grid-row: 2;
+  min-height: 0; // Prevents content from forcing grid expansion
+}
+
+.vertical-layout__bottom {
+  grid-row: 3;
+}
+```
+
+### Panel Layout
+
+```scss
+.panel-content {
+  padding: padding(3);
+  max-height: 50vh;
+  overflow-y: auto;
+}
+```
+
+### Layout Usage Example
+
+```tsx
+<div className="app-layout">
+  <header className="vertical-layout__top">Header</header>
+  <main className="vertical-layout__main app-content">
+    <div className="panel-content">Content</div>
+  </main>
+  <footer className="vertical-layout__bottom">Footer</footer>
+</div>
+```
+
+## Flexbox Utilities
+
+### Flex Container
+
+```scss
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+```
+
+### Flex Alignment
+
+```scss
+.items-center {
+  place-items: center;
+}
+
+.content-center {
+  place-content: center;
+}
+```
+
+### Flex Gap
+
+```scss
+.gap-0 { gap: 0; }
+.gap-1 { gap: 1rem; }
+.gap-2 { gap: 2rem; }
+.gap-3 { gap: 3rem; }
+.gap-4 { gap: 4rem; }
+```
+
+### Flexbox Usage Example
+
+```tsx
+<div className="flex flex-column items-center gap-2">
+  <h2>Centered Title</h2>
+  <p>Centered content with gap</p>
+  <button>Action Button</button>
+</div>
+```
+
+## Spacing Utilities
+
+### Margin Utilities
+
+```scss
+// All sides (0-5 scale)
+.m-0 { margin: 0; }
+.m-1 { margin: 0.25rem; }
+.m-2 { margin: 0.5rem; }
+.m-3 { margin: 1rem; }
+.m-4 { margin: 1.5rem; }
+.m-5 { margin: 3rem; }
+
+// Directional margins
+.mt-0, .mt-1, .mt-2, .mt-3, .mt-4, .mt-5 { /* margin-top */ }
+.mb-0, .mb-1, .mb-2, .mb-3, .mb-4, .mb-5 { /* margin-bottom */ }
+.ml-0, .ml-1, .ml-2, .ml-3, .ml-4, .ml-5 { /* margin-left */ }
+.mr-0, .mr-1, .mr-2, .mr-3, .mr-4, .mr-5 { /* margin-right */ }
+```
+
+### Padding Utilities
+
+```scss
+// All sides (0-5 scale)
+.p-0 { padding: 0; }
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 1rem; }
+.p-4 { padding: 1.5rem; }
+.p-5 { padding: 3rem; }
+
+// Directional padding
+.pt-0, .pt-1, .pt-2, .pt-3, .pt-4, .pt-5 { /* padding-top */ }
+.pb-0, .pb-1, .pb-2, .pb-3, .pb-4, .pb-5 { /* padding-bottom */ }
+.pl-0, .pl-1, .pl-2, .pl-3, .pl-4, .pl-5 { /* padding-left */ }
+.pr-0, .pr-1, .pr-2, .pr-3, .pr-4, .pr-5 { /* padding-right */ }
+```
+
+### Spacing Scale Reference
+
+- **0**: `0`
+- **1**: `0.25rem` (4px)
+- **2**: `0.5rem` (8px)
+- **3**: `1rem` (16px)
+- **4**: `1.5rem` (24px)
+- **5**: `3rem` (48px)
+
+### Spacing Usage Example
+
+```tsx
+<div className="p-3 mb-4">
+  <h2 className="mb-2">Card Title</h2>
+  <p className="mb-3">Card content with consistent spacing.</p>
+  <button className="mt-2">Action</button>
+</div>
+```
+
+## Typography Utilities
+
+### Text Alignment
+
+```scss
+.ta-l { text-align: left; }
+.ta-c { text-align: center; }
+.ta-r { text-align: right; }
+.justify { text-align: justify; }
+```
+
+### Font Weight
+
+```scss
+.fw-normal { font-weight: 400; }
+.fw-bold { font-weight: 700; }
+.fw-light { font-weight: 300; }
+```
+
+### Typography Classes
+
+These classes mirror the typography mixins:
+
+```scss
+// Body text variations
+.body-text { @include type.body-text; }
+.small-text { @include type.small-text; }
+.large-text { @include type.large-text; }
+
+// Headings
+.title { @include type.title; }
+.heading-large { @include type.heading-large; }
+.heading-medium { @include type.heading-medium; }
+.heading-small { @include type.heading-small; }
+
+// Form elements
+.input { @include type.input; }
+.input-label { @include type.input-label; }
+.input-placeholder { @include type.input-placeholder; }
+.form-metadata { @include type.form-metadata; }
+
+// Interactive elements
+.button { @include button(col.$primary-button, col.$light); }
+.link { @include link(); }
+```
+
+### Typography Usage Example
+
+```tsx
+<article className="ta-l">
+  <h1 className="heading-large ta-c">Article Title</h1>
+  <p className="large-text fw-light">Lead paragraph with emphasis.</p>
+  <p className="body-text">Regular body text content.</p>
+  <p className="small-text ta-r">Caption or metadata.</p>
+</article>
+```
+
+## Size Utilities
+
+### Width Utilities
+
+```scss
+.w-100, .w-full { width: 100%; }
+.w-75 { width: 75%; }
+.w-50 { width: 50%; }
+.w-25 { width: 25%; }
+```
+
+### Height Utilities
+
+```scss
+.h-100, .h-full { height: 100%; }
+.h-75 { height: 75%; }
+.h-50 { height: 50%; }
+.h-25 { height: 25%; }
+```
+
+### Size Usage Example
+
+```tsx
+<div className="w-full h-50">
+  <div className="w-75">Three quarters width</div>
+  <div className="w-50">Half width</div>
+  <div className="w-25">Quarter width</div>
+</div>
+```
+
+## Overflow Utilities
+
+```scss
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.overflow-visible { overflow: visible; }
+.overflow-scroll { overflow: scroll; }
+```
+
+### Overflow Usage Example
+
+```tsx
+<div className="h-50 overflow-auto">
+  <div className="overflow-hidden">
+    Content that might overflow
+  </div>
+</div>
+```
+
+## Loading and State Utilities
+
+### Loader Container
+
+```scss
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+```
+
+### Usage Example
+
+```tsx
+<div className="loaderContainer">
+  <div>Loading...</div>
+</div>
+```
+
+## Combining Utility Classes
+
+### Card Pattern
+
+```tsx
+<div className="p-4 mb-3 w-full">
+  <h3 className="heading-medium mb-2">Card Title</h3>
+  <p className="body-text mb-3">Card description text.</p>
+  <div className="flex gap-2">
+    <button className="button">Primary</button>
+    <button className="link">Secondary</button>
+  </div>
+</div>
+```
+
+### Form Pattern
+
+```tsx
+<form className="p-3">
+  <div className="mb-3">
+    <label className="input-label mb-1 db">Email</label>
+    <input className="input w-full p-2" type="email" />
+    <span className="form-metadata mt-1 db">Enter your email address</span>
+  </div>
+  
+  <div className="flex gap-2 mt-4">
+    <button className="button">Submit</button>
+    <button className="link">Cancel</button>
+  </div>
+</form>
+```
+
+### Navigation Pattern
+
+```tsx
+<nav className="flex items-center gap-3 p-3">
+  <div className="heading-small">Logo</div>
+  <div className="flex gap-2 ml-auto">
+    <a className="link">Home</a>
+    <a className="link">About</a>
+    <a className="link">Contact</a>
+  </div>
+</nav>
+```
+
+## Responsive Utility Classes
+
+### Creating Responsive Variants
+
+```scss
+// Base utility
+.p-responsive {
+  padding: padding(2);
+  
+  @include util.mq(bp.$medium) {
+    padding: padding(3);
+  }
+  
+  @include util.mq(bp.$large) {
+    padding: padding(4);
+  }
+}
+
+// Responsive text alignment
+.ta-c-mobile {
+  text-align: center;
+  
+  @include util.mq(bp.$medium) {
+    text-align: left;
+  }
+}
+```
+
+## Best Practices
+
+### 1. Use Utility Classes for Simple Styling
+
+```tsx
+// ✅ Good - simple utility usage
+<div className="p-3 mb-2 ta-c">
+  Simple content
+</div>
+
+// ❌ Avoid - complex styling with utilities
+<div className="p-3 mb-2 ta-c fw-bold w-50 h-25 overflow-hidden flex items-center">
+  Complex content (use SCSS module instead)
+</div>
+```
+
+### 2. Combine with SCSS Modules
+
+```scss
+// component.module.scss
+.component {
+  background: col.$bg;
+  border: 1px solid col.$border;
+  border-radius: 8px;
+  
+  // Use utility classes for spacing
+  @extend .p-3;
+  @extend .mb-2;
+}
+```
+
+```tsx
+// Component usage
+<div className={`${styles.component} ta-c`}>
+  Content with mixed styling approaches
+</div>
+```
+
+### 3. Maintain Consistency
+
+```tsx
+// ✅ Good - consistent spacing scale
+<div className="p-3 mb-3">
+  <div className="p-2 mb-2">Nested content</div>
+</div>
+
+// ❌ Inconsistent - mixed spacing approaches
+<div className="p-3 mb-3">
+  <div style={{padding: '10px', marginBottom: '15px'}}>Nested content</div>
+</div>
+```
+
+### 4. Use Semantic Classes for Complex Components
+
+```tsx
+// ✅ Good - semantic component class with utility helpers
+<article className={`${styles.article} p-4`}>
+  <h1 className="heading-large mb-3">Title</h1>
+  <p className="body-text">Content</p>
+</article>
+
+// ❌ Avoid - all utility classes for complex components
+<article className="bg-white border border-gray-200 rounded-lg p-4 mb-4 shadow-sm">
+  <h1 className="text-2xl font-bold mb-3 text-gray-900">Title</h1>
+  <p className="text-base text-gray-700 leading-relaxed">Content</p>
+</article>
+```
+
+### 5. Document Custom Utility Classes
+
+```scss
+// Custom utility for project-specific needs
+.content-width {
+  max-width: 65ch; // Optimal reading width
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Document usage in comments
+/* 
+Usage: Apply to text content containers for optimal readability
+Example: <div className="content-width p-3">...</div>
+*/
+```
+
+## Performance Considerations
+
+### Utility Class Optimization
+
+```scss
+// Group related utilities to reduce CSS size
+.spacing-reset {
+  margin: 0;
+  padding: 0;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+```
+
+### Purging Unused Classes
+
+Ensure your build process removes unused utility classes in production:
+
+```javascript
+// Example PostCSS configuration
+module.exports = {
+  plugins: [
+    require('@fullhuman/postcss-purgecss')({
+      content: ['./src/**/*.{js,jsx,ts,tsx}'],
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+    })
+  ]
+}
+```
