@@ -14,11 +14,11 @@ This guide covers best practices for styling components in the Jackanory design 
   border: 1px solid col.$border;
   border-radius: 8px;
   padding: padding(2);
-  
+
   // Typography
   @include type.body-text;
   color: col.$body-text;
-  
+
   // Responsive behavior
   @include util.mq(bp.$medium) {
     padding: padding(3);
@@ -34,7 +34,7 @@ This guide covers best practices for styling components in the Jackanory design 
 .componentContent {
   @include type.body-text;
   color: col.$grey-600;
-  
+
   p + p {
     margin-top: spacing(1.5);
   }
@@ -52,63 +52,63 @@ This guide covers best practices for styling components in the Jackanory design 
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
-  
+
   // Default variant
   background: col.$primary;
   color: col.$light;
-  
+
   &:hover {
     background: col.$primary-button-hover;
   }
-  
+
   &:focus-visible {
     outline: 2px solid col.$keyboard-focus;
     outline-offset: 2px;
   }
-  
+
   // Variant modifiers
   &.secondary {
     background: col.$secondary;
     color: col.$light;
-    
+
     &:hover {
       background: col.$secondary-button-hover;
     }
   }
-  
+
   &.outline {
     background: transparent;
     color: col.$primary;
     border: 1px solid col.$primary;
-    
+
     &:hover {
       background: col.$primary;
       color: col.$light;
     }
   }
-  
+
   // Size modifiers
   &.small {
     padding: padding(0.5) padding(1);
     font-size: 0.9em;
   }
-  
+
   &.large {
     padding: padding(1.5) padding(3);
     font-size: 1.1em;
   }
-  
+
   // State modifiers
   &.disabled {
     opacity: 0.6;
     cursor: not-allowed;
     pointer-events: none;
   }
-  
+
   &.loading {
     position: relative;
     color: transparent;
-    
+
     &::after {
       content: '';
       position: absolute;
@@ -160,7 +160,7 @@ This guide covers best practices for styling components in the Jackanory design 
   padding: padding(2);
   border-top: 1px solid col.$border;
   background: col.$grey-50;
-  
+
   .actions {
     display: flex;
     gap: spacing(1);
@@ -177,9 +177,9 @@ This guide covers best practices for styling components in the Jackanory design 
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "header"
-    "main"
-    "footer";
+    'header'
+    'main'
+    'footer';
 }
 
 .layoutHeader {
@@ -192,7 +192,7 @@ This guide covers best practices for styling components in the Jackanory design 
 .layoutMain {
   grid-area: main;
   padding: padding(3);
-  
+
   @include util.mq(bp.$medium) {
     padding: padding(4);
   }
@@ -211,11 +211,11 @@ This guide covers best practices for styling components in the Jackanory design 
   .layout.withSidebar & {
     grid-template-columns: 250px 1fr;
     grid-template-areas:
-      "header header"
-      "sidebar main"
-      "footer footer";
+      'header header'
+      'sidebar main'
+      'footer footer';
   }
-  
+
   grid-area: sidebar;
   background: col.$alt-panel-bg;
   border-right: 1px solid col.$border;
@@ -230,7 +230,7 @@ This guide covers best practices for styling components in the Jackanory design 
 ```scss
 .interactive {
   transition: all 0.2s ease;
-  
+
   // Hover (only on devices that support hover)
   @media (hover: hover) {
     &:hover {
@@ -238,25 +238,25 @@ This guide covers best practices for styling components in the Jackanory design 
       transform: translateY(-1px);
     }
   }
-  
+
   // Focus (all devices)
   &:focus-visible {
     outline: 2px solid col.$keyboard-focus;
     outline-offset: 2px;
   }
-  
+
   // Active state
   &:active {
     transform: translateY(0);
   }
-  
+
   // Disabled state
   &:disabled,
   &.disabled {
     opacity: 0.6;
     cursor: not-allowed;
     pointer-events: none;
-    
+
     &:hover {
       transform: none;
     }
@@ -269,10 +269,10 @@ This guide covers best practices for styling components in the Jackanory design 
 ```scss
 .loadingContainer {
   position: relative;
-  
+
   &.loading {
     pointer-events: none;
-    
+
     &::after {
       content: '';
       position: absolute;
@@ -304,31 +304,31 @@ This guide covers best practices for styling components in the Jackanory design 
 .formField {
   .input {
     border: 1px solid col.$input-border;
-    
+
     &:focus {
       border-color: col.$input-border-focus;
     }
-    
+
     &.error {
       border-color: col.$danger;
-      
+
       &:focus {
         border-color: col.$danger;
         box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
       }
     }
-    
+
     &.success {
       border-color: col.$success;
     }
   }
-  
+
   .errorMessage {
     @include type.form-metadata;
     color: col.$danger;
     margin-top: spacing(0.5);
   }
-  
+
   .successMessage {
     @include type.form-metadata;
     color: col.$success;
@@ -343,34 +343,48 @@ This guide covers best practices for styling components in the Jackanory design 
 
 ```scss
 // Block
-.navigation { }
+.navigation {
+}
 
 // Elements
-.navigationList { }
-.navigationItem { }
-.navigationLink { }
+.navigationList {
+}
+.navigationItem {
+}
+.navigationLink {
+}
 
 // Modifiers
-.navigation.vertical { }
-.navigationItem.active { }
-.navigationLink.disabled { }
+.navigation.vertical {
+}
+.navigationItem.active {
+}
+.navigationLink.disabled {
+}
 ```
 
 ### Component-Scoped Naming
 
 ```scss
 // Component root
-.dropdown { }
+.dropdown {
+}
 
 // Component parts
-.dropdownTrigger { }
-.dropdownMenu { }
-.dropdownItem { }
+.dropdownTrigger {
+}
+.dropdownMenu {
+}
+.dropdownItem {
+}
 
 // Component states
-.dropdown.open { }
-.dropdownItem.selected { }
-.dropdownItem.disabled { }
+.dropdown.open {
+}
+.dropdownItem.selected {
+}
+.dropdownItem.disabled {
+}
 ```
 
 ## Responsive Component Patterns
@@ -384,7 +398,7 @@ This guide covers best practices for styling components in the Jackanory design 
   flex-direction: column;
   gap: spacing(2);
   padding: padding(2);
-  
+
   // Tablet: side-by-side layout
   @include util.mq(bp.$medium) {
     flex-direction: row;
@@ -392,7 +406,7 @@ This guide covers best practices for styling components in the Jackanory design 
     padding: padding(3);
     gap: spacing(3);
   }
-  
+
   // Desktop: enhanced spacing
   @include util.mq(bp.$large) {
     padding: padding(4);
@@ -405,14 +419,14 @@ This guide covers best practices for styling components in the Jackanory design 
   width: 100%;
   height: 200px;
   object-fit: cover;
-  
+
   // Tablet: fixed width
   @include util.mq(bp.$medium) {
     width: 150px;
     height: 150px;
     flex-shrink: 0;
   }
-  
+
   // Desktop: larger size
   @include util.mq(bp.$large) {
     width: 200px;
@@ -427,14 +441,14 @@ This guide covers best practices for styling components in the Jackanory design 
 .adaptiveComponent {
   // Base styles
   padding: padding(2);
-  
+
   // Prepare for container queries
   container-type: inline-size;
-  
+
   .componentContent {
     // Default: single column
     display: block;
-    
+
     // When component is wide enough
     @container (min-width: 400px) {
       display: grid;
@@ -455,7 +469,7 @@ This guide covers best practices for styling components in the Jackanory design 
     outline: 2px solid col.$keyboard-focus;
     outline-offset: 2px;
   }
-  
+
   // Remove default focus styles
   &:focus {
     outline: none;
@@ -471,7 +485,7 @@ This guide covers best practices for styling components in the Jackanory design 
   padding: padding(1);
   text-decoration: none;
   border-radius: 4px;
-  
+
   &:focus {
     top: 6px;
   }
@@ -495,12 +509,12 @@ This guide covers best practices for styling components in the Jackanory design 
 
 .statusMessage {
   // Announce changes to screen readers
-  &[aria-live="polite"] {
+  &[aria-live='polite'] {
     @include type.form-metadata;
     color: col.$info;
   }
-  
-  &[aria-live="assertive"] {
+
+  &[aria-live='assertive'] {
     @include type.form-metadata;
     color: col.$danger;
     font-weight: 600;
@@ -514,11 +528,11 @@ This guide covers best practices for styling components in the Jackanory design 
 .component {
   // Ensure borders are visible in high contrast mode
   border: 1px solid col.$border;
-  
+
   @media (prefers-contrast: high) {
     border-color: ButtonText;
   }
-  
+
   @media (prefers-color-scheme: dark) {
     background: col.$bg-dark;
     color: col.$body-text-inverse;
@@ -534,22 +548,24 @@ This guide covers best practices for styling components in the Jackanory design 
 ```scss
 .animatedComponent {
   // Use transform and opacity for smooth animations
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+
   &.hidden {
     opacity: 0;
     transform: translateY(-10px);
   }
-  
+
   &.visible {
     opacity: 1;
     transform: translateY(0);
   }
-  
+
   // Respect reduced motion preferences
   @media (prefers-reduced-motion: reduce) {
     transition: none;
-    
+
     &.hidden {
       display: none;
     }
@@ -565,7 +581,7 @@ This guide covers best practices for styling components in the Jackanory design 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: spacing(2);
-  
+
   // Avoid layout thrashing
   .gridItem {
     contain: layout style;
@@ -604,7 +620,9 @@ export default function Button({
     styles[size],
     disabled && styles.disabled,
     loading && styles.loading
-  ].filter(Boolean).join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <button
@@ -645,16 +663,12 @@ export default function Card({
           <h3 className={styles.cardTitle}>{title}</h3>
         </div>
       )}
-      
-      <div className={styles.cardContent}>
-        {children}
-      </div>
-      
+
+      <div className={styles.cardContent}>{children}</div>
+
       {actions && (
         <div className={styles.cardFooter}>
-          <div className={styles.actions}>
-            {actions}
-          </div>
+          <div className={styles.actions}>{actions}</div>
         </div>
       )}
     </div>
@@ -668,30 +682,44 @@ export default function Card({
 
 ```scss
 // ✅ Good - semantic meaning
-.submitButton { }
-.errorMessage { }
-.navigationMenu { }
+.submitButton {
+}
+.errorMessage {
+}
+.navigationMenu {
+}
 
 // ❌ Bad - presentation-based
-.redButton { }
-.boldText { }
-.leftMenu { }
+.redButton {
+}
+.boldText {
+}
+.leftMenu {
+}
 ```
 
 ### 2. Follow Component Hierarchy
 
 ```scss
 // ✅ Good - clear hierarchy
-.card { }
-.cardHeader { }
-.cardTitle { }
-.cardContent { }
+.card {
+}
+.cardHeader {
+}
+.cardTitle {
+}
+.cardContent {
+}
 
 // ❌ Bad - flat structure
-.card { }
-.header { }
-.title { }
-.content { }
+.card {
+}
+.header {
+}
+.title {
+}
+.content {
+}
 ```
 
 ### 3. Use Theme Variables
@@ -719,15 +747,20 @@ export default function Card({
 .button {
   // Default state
   background: col.$primary;
-  
+
   // Interactive states
-  &:hover { }
-  &:focus-visible { }
-  &:active { }
-  &:disabled { }
-  
+  &:hover {
+  }
+  &:focus-visible {
+  }
+  &:active {
+  }
+  &:disabled {
+  }
+
   // Loading state
-  &.loading { }
+  &.loading {
+  }
 }
 ```
 
@@ -739,7 +772,7 @@ export default function Card({
   &:focus-visible {
     outline: 2px solid col.$keyboard-focus;
   }
-  
+
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }

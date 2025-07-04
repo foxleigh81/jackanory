@@ -7,9 +7,15 @@ The Jackanory design system provides a comprehensive set of utility classes for 
 ### Display Utilities
 
 ```scss
-.db { display: block; }
-.hide { display: none; }
-.flex { display: flex; }
+.db {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.flex {
+  display: flex;
+}
 ```
 
 ### Visibility Utilities
@@ -143,11 +149,21 @@ The Jackanory design system provides a comprehensive set of utility classes for 
 ### Flex Gap
 
 ```scss
-.gap-0 { gap: 0; }
-.gap-1 { gap: 1rem; }
-.gap-2 { gap: 2rem; }
-.gap-3 { gap: 3rem; }
-.gap-4 { gap: 4rem; }
+.gap-0 {
+  gap: 0;
+}
+.gap-1 {
+  gap: 1rem;
+}
+.gap-2 {
+  gap: 2rem;
+}
+.gap-3 {
+  gap: 3rem;
+}
+.gap-4 {
+  gap: 4rem;
+}
 ```
 
 ### Flexbox Usage Example
@@ -166,36 +182,116 @@ The Jackanory design system provides a comprehensive set of utility classes for 
 
 ```scss
 // All sides (0-5 scale)
-.m-0 { margin: 0; }
-.m-1 { margin: 0.25rem; }
-.m-2 { margin: 0.5rem; }
-.m-3 { margin: 1rem; }
-.m-4 { margin: 1.5rem; }
-.m-5 { margin: 3rem; }
+.m-0 {
+  margin: 0;
+}
+.m-1 {
+  margin: 0.25rem;
+}
+.m-2 {
+  margin: 0.5rem;
+}
+.m-3 {
+  margin: 1rem;
+}
+.m-4 {
+  margin: 1.5rem;
+}
+.m-5 {
+  margin: 3rem;
+}
 
 // Directional margins
-.mt-0, .mt-1, .mt-2, .mt-3, .mt-4, .mt-5 { /* margin-top */ }
-.mb-0, .mb-1, .mb-2, .mb-3, .mb-4, .mb-5 { /* margin-bottom */ }
-.ml-0, .ml-1, .ml-2, .ml-3, .ml-4, .ml-5 { /* margin-left */ }
-.mr-0, .mr-1, .mr-2, .mr-3, .mr-4, .mr-5 { /* margin-right */ }
+.mt-0,
+.mt-1,
+.mt-2,
+.mt-3,
+.mt-4,
+.mt-5 {
+  /* margin-top */
+}
+.mb-0,
+.mb-1,
+.mb-2,
+.mb-3,
+.mb-4,
+.mb-5 {
+  /* margin-bottom */
+}
+.ml-0,
+.ml-1,
+.ml-2,
+.ml-3,
+.ml-4,
+.ml-5 {
+  /* margin-left */
+}
+.mr-0,
+.mr-1,
+.mr-2,
+.mr-3,
+.mr-4,
+.mr-5 {
+  /* margin-right */
+}
 ```
 
 ### Padding Utilities
 
 ```scss
 // All sides (0-5 scale)
-.p-0 { padding: 0; }
-.p-1 { padding: 0.25rem; }
-.p-2 { padding: 0.5rem; }
-.p-3 { padding: 1rem; }
-.p-4 { padding: 1.5rem; }
-.p-5 { padding: 3rem; }
+.p-0 {
+  padding: 0;
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-3 {
+  padding: 1rem;
+}
+.p-4 {
+  padding: 1.5rem;
+}
+.p-5 {
+  padding: 3rem;
+}
 
 // Directional padding
-.pt-0, .pt-1, .pt-2, .pt-3, .pt-4, .pt-5 { /* padding-top */ }
-.pb-0, .pb-1, .pb-2, .pb-3, .pb-4, .pb-5 { /* padding-bottom */ }
-.pl-0, .pl-1, .pl-2, .pl-3, .pl-4, .pl-5 { /* padding-left */ }
-.pr-0, .pr-1, .pr-2, .pr-3, .pr-4, .pr-5 { /* padding-right */ }
+.pt-0,
+.pt-1,
+.pt-2,
+.pt-3,
+.pt-4,
+.pt-5 {
+  /* padding-top */
+}
+.pb-0,
+.pb-1,
+.pb-2,
+.pb-3,
+.pb-4,
+.pb-5 {
+  /* padding-bottom */
+}
+.pl-0,
+.pl-1,
+.pl-2,
+.pl-3,
+.pl-4,
+.pl-5 {
+  /* padding-left */
+}
+.pr-0,
+.pr-1,
+.pr-2,
+.pr-3,
+.pr-4,
+.pr-5 {
+  /* padding-right */
+}
 ```
 
 ### Spacing Scale Reference
@@ -222,18 +318,32 @@ The Jackanory design system provides a comprehensive set of utility classes for 
 ### Text Alignment
 
 ```scss
-.ta-l { text-align: left; }
-.ta-c { text-align: center; }
-.ta-r { text-align: right; }
-.justify { text-align: justify; }
+.ta-l {
+  text-align: left;
+}
+.ta-c {
+  text-align: center;
+}
+.ta-r {
+  text-align: right;
+}
+.justify {
+  text-align: justify;
+}
 ```
 
 ### Font Weight
 
 ```scss
-.fw-normal { font-weight: 400; }
-.fw-bold { font-weight: 700; }
-.fw-light { font-weight: 300; }
+.fw-normal {
+  font-weight: 400;
+}
+.fw-bold {
+  font-weight: 700;
+}
+.fw-light {
+  font-weight: 300;
+}
 ```
 
 ### Typography Classes
@@ -242,25 +352,51 @@ These classes mirror the typography mixins:
 
 ```scss
 // Body text variations
-.body-text { @include type.body-text; }
-.small-text { @include type.small-text; }
-.large-text { @include type.large-text; }
+.body-text {
+  @include type.body-text;
+}
+.small-text {
+  @include type.small-text;
+}
+.large-text {
+  @include type.large-text;
+}
 
 // Headings
-.title { @include type.title; }
-.heading-large { @include type.heading-large; }
-.heading-medium { @include type.heading-medium; }
-.heading-small { @include type.heading-small; }
+.title {
+  @include type.title;
+}
+.heading-large {
+  @include type.heading-large;
+}
+.heading-medium {
+  @include type.heading-medium;
+}
+.heading-small {
+  @include type.heading-small;
+}
 
 // Form elements
-.input { @include type.input; }
-.input-label { @include type.input-label; }
-.input-placeholder { @include type.input-placeholder; }
-.form-metadata { @include type.form-metadata; }
+.input {
+  @include type.input;
+}
+.input-label {
+  @include type.input-label;
+}
+.input-placeholder {
+  @include type.input-placeholder;
+}
+.form-metadata {
+  @include type.form-metadata;
+}
 
 // Interactive elements
-.button { @include button(col.$primary-button, col.$light); }
-.link { @include link(); }
+.button {
+  @include button(col.$primary-button, col.$light);
+}
+.link {
+  @include link();
+}
 ```
 
 ### Typography Usage Example
@@ -279,19 +415,37 @@ These classes mirror the typography mixins:
 ### Width Utilities
 
 ```scss
-.w-100, .w-full { width: 100%; }
-.w-75 { width: 75%; }
-.w-50 { width: 50%; }
-.w-25 { width: 25%; }
+.w-100,
+.w-full {
+  width: 100%;
+}
+.w-75 {
+  width: 75%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-25 {
+  width: 25%;
+}
 ```
 
 ### Height Utilities
 
 ```scss
-.h-100, .h-full { height: 100%; }
-.h-75 { height: 75%; }
-.h-50 { height: 50%; }
-.h-25 { height: 25%; }
+.h-100,
+.h-full {
+  height: 100%;
+}
+.h-75 {
+  height: 75%;
+}
+.h-50 {
+  height: 50%;
+}
+.h-25 {
+  height: 25%;
+}
 ```
 
 ### Size Usage Example
@@ -307,19 +461,25 @@ These classes mirror the typography mixins:
 ## Overflow Utilities
 
 ```scss
-.overflow-auto { overflow: auto; }
-.overflow-hidden { overflow: hidden; }
-.overflow-visible { overflow: visible; }
-.overflow-scroll { overflow: scroll; }
+.overflow-auto {
+  overflow: auto;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-visible {
+  overflow: visible;
+}
+.overflow-scroll {
+  overflow: scroll;
+}
 ```
 
 ### Overflow Usage Example
 
 ```tsx
 <div className="h-50 overflow-auto">
-  <div className="overflow-hidden">
-    Content that might overflow
-  </div>
+  <div className="overflow-hidden">Content that might overflow</div>
 </div>
 ```
 
@@ -368,7 +528,7 @@ These classes mirror the typography mixins:
     <input className="input w-full p-2" type="email" />
     <span className="form-metadata mt-1 db">Enter your email address</span>
   </div>
-  
+
   <div className="flex gap-2 mt-4">
     <button className="button">Submit</button>
     <button className="link">Cancel</button>
@@ -397,11 +557,11 @@ These classes mirror the typography mixins:
 // Base utility
 .p-responsive {
   padding: padding(2);
-  
+
   @include util.mq(bp.$medium) {
     padding: padding(3);
   }
-  
+
   @include util.mq(bp.$large) {
     padding: padding(4);
   }
@@ -410,7 +570,7 @@ These classes mirror the typography mixins:
 // Responsive text alignment
 .ta-c-mobile {
   text-align: center;
-  
+
   @include util.mq(bp.$medium) {
     text-align: left;
   }
@@ -441,7 +601,7 @@ These classes mirror the typography mixins:
   background: col.$bg;
   border: 1px solid col.$border;
   border-radius: 8px;
-  
+
   // Use utility classes for spacing
   @extend .p-3;
   @extend .mb-2;
@@ -530,8 +690,8 @@ module.exports = {
   plugins: [
     require('@fullhuman/postcss-purgecss')({
       content: ['./src/**/*.{js,jsx,ts,tsx}'],
-      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+      defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || []
     })
   ]
-}
+};
 ```

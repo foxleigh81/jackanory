@@ -4,20 +4,26 @@ The Jackanory design system provides a comprehensive color palette designed for 
 
 ## Brand Colors
 
+<!-- COLORPALETTE:BRAND
+{
+  "Primary": "hsl(327, 100%, 38%)",
+  "Secondary": "hsl(273, 100%, 35%)",
+  "Tertiary": "hsl(198, 100%, 95%)",
+  "Dark": "hsl(0, 0%, 7%)",
+  "Light": "hsl(0, 0%, 100%)"
+}
+-->
+
 ### Primary Brand Colors
 
-```scss
-$primary: hsl(327, 100%, 38%);    // Magenta - Main brand color
-$secondary: hsl(273, 100%, 35%);  // Purple - Secondary brand color
-$tertiary: hsl(198, 100%, 95%);   // Light blue - Accent color
-```
+- **Primary**: `hsl(327, 100%, 38%)` - Magenta - Main brand color
+- **Secondary**: `hsl(273, 100%, 35%)` - Purple - Secondary brand color
+- **Tertiary**: `hsl(198, 100%, 95%)` - Light blue - Accent color
 
 ### Base Colors
 
-```scss
-$dark: hsl(0, 0%, 7%);    // True dark
-$light: hsl(0, 0%, 100%); // Pure white
-```
+- **Dark**: `hsl(0, 0%, 7%)` - True dark
+- **Light**: `hsl(0, 0%, 100%)` - Pure white
 
 ### Usage Example
 
@@ -25,7 +31,7 @@ $light: hsl(0, 0%, 100%); // Pure white
 .brand-button {
   background: col.$primary;
   color: col.$light;
-  
+
   &:hover {
     background: col.$secondary;
   }
@@ -34,30 +40,35 @@ $light: hsl(0, 0%, 100%); // Pure white
 
 ## Background Colors
 
+<!-- COLORPALETTE:BACKGROUNDS
+{
+  "Main Background": "hsl(0, 0%, 100%)",
+  "Panel Background": "hsl(0, 0%, 100%)",
+  "Alternative Panel": "hsl(0, 0%, 98%)",
+  "Dark Background": "hsl(0, 0%, 9%)"
+}
+-->
+
 ### Light Theme
 
-```scss
-$bg: hsl(0, 0%, 100%);           // Main background (white)
-$main-panel-bg: $bg;             // Panel background
-$alt-panel-bg: hsl(0, 0%, 98%);  // Alternative panel background
-```
+- **Main Background**: `hsl(0, 0%, 100%)` - Main background (white)
+- **Panel Background**: `hsl(0, 0%, 100%)` - Panel background
+- **Alternative Panel**: `hsl(0, 0%, 98%)` - Alternative panel background
 
 ### Dark Theme
 
-```scss
-$bg-dark: hsl(0, 0%, 9%);        // Dark mode background
-```
+- **Dark Background**: `hsl(0, 0%, 9%)` - Dark mode background
 
-### Usage Example
+### Background Usage Example
 
 ```scss
 .panel {
   background: col.$main-panel-bg;
-  
+
   &.alternative {
     background: col.$alt-panel-bg;
   }
-  
+
   @media (prefers-color-scheme: dark) {
     background: col.$bg-dark;
   }
@@ -66,19 +77,31 @@ $bg-dark: hsl(0, 0%, 9%);        // Dark mode background
 
 ## Grey Scale System
 
+<!-- COLORPALETTE:GREYS
+{
+  "Grey 100": "hsl(0, 0%, 98%)",
+  "Grey 200": "hsl(0, 0%, 94%)",
+  "Grey 300": "hsl(0, 0%, 90%)",
+  "Grey 400": "hsl(0, 0%, 77%)",
+  "Grey 500": "hsl(0, 0%, 60%)",
+  "Grey 600": "hsl(0, 0%, 40%)",
+  "Grey 700": "hsl(0, 0%, 20%)",
+  "Grey 800": "hsl(0, 0%, 13%)",
+  "Grey 900": "hsl(0, 0%, 7%)"
+}
+-->
+
 A comprehensive 9-step grey scale for consistent neutral colors:
 
-```scss
-$grey-100: hsl(0, 0%, 98%);  // Lightest grey - subtle backgrounds
-$grey-200: hsl(0, 0%, 94%);  // Light grey - borders, dividers
-$grey-300: hsl(0, 0%, 90%);  // Light grey - disabled states
-$grey-400: hsl(0, 0%, 77%);  // Medium-light grey - placeholders
-$grey-500: hsl(0, 0%, 60%);  // Medium grey - secondary text
-$grey-600: hsl(0, 0%, 40%);  // Medium-dark grey - body text
-$grey-700: hsl(0, 0%, 20%);  // Dark grey - headings
-$grey-800: hsl(0, 0%, 13%);  // Darker grey - high contrast
-$grey-900: hsl(0, 0%, 7%);   // Darkest grey - maximum contrast
-```
+- **Grey 100**: `hsl(0, 0%, 98%)` - Lightest grey - subtle backgrounds
+- **Grey 200**: `hsl(0, 0%, 94%)` - Light grey - borders, dividers
+- **Grey 300**: `hsl(0, 0%, 90%)` - Light grey - disabled states
+- **Grey 400**: `hsl(0, 0%, 77%)` - Medium-light grey - placeholders
+- **Grey 500**: `hsl(0, 0%, 60%)` - Medium grey - secondary text
+- **Grey 600**: `hsl(0, 0%, 40%)` - Medium-dark grey - body text
+- **Grey 700**: `hsl(0, 0%, 20%)` - Dark grey - headings
+- **Grey 800**: `hsl(0, 0%, 13%)` - Darker grey - high contrast
+- **Grey 900**: `hsl(0, 0%, 7%)` - Darkest grey - maximum contrast
 
 ### Usage Guidelines
 
@@ -87,22 +110,22 @@ $grey-900: hsl(0, 0%, 7%);   // Darkest grey - maximum contrast
 - **600-700**: Primary text, headings, important content
 - **800-900**: High contrast text, dark mode backgrounds
 
-### Usage Example
+### Grey Scale Usage Example
 
 ```scss
 .text-hierarchy {
   .primary-text {
     color: col.$grey-900;
   }
-  
+
   .secondary-text {
     color: col.$grey-600;
   }
-  
+
   .muted-text {
     color: col.$grey-500;
   }
-  
+
   .border {
     border: 1px solid col.$grey-200;
   }
@@ -111,17 +134,22 @@ $grey-900: hsl(0, 0%, 7%);   // Darkest grey - maximum contrast
 
 ## Typography Colors
 
-```scss
-$body-text: hsl(180, 4%, 2%);        // Primary text color
-$body-text-inverse: hsl(0, 0%, 90%); // Text on dark backgrounds
-```
+<!-- COLORPALETTE:TYPOGRAPHY
+{
+  "Body Text": "hsl(180, 4%, 2%)",
+  "Body Text Inverse": "hsl(0, 0%, 90%)"
+}
+-->
 
-### Usage Example
+- **Body Text**: `hsl(180, 4%, 2%)` - Primary text color
+- **Body Text Inverse**: `hsl(0, 0%, 90%)` - Text on dark backgrounds
+
+### Typography Usage Example
 
 ```scss
 .article {
   color: col.$body-text;
-  
+
   .dark-section {
     background: col.$dark;
     color: col.$body-text-inverse;
@@ -131,41 +159,47 @@ $body-text-inverse: hsl(0, 0%, 90%); // Text on dark backgrounds
 
 ## Status Colors
 
+<!-- COLORPALETTE:STATUS
+{
+  "Success": "hsl(150, 100%, 26%)",
+  "Warning": "hsl(33, 88%, 36%)",
+  "Danger": "hsl(8, 73%, 49%)",
+  "Info": "hsl(214, 60%, 48%)"
+}
+-->
+
 Semantic colors for communicating state and feedback:
 
-```scss
-$success: hsl(150, 100%, 26%);   // Green - success states
-$warning: hsl(33, 88%, 36%);     // Orange - warning states
-$danger: hsl(8, 73%, 49%);       // Red - error/danger states
-$info: hsl(214, 60%, 48%);       // Blue - informational states
-$error: $danger;                 // Alias for danger
-```
+- **Success**: `hsl(150, 100%, 26%)` - Green - success states
+- **Warning**: `hsl(33, 88%, 36%)` - Orange - warning states
+- **Danger**: `hsl(8, 73%, 49%)` - Red - error/danger states
+- **Info**: `hsl(214, 60%, 48%)` - Blue - informational states
 
-### Usage Example
+### Status Colors Usage Example
 
 ```scss
 .alert {
   padding: padding(2);
   border-radius: 4px;
-  
+
   &.success {
     background: color.adjust(col.$success, $lightness: 45%);
     border: 1px solid col.$success;
     color: col.$success;
   }
-  
+
   &.warning {
     background: color.adjust(col.$warning, $lightness: 35%);
     border: 1px solid col.$warning;
     color: col.$warning;
   }
-  
+
   &.danger {
     background: color.adjust(col.$danger, $lightness: 40%);
     border: 1px solid col.$danger;
     color: col.$danger;
   }
-  
+
   &.info {
     background: color.adjust(col.$info, $lightness: 40%);
     border: 1px solid col.$info;
@@ -176,40 +210,48 @@ $error: $danger;                 // Alias for danger
 
 ## RAG Colors
 
+<!-- COLORPALETTE:RAG
+{
+  "RAG Green": "hsl(107, 54%, 44%)",
+  "RAG Amber": "hsl(42, 96%, 54%)",
+  "RAG Red": "hsl(359, 89%, 48%)",
+  "RAG Grey": "hsl(200, 1%, 55%)",
+  "RAG Blue": "hsl(214, 60%, 48%)"
+}
+-->
+
 Special colors for Red, Amber, Green status indicators commonly used in data visualization:
 
-```scss
-$rag-green: hsl(107, 54%, 44%);  // RAG Green
-$rag-amber: hsl(42, 96%, 54%);   // RAG Amber
-$rag-red: hsl(359, 89%, 48%);    // RAG Red
-$rag-grey: hsl(200, 1%, 55%);    // RAG Grey (neutral/unknown)
-$rag-blue: hsl(214, 60%, 48%);   // RAG Blue (informational)
-```
+- **RAG Green**: `hsl(107, 54%, 44%)` - RAG Green
+- **RAG Amber**: `hsl(42, 96%, 54%)` - RAG Amber
+- **RAG Red**: `hsl(359, 89%, 48%)` - RAG Red
+- **RAG Grey**: `hsl(200, 1%, 55%)` - RAG Grey (neutral/unknown)
+- **RAG Blue**: `hsl(214, 60%, 48%)` - RAG Blue (informational)
 
-### Usage Example
+### RAG Colors Usage Example
 
 ```scss
 .status-indicator {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  
+
   &.green {
     background: col.$rag-green;
   }
-  
+
   &.amber {
     background: col.$rag-amber;
   }
-  
+
   &.red {
     background: col.$rag-red;
   }
-  
+
   &.grey {
     background: col.$rag-grey;
   }
-  
+
   &.blue {
     background: col.$rag-blue;
   }
@@ -218,46 +260,54 @@ $rag-blue: hsl(214, 60%, 48%);   // RAG Blue (informational)
 
 ## Interactive Element Colors
 
+<!-- COLORPALETTE:BUTTONS
+{
+  "Primary Button": "hsl(327, 100%, 38%)",
+  "Primary Button Hover": "hsl(327, 100%, 32%)",
+  "Secondary Button": "hsl(273, 100%, 35%)",
+  "Secondary Button Hover": "hsl(273, 100%, 37%)"
+}
+-->
+
+<!-- COLORPALETTE:LINKS
+{
+  "Link": "hsl(220, 73%, 34%)",
+  "Link Hover": "hsl(220, 73%, 14%)",
+  "Link Disabled": "hsl(0, 5%, 46%)"
+}
+-->
+
 ### Buttons
 
-```scss
-// Primary button
-$primary-button: $primary;
-$primary-button-hover: color.adjust($primary-button, $lightness: -6%);
-$primary-button-text: hsl(0, 0%, 100%);
-
-// Secondary button
-$secondary-button: $secondary;
-$secondary-button-hover: color.adjust($secondary-button, $lightness: 2%);
-$secondary-button-text: $light;
-```
+- **Primary Button**: `hsl(327, 100%, 38%)` - Primary button background
+- **Primary Button Hover**: `hsl(327, 100%, 32%)` - Primary button hover state
+- **Secondary Button**: `hsl(273, 100%, 35%)` - Secondary button background
+- **Secondary Button Hover**: `hsl(273, 100%, 37%)` - Secondary button hover state
 
 ### Links
 
-```scss
-$link: hsl(220, 73%, 34%);           // Link color
-$link-hover: color.adjust($link, $lightness: -20%); // Link hover
-$link-disabled: hsl(0, 5%, 46%);     // Disabled link
-```
+- **Link**: `hsl(220, 73%, 34%)` - Link color
+- **Link Hover**: `hsl(220, 73%, 14%)` - Link hover state
+- **Link Disabled**: `hsl(0, 5%, 46%)` - Disabled link
 
 ### Form Inputs
 
 ```scss
-$input-bg: $bg;                                    // Input background
+$input-bg: $bg; // Input background
 $input-focus-bg: color.adjust($primary, $lightness: 59%); // Focus background
-$input-border: $grey-500;                          // Input border
-$input-border-focus: $primary;                     // Focus border
-$label-text: $body-text;                          // Label text
-$input-text: $body-text;                          // Input text
-$disabled-input-text: hsl(0, 5%, 30%);           // Disabled input text
+$input-border: $grey-500; // Input border
+$input-border-focus: $primary; // Focus border
+$label-text: $body-text; // Label text
+$input-text: $body-text; // Input text
+$disabled-input-text: hsl(0, 5%, 30%); // Disabled input text
 ```
 
 ### Actions
 
 ```scss
-$action: $link;                    // Default action color
-$action-destroy: $danger;          // Destructive action
-$action-create: $success;          // Create action
+$action: $link; // Default action color
+$action-destroy: $danger; // Destructive action
+$action-create: $success; // Create action
 $action-disabled: hsl(0, 0%, 60%); // Disabled action
 
 // Hover states
@@ -270,15 +320,15 @@ $action-focus-bg: color.adjust($primary, $lightness: 20%);
 $action-destroy-focus-bg: color.adjust($action-destroy, $lightness: 20%);
 $action-create-focus-bg: color.adjust($action-create, $lightness: 20%);
 
-$action-text: hsl(0, 0%, 100%);   // Action text color
+$action-text: hsl(0, 0%, 100%); // Action text color
 ```
 
 ## Borders and Shadows
 
 ```scss
-$shadow: hsl(0, 0%, 0%);          // Shadow color
-$border: hsl(30, 3%, 87%);        // Default border
-$border-dark: hsl(0, 0%, 44%);    // Dark border
+$shadow: hsl(0, 0%, 0%); // Shadow color
+$border: hsl(30, 3%, 87%); // Default border
+$border-dark: hsl(0, 0%, 44%); // Dark border
 ```
 
 ## Accessibility
@@ -329,15 +379,15 @@ Use SCSS color functions for consistent color variations:
 
 .button {
   background: col.$primary;
-  
+
   &:hover {
     background: color.adjust(col.$primary, $lightness: -10%);
   }
-  
+
   &:active {
     background: color.adjust(col.$primary, $lightness: -15%);
   }
-  
+
   &.light {
     background: color.adjust(col.$primary, $lightness: 40%);
     color: col.$primary;
@@ -356,7 +406,7 @@ export const colors = {
   secondary: 'hsl(273, 100%, 35%)',
   ragGreen: 'hsl(107, 54%, 44%)',
   ragAmber: 'hsl(42, 96%, 54%)',
-  ragRed: 'hsl(359, 89%, 48%)',
+  ragRed: 'hsl(359, 89%, 48%)'
   // ... other colors
 } as const;
 ```
@@ -366,6 +416,7 @@ export const colors = {
 ## Best Practices
 
 ### 1. Use Semantic Names
+
 ```scss
 // ✅ Good - semantic meaning
 .error-message {
@@ -379,10 +430,13 @@ export const colors = {
 ```
 
 ### 2. Maintain Contrast Ratios
+
 Ensure sufficient contrast for accessibility (WCAG AA: 4.5:1 for normal text, 3:1 for large text).
 
 ### 3. Use Color Functions
+
 Leverage SCSS color functions for consistent variations rather than hardcoding similar colors.
 
 ### 4. Test in Dark Mode
+
 Consider how colors will appear in dark mode and provide appropriate alternatives.

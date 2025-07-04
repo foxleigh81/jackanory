@@ -15,21 +15,21 @@ All spacing in the system is derived from this base unit, ensuring mathematical 
 ### Core Spacing Variables
 
 ```scss
-$padding: $root-spacing;           // 1rem
-$margin: $root-spacing;            // 1rem
+$padding: $root-spacing; // 1rem
+$margin: $root-spacing; // 1rem
 $paragraph-spacing: $margin * 1.5; // 1.5rem
-$segment-padding: $padding * 4;    // 4rem
-$gutters: $root-spacing * 1.5;     // 1.5rem
-$component-spacing: $gutters;      // 1.5rem
+$segment-padding: $padding * 4; // 4rem
+$gutters: $root-spacing * 1.5; // 1.5rem
+$component-spacing: $gutters; // 1.5rem
 ```
 
 ### Usage Example
 
 ```scss
 .content-section {
-  padding: $segment-padding;        // 4rem
+  padding: $segment-padding; // 4rem
   margin-bottom: $component-spacing; // 1.5rem
-  
+
   p {
     margin-bottom: $paragraph-spacing; // 1.5rem
   }
@@ -63,21 +63,21 @@ The spacing system provides functions for mathematical spacing calculations:
 
 ```scss
 .card {
-  padding: padding(2);        // 2rem
-  margin-bottom: margin(3);   // 3rem
-  
+  padding: padding(2); // 2rem
+  margin-bottom: margin(3); // 3rem
+
   .card-header {
-    padding: padding(1.5);    // 1.5rem
+    padding: padding(1.5); // 1.5rem
     margin-bottom: spacing(1); // 1rem
   }
-  
+
   .card-content {
-    padding: padding(2);      // 2rem
+    padding: padding(2); // 2rem
   }
-  
+
   .card-footer {
-    padding: padding(1);      // 1rem
-    margin-top: spacing(2);   // 2rem
+    padding: padding(1); // 1rem
+    margin-top: spacing(2); // 2rem
   }
 }
 ```
@@ -122,32 +122,74 @@ spacing(8)     // 8rem (128px)
 
 ```scss
 // All sides
-.m-0 { margin: 0; }
-.m-1 { margin: 0.25rem; }
-.m-2 { margin: 0.5rem; }
-.m-3 { margin: 1rem; }
-.m-4 { margin: 1.5rem; }
-.m-5 { margin: 3rem; }
+.m-0 {
+  margin: 0;
+}
+.m-1 {
+  margin: 0.25rem;
+}
+.m-2 {
+  margin: 0.5rem;
+}
+.m-3 {
+  margin: 1rem;
+}
+.m-4 {
+  margin: 1.5rem;
+}
+.m-5 {
+  margin: 3rem;
+}
 
 // Top margin
-.mt-0 { margin-top: 0; }
-.mt-1 { margin-top: 0.25rem; }
-.mt-2 { margin-top: 0.5rem; }
-.mt-3 { margin-top: 1rem; }
-.mt-4 { margin-top: 1.5rem; }
-.mt-5 { margin-top: 3rem; }
+.mt-0 {
+  margin-top: 0;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-3 {
+  margin-top: 1rem;
+}
+.mt-4 {
+  margin-top: 1.5rem;
+}
+.mt-5 {
+  margin-top: 3rem;
+}
 
 // Bottom margin
-.mb-0 { margin-bottom: 0; }
-.mb-1 { margin-bottom: 0.25rem; }
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-3 { margin-bottom: 1rem; }
-.mb-4 { margin-bottom: 1.5rem; }
-.mb-5 { margin-bottom: 3rem; }
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 1rem;
+}
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+.mb-5 {
+  margin-bottom: 3rem;
+}
 
 // Left and right margins follow the same pattern
-.ml-0, .mr-0 { /* ... */ }
-.ml-1, .mr-1 { /* ... */ }
+.ml-0,
+.mr-0 {
+  /* ... */
+}
+.ml-1,
+.mr-1 {
+  /* ... */
+}
 // ... etc
 ```
 
@@ -155,16 +197,38 @@ spacing(8)     // 8rem (128px)
 
 ```scss
 // All sides
-.p-0 { padding: 0; }
-.p-1 { padding: 0.25rem; }
-.p-2 { padding: 0.5rem; }
-.p-3 { padding: 1rem; }
-.p-4 { padding: 1.5rem; }
-.p-5 { padding: 3rem; }
+.p-0 {
+  padding: 0;
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.p-3 {
+  padding: 1rem;
+}
+.p-4 {
+  padding: 1.5rem;
+}
+.p-5 {
+  padding: 3rem;
+}
 
 // Directional padding follows the same pattern
-.pt-0, .pb-0, .pl-0, .pr-0 { /* ... */ }
-.pt-1, .pb-1, .pl-1, .pr-1 { /* ... */ }
+.pt-0,
+.pb-0,
+.pl-0,
+.pr-0 {
+  /* ... */
+}
+.pt-1,
+.pb-1,
+.pl-1,
+.pr-1 {
+  /* ... */
+}
 // ... etc
 ```
 
@@ -185,30 +249,30 @@ spacing(8)     // 8rem (128px)
 
 ```scss
 .card {
-  padding: padding(3);           // 3rem internal spacing
-  margin-bottom: spacing(2);     // 2rem between cards
+  padding: padding(3); // 3rem internal spacing
+  margin-bottom: spacing(2); // 2rem between cards
   border-radius: 8px;
-  
+
   .card-header {
-    margin-bottom: spacing(2);   // 2rem below header
-    padding-bottom: spacing(1);  // 1rem internal padding
+    margin-bottom: spacing(2); // 2rem below header
+    padding-bottom: spacing(1); // 1rem internal padding
     border-bottom: 1px solid col.$border;
   }
-  
+
   .card-content {
-    margin-bottom: spacing(2);   // 2rem below content
-    
+    margin-bottom: spacing(2); // 2rem below content
+
     p + p {
-      margin-top: spacing(1.5);  // 1.5rem between paragraphs
+      margin-top: spacing(1.5); // 1.5rem between paragraphs
     }
   }
-  
+
   .card-actions {
-    padding-top: spacing(1);     // 1rem above actions
+    padding-top: spacing(1); // 1rem above actions
     border-top: 1px solid col.$border;
-    
+
     .button + .button {
-      margin-left: spacing(1);   // 1rem between buttons
+      margin-left: spacing(1); // 1rem between buttons
     }
   }
 }
@@ -219,12 +283,12 @@ spacing(8)     // 8rem (128px)
 ```scss
 .grid-layout {
   display: grid;
-  gap: spacing(2);               // 2rem gap between grid items
-  padding: padding(3);           // 3rem container padding
-  
+  gap: spacing(2); // 2rem gap between grid items
+  padding: padding(3); // 3rem container padding
+
   @include util.mq(bp.$medium) {
-    gap: spacing(3);             // 3rem gap on larger screens
-    padding: padding(4);         // 4rem container padding
+    gap: spacing(3); // 3rem gap on larger screens
+    padding: padding(4); // 4rem container padding
   }
 }
 ```
@@ -234,28 +298,28 @@ spacing(8)     // 8rem (128px)
 ```scss
 .form {
   .form-group {
-    margin-bottom: spacing(3);   // 3rem between form groups
-    
+    margin-bottom: spacing(3); // 3rem between form groups
+
     .label {
       margin-bottom: spacing(0.5); // 0.5rem below labels
     }
-    
+
     .input {
-      padding: padding(1);       // 1rem input padding
+      padding: padding(1); // 1rem input padding
     }
-    
+
     .help-text {
-      margin-top: spacing(0.5);  // 0.5rem above help text
+      margin-top: spacing(0.5); // 0.5rem above help text
     }
   }
-  
+
   .form-actions {
-    margin-top: spacing(4);      // 4rem above form actions
-    padding-top: spacing(2);     // 2rem internal padding
+    margin-top: spacing(4); // 4rem above form actions
+    padding-top: spacing(2); // 2rem internal padding
     border-top: 1px solid col.$border;
-    
+
     .button + .button {
-      margin-left: spacing(1);   // 1rem between buttons
+      margin-left: spacing(1); // 1rem between buttons
     }
   }
 }
@@ -270,13 +334,13 @@ spacing(8)     // 8rem (128px)
   // Mobile: smaller spacing
   padding: padding(2);
   margin-bottom: spacing(2);
-  
+
   // Tablet: medium spacing
   @include util.mq(bp.$medium) {
     padding: padding(3);
     margin-bottom: spacing(3);
   }
-  
+
   // Desktop: larger spacing
   @include util.mq(bp.$large) {
     padding: padding(4);
@@ -291,11 +355,11 @@ spacing(8)     // 8rem (128px)
 // Create responsive variants
 .p-responsive {
   padding: padding(2);
-  
+
   @include util.mq(bp.$medium) {
     padding: padding(3);
   }
-  
+
   @include util.mq(bp.$large) {
     padding: padding(4);
   }
@@ -309,14 +373,14 @@ spacing(8)     // 8rem (128px)
 ```scss
 .flex-container {
   display: flex;
-  gap: spacing(2);               // 2rem gap between flex items
-  
+  gap: spacing(2); // 2rem gap between flex items
+
   &.small-gap {
-    gap: spacing(1);             // 1rem gap
+    gap: spacing(1); // 1rem gap
   }
-  
+
   &.large-gap {
-    gap: spacing(3);             // 3rem gap
+    gap: spacing(3); // 3rem gap
   }
 }
 ```
@@ -327,10 +391,10 @@ spacing(8)     // 8rem (128px)
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: spacing(2);               // 2rem gap between grid items
-  
+  gap: spacing(2); // 2rem gap between grid items
+
   @include util.mq(bp.$medium) {
-    gap: spacing(3);             // 3rem gap on larger screens
+    gap: spacing(3); // 3rem gap on larger screens
   }
 }
 ```
@@ -338,11 +402,21 @@ spacing(8)     // 8rem (128px)
 ### Gap Utility Classes
 
 ```scss
-.gap-0 { gap: 0; }
-.gap-1 { gap: spacing(1); }      // 1rem
-.gap-2 { gap: spacing(2); }      // 2rem
-.gap-3 { gap: spacing(3); }      // 3rem
-.gap-4 { gap: spacing(4); }      // 4rem
+.gap-0 {
+  gap: 0;
+}
+.gap-1 {
+  gap: spacing(1);
+} // 1rem
+.gap-2 {
+  gap: spacing(2);
+} // 2rem
+.gap-3 {
+  gap: spacing(3);
+} // 3rem
+.gap-4 {
+  gap: spacing(4);
+} // 4rem
 ```
 
 ## Vertical Rhythm
@@ -353,32 +427,41 @@ spacing(8)     // 8rem (128px)
 .content {
   // Establish baseline rhythm
   line-height: 1.6;
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: spacing(3);
     margin-bottom: spacing(1);
-    
+
     &:first-child {
       margin-top: 0;
     }
   }
-  
-  p, ul, ol, blockquote {
+
+  p,
+  ul,
+  ol,
+  blockquote {
     margin-bottom: spacing(1.5);
-    
+
     &:last-child {
       margin-bottom: 0;
     }
   }
-  
-  ul, ol {
+
+  ul,
+  ol {
     padding-left: spacing(2);
-    
+
     li + li {
       margin-top: spacing(0.5);
     }
   }
-  
+
   blockquote {
     padding: padding(2);
     margin-left: spacing(2);
@@ -394,14 +477,14 @@ spacing(8)     // 8rem (128px)
 ```scss
 .button-group {
   display: flex;
-  gap: spacing(1);               // 1rem between buttons
-  
+  gap: spacing(1); // 1rem between buttons
+
   &.vertical {
     flex-direction: column;
   }
-  
+
   &.large-gap {
-    gap: spacing(2);             // 2rem between buttons
+    gap: spacing(2); // 2rem between buttons
   }
 }
 ```
@@ -412,14 +495,14 @@ spacing(8)     // 8rem (128px)
 .navigation {
   .nav-item {
     padding: padding(1) padding(1.5); // Vertical and horizontal padding
-    
+
     + .nav-item {
-      margin-left: spacing(0.5);  // 0.5rem between nav items
+      margin-left: spacing(0.5); // 0.5rem between nav items
     }
   }
-  
+
   .nav-section + .nav-section {
-    margin-top: spacing(2);       // 2rem between nav sections
+    margin-top: spacing(2); // 2rem between nav sections
   }
 }
 ```
@@ -429,16 +512,16 @@ spacing(8)     // 8rem (128px)
 ```scss
 .list {
   .list-item {
-    padding: padding(1.5);       // 1.5rem item padding
+    padding: padding(1.5); // 1.5rem item padding
     border-bottom: 1px solid col.$border;
-    
+
     &:last-child {
       border-bottom: none;
     }
   }
-  
+
   .list-item + .list-item {
-    margin-top: 0;               // No additional margin (padding handles spacing)
+    margin-top: 0; // No additional margin (padding handles spacing)
   }
 }
 ```
@@ -466,10 +549,10 @@ spacing(8)     // 8rem (128px)
 ```scss
 // ✅ Good - consistent mathematical relationships
 .card {
-  padding: padding(3);           // 3rem
-  
+  padding: padding(3); // 3rem
+
   .card-header {
-    padding-bottom: padding(1);  // 1rem (1/3 of card padding)
+    padding-bottom: padding(1); // 1rem (1/3 of card padding)
   }
 }
 ```
@@ -479,14 +562,14 @@ spacing(8)     // 8rem (128px)
 ```scss
 // ✅ Good - uses scale steps
 .section {
-  margin-bottom: spacing(4);     // Large section spacing
-  
+  margin-bottom: spacing(4); // Large section spacing
+
   .subsection {
-    margin-bottom: spacing(2);   // Medium subsection spacing
+    margin-bottom: spacing(2); // Medium subsection spacing
   }
-  
+
   .component {
-    margin-bottom: spacing(1);   // Small component spacing
+    margin-bottom: spacing(1); // Small component spacing
   }
 }
 ```
@@ -509,7 +592,7 @@ spacing(8)     // 8rem (128px)
   > *:first-child {
     margin-top: 0;
   }
-  
+
   > *:last-child {
     margin-bottom: 0;
   }
@@ -526,7 +609,7 @@ spacing(8)     // 8rem (128px)
   * {
     outline: 1px solid rgba(255, 0, 0, 0.3);
   }
-  
+
   *:hover {
     outline: 2px solid rgba(255, 0, 0, 0.8);
   }
@@ -539,7 +622,7 @@ spacing(8)     // 8rem (128px)
 // Add to development builds
 .spacing-ruler {
   position: relative;
-  
+
   &::before {
     content: '';
     position: absolute;

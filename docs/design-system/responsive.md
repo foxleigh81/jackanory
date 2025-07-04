@@ -7,13 +7,13 @@ The Jackanory design system follows a mobile-first approach to responsive design
 ### Standard Breakpoints
 
 ```scss
-$extra-small: 321px;      // Small phones
-$small: 420px;            // Large phones
-$medium-small: 550px;     // Small tablets
-$medium: 900px;           // Tablets / small laptops
-$medium-large: 1024px;    // Large tablets / laptops
-$large: 1280px;           // Desktop
-$extra-large: 1600px;     // Large desktop
+$extra-small: 321px; // Small phones
+$small: 420px; // Large phones
+$medium-small: 550px; // Small tablets
+$medium: 900px; // Tablets / small laptops
+$medium-large: 1024px; // Large tablets / laptops
+$large: 1280px; // Desktop
+$extra-large: 1600px; // Large desktop
 $extra-extra-large: 1920px; // Extra large desktop
 ```
 
@@ -50,13 +50,13 @@ Access breakpoints through the `bp` namespace:
   // Mobile-first base styles
   padding: spacing(2);
   font-size: 1.4rem;
-  
+
   // Small screens and up
   @include util.mq(bp.$small) {
     padding: spacing(3);
     font-size: 1.6rem;
   }
-  
+
   // Medium screens and up
   @include util.mq(bp.$medium) {
     padding: spacing(4);
@@ -64,7 +64,7 @@ Access breakpoints through the `bp` namespace:
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  
+
   // Large screens and up
   @include util.mq(bp.$large) {
     padding: spacing(5);
@@ -102,13 +102,13 @@ You can also use custom pixel values:
   display: flex;
   flex-direction: column;
   gap: spacing(1);
-  
+
   // Tablet: horizontal layout
   @include util.mq(bp.$medium) {
     flex-direction: row;
     gap: spacing(2);
   }
-  
+
   // Desktop: enhanced spacing
   @include util.mq(bp.$large) {
     gap: spacing(3);
@@ -144,18 +144,18 @@ Typography mixins include responsive scaling:
   // Mobile
   font-size: 2rem;
   line-height: 1.2;
-  
+
   // Small tablets
   @include util.mq(bp.$medium-small) {
     font-size: 2.5rem;
   }
-  
+
   // Tablets and up
   @include util.mq(bp.$medium) {
     font-size: 3rem;
     line-height: 1.1;
   }
-  
+
   // Desktop
   @include util.mq(bp.$large) {
     font-size: 4rem;
@@ -171,21 +171,21 @@ Typography mixins include responsive scaling:
 .responsive-grid {
   display: grid;
   gap: spacing(2);
-  
+
   // Mobile: single column
   grid-template-columns: 1fr;
-  
+
   // Small tablets: two columns
   @include util.mq(bp.$medium-small) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   // Tablets: three columns
   @include util.mq(bp.$medium) {
     grid-template-columns: repeat(3, 1fr);
     gap: spacing(3);
   }
-  
+
   // Desktop: four columns
   @include util.mq(bp.$large) {
     grid-template-columns: repeat(4, 1fr);
@@ -200,16 +200,16 @@ Typography mixins include responsive scaling:
 .responsive-flex {
   display: flex;
   gap: spacing(2);
-  
+
   // Mobile: stack vertically
   flex-direction: column;
-  
+
   // Tablets: horizontal layout
   @include util.mq(bp.$medium) {
     flex-direction: row;
     align-items: center;
   }
-  
+
   // Desktop: enhanced spacing
   @include util.mq(bp.$large) {
     gap: spacing(4);
@@ -225,7 +225,7 @@ Prepare for container queries with component-based responsive design:
 .card {
   // Base styles
   padding: spacing(2);
-  
+
   // When container is wider than 400px
   @container (min-width: 400px) {
     padding: spacing(3);
@@ -249,7 +249,7 @@ import Image from 'next/image';
   height={400}
   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
   priority
-/>
+/>;
 ```
 
 ### CSS Responsive Images
@@ -258,11 +258,11 @@ import Image from 'next/image';
 .responsive-image {
   width: 100%;
   height: auto;
-  
+
   // Maintain aspect ratio
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  
+
   @include util.mq(bp.$medium) {
     aspect-ratio: 4 / 3;
   }
@@ -278,13 +278,13 @@ import Image from 'next/image';
   // Mobile: smaller spacing
   padding: spacing(2);
   margin-bottom: spacing(3);
-  
+
   // Tablets: medium spacing
   @include util.mq(bp.$medium) {
     padding: spacing(3);
     margin-bottom: spacing(4);
   }
-  
+
   // Desktop: larger spacing
   @include util.mq(bp.$large) {
     padding: spacing(4);
@@ -301,11 +301,11 @@ Create responsive variants of utility classes:
 // Mobile-first padding utilities
 .p-responsive {
   padding: spacing(2);
-  
+
   @include util.mq(bp.$medium) {
     padding: spacing(3);
   }
-  
+
   @include util.mq(bp.$large) {
     padding: spacing(4);
   }
@@ -322,7 +322,7 @@ Create responsive variants of utility classes:
   min-height: 44px;
   min-width: 44px;
   padding: spacing(1.5);
-  
+
   // Larger targets on desktop
   @include util.mq(bp.$medium) {
     min-height: 40px;
@@ -337,14 +337,14 @@ Create responsive variants of utility classes:
 ```scss
 .interactive-element {
   transition: background-color 0.2s ease;
-  
+
   // Only apply hover on devices that support it
   @media (hover: hover) {
     &:hover {
       background-color: col.$grey-100;
     }
   }
-  
+
   // Focus states for all devices
   &:focus-visible {
     outline: 2px solid col.$keyboard-focus;
@@ -372,7 +372,7 @@ Create responsive variants of utility classes:
   @include util.mq(bp.$medium) {
     padding: spacing(3);
   }
-  
+
   @include util.mq(bp.$medium) {
     font-size: 1.6rem;
   }
@@ -421,22 +421,22 @@ Prioritize above-the-fold styles:
   padding: spacing(0.5);
   font-size: 0.8rem;
   z-index: 9999;
-  
+
   &::before {
     content: 'XS';
-    
+
     @include util.mq(bp.$small) {
       content: 'S';
     }
-    
+
     @include util.mq(bp.$medium) {
       content: 'M';
     }
-    
+
     @include util.mq(bp.$large) {
       content: 'L';
     }
-    
+
     @include util.mq(bp.$extra-large) {
       content: 'XL';
     }
@@ -452,7 +452,7 @@ Prioritize above-the-fold styles:
 // ✅ Good - mobile first
 .component {
   padding: spacing(2); // Mobile base
-  
+
   @include util.mq(bp.$medium) {
     padding: spacing(3); // Enhanced for larger screens
   }
@@ -461,7 +461,7 @@ Prioritize above-the-fold styles:
 // ❌ Bad - desktop first
 .component {
   padding: spacing(3);
-  
+
   @media (max-width: 899px) {
     padding: spacing(2);
   }
@@ -474,7 +474,7 @@ Prioritize above-the-fold styles:
 // ✅ Good - content determines breakpoint
 .text-content {
   max-width: 65ch; // Optimal reading width
-  
+
   @include util.mq(bp.$medium) {
     columns: 2;
     column-gap: spacing(3);
@@ -506,13 +506,13 @@ Prioritize above-the-fold styles:
   // Base functionality for all devices
   background: col.$bg;
   padding: spacing(2);
-  
+
   // Enhanced features for capable devices
   @supports (backdrop-filter: blur(10px)) {
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.8);
   }
-  
+
   @include util.mq(bp.$large) {
     // Desktop enhancements
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);

@@ -15,7 +15,9 @@ The Jackanory design system uses SCSS Modules for component styling, providing:
 ## Documentation Structure
 
 ### 🎨 [Colors](./colors.md)
+
 Complete color system documentation including:
+
 - Brand colors (primary, secondary, tertiary)
 - Background and surface colors
 - Grey scale system
@@ -24,7 +26,9 @@ Complete color system documentation including:
 - Usage examples and best practices
 
 ### 📝 [Typography](./typography.md)
+
 Typography system covering:
+
 - Typography mixins and variables
 - Responsive text scaling
 - Heading hierarchy
@@ -32,28 +36,36 @@ Typography system covering:
 - Usage patterns and examples
 
 ### 📱 [Responsive Design](./responsive.md)
+
 Responsive design guidelines including:
+
 - Breakpoint system
 - Media query utilities
 - Mobile-first approach
 - Responsive typography patterns
 
 ### 📏 [Spacing](./spacing.md)
+
 Spacing and layout system:
+
 - Spacing functions and variables
 - Margin and padding utilities
 - Layout patterns
 - Grid and flexbox utilities
 
 ### 🛠️ [Utility Classes](./utility-classes.md)
+
 Comprehensive utility class reference:
+
 - Layout utilities
 - Spacing utilities
 - Typography utilities
 - Size and display utilities
 
 ### 🏗️ [Component Patterns](./component-patterns.md)
+
 Component styling patterns and best practices:
+
 - SCSS Module structure
 - Component architecture
 - State management in styles
@@ -71,7 +83,7 @@ Component styling patterns and best practices:
   color: col.$body-text;
   padding: padding(2);
   border-radius: 8px;
-  
+
   @include util.mq(bp.$medium) {
     padding: padding(3);
   }
@@ -127,6 +139,7 @@ src/theme/
 ## Best Practices
 
 ### 1. Use Theme Variables
+
 Always use theme variables instead of hardcoded values:
 
 ```scss
@@ -144,6 +157,7 @@ Always use theme variables instead of hardcoded values:
 ```
 
 ### 2. Leverage Typography Mixins
+
 Use typography mixins for consistent text styling:
 
 ```scss
@@ -160,12 +174,13 @@ Use typography mixins for consistent text styling:
 ```
 
 ### 3. Follow Responsive Patterns
+
 Use the responsive utilities for consistent breakpoint handling:
 
 ```scss
 .component {
   padding: padding(2);
-  
+
   @include util.mq(bp.$medium) {
     padding: padding(3);
   }
@@ -173,6 +188,7 @@ Use the responsive utilities for consistent breakpoint handling:
 ```
 
 ### 4. Maintain Accessibility
+
 Ensure all components meet accessibility standards:
 
 ```scss
@@ -192,7 +208,7 @@ Colors and other design tokens are exported to TypeScript for use in JavaScript:
 // src/theme/exports/colors.ts
 export const colors = {
   primary: 'hsl(327, 100%, 38%)',
-  secondary: 'hsl(273, 100%, 35%)',
+  secondary: 'hsl(273, 100%, 35%)'
   // ... other colors
 } as const;
 ```
