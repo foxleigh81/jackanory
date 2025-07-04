@@ -1,7 +1,7 @@
 @use '../vars' as *;
 @use 'statuses' as *;
 @use 'focus-visible' as *;
-@use '../colours' as col;
+@use '../colors' as col;
 @use '../typography.scss' as type;
 
 @mixin base-input() {

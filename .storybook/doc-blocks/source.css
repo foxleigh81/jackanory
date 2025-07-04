@@ -1,0 +1,131 @@
+/* Custom Source component styles */
+.source-block {
+  position: relative;
+}
+
+.source-block pre {
+  position: relative;
+}
+
+/* Copy button styling */
+.source-block .copy-to-clipboard-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cccccc;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.source-block .copy-to-clipboard-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Line numbers styling */
+.source-block.line-numbers pre {
+  padding-left: 3rem;
+}
+
+.source-block .line-numbers-rows {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0.5rem;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #666;
+  user-select: none;
+}
+
+/* Scrollbar styling for dark theme */
+.source-block pre::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.source-block pre::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.source-block pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.source-block pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Override Prism Tomorrow theme for better contrast */
+.source-block code[class*='language-'],
+.source-block pre[class*='language-'] {
+  color: #cccccc;
+  background: #2d2d2d;
+  text-shadow: none;
+}
+
+/* Ensure proper token colors */
+.source-block .token.comment,
+.source-block .token.prolog,
+.source-block .token.doctype,
+.source-block .token.cdata {
+  color: #999999;
+}
+
+.source-block .token.punctuation {
+  color: #cccccc;
+}
+
+.source-block .token.property,
+.source-block .token.tag,
+.source-block .token.boolean,
+.source-block .token.number,
+.source-block .token.constant,
+.source-block .token.symbol,
+.source-block .token.deleted {
+  color: #f2777a;
+}
+
+.source-block .token.selector,
+.source-block .token.attr-name,
+.source-block .token.string,
+.source-block .token.char,
+.source-block .token.builtin,
+.source-block .token.inserted {
+  color: #99cc99;
+}
+
+.source-block .token.operator,
+.source-block .token.entity,
+.source-block .token.url,
+.source-block .language-css .token.string,
+.source-block .style .token.string {
+  color: #66cccc;
+}
+
+.source-block .token.atrule,
+.source-block .token.attr-value,
+.source-block .token.keyword {
+  color: #cc99cc;
+}
+
+.source-block .token.function,
+.source-block .token.class-name {
+  color: #ffcc66;
+}
+
+.source-block .token.regex,
+.source-block .token.important,
+.source-block .token.variable {
+  color: #f99157;
+}

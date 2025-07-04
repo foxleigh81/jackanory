@@ -30,7 +30,7 @@
     "test:ts": "tsc --noEmit",
     "test:storybook": "test-storybook",
     "test:unit": "vitest run --config vitest.unit.config.ts",
-    "preflight": "concurrently \"yarn format\" \"yarn lint\" \"yarn build\" \"yarn test\"",
+    "preflight": "concurrently \"yarn generate-docs\" \"yarn format\" \"yarn lint\" \"yarn build\" \"yarn test\"",
     "prepare": "husky"
   },
   "dependencies": {
@@ -40,6 +40,7 @@
     "date-fns": "^4.1.0",
     "framer-motion": "^12.23.0",
     "next": "15.3.5",
+    "prismjs": "^1.30.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.59.0",

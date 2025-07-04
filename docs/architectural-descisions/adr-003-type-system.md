@@ -1,0 +1,72 @@
+# ADR 003: Use TypeScript for type safety and developer experience
+
+- **Date created**: 04/02/2025
+- **Driver**: Alex Foxleigh (Foxy)
+
+## Status
+
+![accepted]
+
+## Context
+
+The project requires a robust type system to ensure:
+
+- Type safety across the entire codebase
+- Better developer experience with IDE support
+- Reduced runtime errors and bugs
+- Self-documenting code through type definitions
+- Improved refactoring capabilities
+- Enhanced collaboration between team members
+
+Alternative approaches considered:
+
+- **JavaScript with JSDoc**: Lightweight but limited type checking
+- **Flow**: Facebook's type checker but declining adoption
+- **Plain JavaScript**: No type safety, higher risk of runtime errors
+- **PropTypes**: React-specific but limited to component props
+
+## Decision
+
+Use TypeScript as the primary language for all JavaScript/React code in the Jackanory project.
+
+## Consequences
+
+### Positive
+
+- **Type Safety**: Catch errors at compile time rather than runtime
+- **IDE Support**: Excellent autocomplete, refactoring, and navigation in modern IDEs
+- **Self-Documentation**: Types serve as inline documentation for functions and components
+- **Refactoring**: Safe and confident refactoring with type checking
+- **Team Collaboration**: Clear interfaces and contracts between different parts of the codebase
+- **Ecosystem**: Strong TypeScript support in React, Next.js, and most modern libraries
+- **Gradual Adoption**: Can be adopted incrementally in existing JavaScript projects
+- **Industry Standard**: Widely adopted in the React/Node.js ecosystem
+
+### Negative
+
+- **Learning Curve**: Developers need to learn TypeScript syntax and concepts
+- **Build Complexity**: Additional compilation step and configuration
+- **Development Overhead**: Writing types takes additional time initially
+- **Library Support**: Some libraries may have poor or missing type definitions
+- **Strict Mode**: Can be restrictive and require workarounds for dynamic patterns
+
+### Mitigations
+
+- Start with basic TypeScript and gradually adopt more advanced features
+- Leverage community-maintained type definitions from DefinitelyTyped
+- Configure TypeScript with appropriate strictness levels for the team
+- Provide TypeScript training and resources for team members
+
+## Implementation Notes
+
+- Use strict mode configuration for maximum type safety
+- Leverage utility types and generics for reusable type definitions
+- Create custom type definitions for project-specific patterns
+- Use type-only imports where appropriate to optimize bundle size
+- Maintain consistent naming conventions for types and interfaces
+
+[accepted]: https://img.shields.io/badge/Accepted-green?style=for-the-badge
+[proposed]: https://img.shields.io/badge/Proposed-yellow?style=for-the-badge
+[superceded]: https://img.shields.io/badge/Superceded-orange?style=for-the-badge
+[rejected]: https://img.shields.io/badge/Rejected-red?style=for-the-badge
+[deprecated]: https://img.shields.io/badge/Deprecated-grey?style=for-the-badge

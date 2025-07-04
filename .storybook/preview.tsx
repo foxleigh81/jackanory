@@ -12,9 +12,9 @@ import {
   IconItem,
   ColorPalette,
   ColorItem,
+  Typeset,
   Subtitle,
   Primary,
-  Source,
   Controls,
   Stories
 } from '@storybook/addon-docs/blocks';
@@ -23,6 +23,7 @@ import Badge from './doc-blocks/badge';
 import Tip from './doc-blocks/tip';
 import WorksWith from './doc-blocks/works-with';
 import Title from './doc-blocks/title';
+import Source from './doc-blocks/source';
 
 const viewports = {
   iPhone15: {
@@ -131,6 +132,7 @@ const parameters = {
       Badge,
       Title,
       Tip,
+      Typeset,
       WorksWith,
       ColorPalette,
       ColorItem
