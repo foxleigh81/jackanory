@@ -1,0 +1,32 @@
+@keyframes pulse {
+  0% {
+    background-color: hsla(0, 0%, 60%, 1);
+  }
+
+  50% {
+    background-color: hsla(0, 0%, 50%, 1);
+  }
+
+  100% {
+    background-color: hsla(0, 0%, 60%, 1);
+  }
+}
+
+@mixin skeleton($duration: 1.2s, $loop: infinite) {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  position: relative !important;
+
+  &::after {
+    animation: pulse $duration $loop;
+    background-color: hsla(0, 0%, 60%, 1);
+    border-radius: 0.25rem;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+}

@@ -1,0 +1,11 @@
+@use '../colours' as col;
+@use '../vars' as *;
+
+@mixin card() {
+  background-color: col.$main-panel-bg;
+  border-radius: $border-radius;
+  box-shadow: $drop-shadow;
+  display: grid;
+  grid-template-rows: 1fr;
+  height: 100%;
+}

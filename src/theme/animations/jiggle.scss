@@ -1,0 +1,51 @@
+@use 'sass:string';
+
+/**
+ Jiggle animation
+ Usage:
+  @include animate.jiggle(<options>);
+ Options:
+  - amount: amount of jiggle (default: 1px)
+  - direction: direction of the animation can be 'x' or 'y' (default: 'x')
+  - duration: duration of the animation (default: .8s)
+  - loop: number of times to loop the animation (default: infinite)
+*/
+
+@mixin jiggle($amount: 1px, $direction: 'x', $duration: 0.8s, $loop: infinite) {
+  $dir: string.to-lower-case($direction);
+  $jiggle: $amount;
+
+  @if $dir == 'x' {
+    $jiggle: $amount, 0;
+  } @else if $dir == 'y' {
+    $jiggle: 0, $amount;
+  } @else {
+    $jiggle: $amount, $amount;
+  }
+
+  @keyframes jiggle {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    25% {
+      transform: translate(-#{$jiggle});
+    }
+
+    50% {
+      transform: translate($jiggle);
+    }
+
+    75% {
+      transform: translate(-#{$jiggle});
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  & {
+    animation: jiggle $duration $loop;
+  }
+}

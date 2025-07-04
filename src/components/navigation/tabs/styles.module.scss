@@ -1,0 +1,38 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: padding(2);
+  border-bottom: 1px solid col.$border;
+  gap: spacing(2);
+}
+
+.tab {
+  @include util.button-text();
+
+  background-color: transparent;
+  color: col.$link;
+  font-size: type.$body-text-size;
+  font-weight: bold;
+  padding: padding(1);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  margin-bottom: -1px;
+
+  &:hover {
+    color: col.$link-hover;
+    text-decoration: none;
+    background-color: transparent;
+    border-bottom: 2px solid col.$link-hover;
+  }
+
+  &.active {
+    border-bottom-color: col.$secondary;
+    pointer-events: none;
+  }
+
+  @include util.focus-visible();
+}

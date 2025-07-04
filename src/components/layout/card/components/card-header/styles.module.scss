@@ -1,0 +1,24 @@
+$bg-types:
+  'primary' col.$primary,
+  'secondary' col.$secondary,
+  'tertiary' col.$tertiary,
+  'success' col.$success,
+  'warning' col.$warning,
+  'danger' col.$danger,
+  'info' col.$info;
+
+.header {
+  @include type.heading-small();
+
+  & {
+    padding: padding(2) padding(2) 0;
+  }
+}
+
+@each $type, $bg-colour in $bg-types {
+  .bg-#{$type} {
+    background-color: $bg-colour;
+    color: col.$light;
+    padding: padding(1) padding(2);
+  }
+}

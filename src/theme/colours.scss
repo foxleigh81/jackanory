@@ -1,0 +1,101 @@
+@use 'sass:color';
+
+// NOTE: If you add or remove a colour variable,
+// you will need to update the _colourvars.module.scss file
+// in the styles folder to match.
+
+/* Backgrounds */
+$bg: hsl(0, 0%, 100%);
+$bg-dark: hsl(0, 0%, 9%);
+$main-panel-bg: $bg;
+$alt-panel-bg: hsl(0, 0%, 98%);
+
+/* Brand Colours */
+$primary: hsl(327, 100%, 38%);
+$secondary: hsl(273, 100%, 35%);
+$tertiary: hsl(198, 100%, 95%);
+
+/* Dark and light base colours */
+$dark: hsl(0, 0%, 7%);
+$light: hsl(0, 0%, 100%);
+
+/* Grey shades */
+$grey-100: hsl(0, 0%, 98%);
+$grey-200: hsl(0, 0%, 94%);
+$grey-300: hsl(0, 0%, 90%);
+$grey-400: hsl(0, 0%, 77%);
+$grey-500: hsl(0, 0%, 60%);
+$grey-600: hsl(0, 0%, 40%);
+$grey-700: hsl(0, 0%, 20%);
+$grey-800: hsl(0, 0%, 13%);
+$grey-900: hsl(0, 0%, 7%);
+
+/* Typography */
+$body-text: hsl(180, 4%, 2%);
+$body-text-inverse: hsl(0, 0%, 90%);
+
+/* Statuses */
+$warning: hsl(33, 88%, 36%);
+$success: hsl(150, 100%, 26%);
+$danger: hsl(8, 73%, 49%);
+$info: hsl(214, 60%, 48%);
+$error: $danger;
+
+/* RAG colours */
+/* NOTE: You will need to update the exports/colors.ts file if you change these */
+$rag-green: hsl(107, 54%, 44%);
+$rag-amber: hsl(42, 96%, 54%);
+$rag-red: hsl(359, 89%, 48%);
+$rag-grey: hsl(200, 1%, 55%);
+$rag-blue: hsl(214, 60%, 48%);
+
+/* Buttons */
+$primary-button: $primary;
+$primary-button-hover: color.adjust($primary-button, $lightness: -6%);
+$primary-button-text: hsl(0, 0%, 100%);
+
+$secondary-button: $secondary;
+$secondary-button-hover: color.adjust($secondary-button, $lightness: 2%);
+$secondary-button-text: $light;
+
+/* Inputs */
+$input-bg: $bg;
+$input-focus-bg: color.adjust($primary, $lightness: 59%);
+$input-border: $grey-500;
+$input-border-focus: $primary;
+$label-text: $body-text;
+$input-text: $body-text;
+$disabled-input-text: hsl(0, 5%, 30%);
+
+/* Links */
+/* Style also applies to text buttons */
+$link: hsl(220, 73%, 34%);
+$link-hover: color.adjust($link, $lightness: -20%);
+$link-disabled: hsl(0, 5%, 46%);
+
+/* Actions */
+$action: $link;
+$action-destroy: $danger;
+$action-create: $success;
+$action-disabled: hsl(0, 0%, 60%);
+
+$action-hover: color.adjust($action, $lightness: 15%);
+$action-destroy-hover: color.adjust($action-destroy, $lightness: 10%);
+$action-create-hover: color.adjust($action-create, $lightness: 10%);
+
+$action-focus-bg: color.adjust($primary, $lightness: 20%);
+$action-destroy-focus-bg: color.adjust($action-destroy, $lightness: 20%);
+$action-create-focus-bg: color.adjust($action-create, $lightness: 20%);
+
+$action-text: hsl(0, 0%, 100%);
+
+/* Shadows and borders */
+$shadow: hsl(0, 0%, 0%);
+$border: hsl(30, 3%, 87%);
+$border-dark: hsl(0, 0%, 44%);
+
+/* A11y compliance */
+$keyboard-focus: hsl(47, 100%, 51%);
+
+/* Gradients */
+$gradient-primary: linear-gradient(90deg, $primary, $secondary);

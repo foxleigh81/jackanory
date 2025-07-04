@@ -1,0 +1,212 @@
+import * as Stories from './button.stories';
+import { Button } from './index';
+import { FaStar } from 'react-icons/fa';
+
+<Meta of={Stories} />
+
+<Title of={Button} />
+
+<Description of={Button} />
+
+<Tip>
+  It's also possible to turn a regular button element or link into a basic
+  button by adding the `button` utility to it although that method is cosmetic
+  only and lacks the more advanced features of this component.
+</Tip>
+
+<Primary />
+
+<Controls />
+
+## Overview
+
+The Button component is a versatile UI element that can be configured in many ways to suit different use cases. It supports various styles, sizes, and states while maintaining accessibility and consistent styling.
+
+## Basic Usage
+
+The simplest way to use the Button component is with just a label:
+
+<Canvas withToolbar sourceState="shown" of={Stories.Primary} />
+
+## Button Content
+
+### Using Props
+
+The most common way to add content to a button is through props:
+
+```tsx
+<Button label="Click me" />
+```
+
+### Using Children
+
+You can also pass content as children, which gives you more flexibility:
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithChildren} />
+
+## Variants
+
+The Button component supports several variants to indicate different actions or importance levels.
+
+### Primary
+
+The default variant, used for the most important actions:
+
+<Canvas sourceState="shown" of={Stories.Primary} />
+
+### Secondary
+
+Used for less prominent actions:
+
+<Canvas sourceState="shown" of={Stories.Secondary} />
+
+### Create
+
+Specifically styled for creation actions:
+
+<Canvas withToolbar sourceState="shown" of={Stories.Create} />
+
+### Destroy
+
+Used for destructive actions like deletion:
+
+<Canvas withToolbar sourceState="shown" of={Stories.Destroy} />
+
+## Text-Only Buttons
+
+### Transparent Button
+
+A button with no background, maintaining the same padding and sizing:
+
+<Canvas withToolbar sourceState="shown" of={Stories.Transparent} />
+
+### Link Button
+
+Styled to look like a link while maintaining button functionality:
+
+<Canvas withToolbar sourceState="shown" of={Stories.DisplayAsLink} />
+
+## Icon Buttons
+
+### Built-in Icons
+
+You can use any icon from our icon library:
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithIcon} />
+
+### Custom React Icons
+
+You can also use custom React icons from libraries like react-icons:
+
+```tsx
+import { FaStar } from 'react-icons/fa';
+
+<Button icon={<FaStar />} label="Star" />;
+```
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithCustomIcon} />
+
+### Icon Placement
+
+Icons can be aligned to either side of the text:
+
+<Canvas withToolbar sourceState="shown" of={Stories.IconLeft} />
+<Canvas withToolbar sourceState="shown" of={Stories.IconRight} />
+
+### Icon-Only Buttons
+
+For a cleaner look, you can hide the label while maintaining accessibility:
+
+<Canvas withToolbar sourceState="shown" of={Stories.IconOnly} />
+
+## Circular Buttons
+
+Circular buttons are perfect for icon-only actions:
+
+<Canvas withToolbar sourceState="shown" of={Stories.Circular} />
+
+### Circular with Custom Icons
+
+You can combine circular buttons with custom icons:
+
+<Canvas withToolbar sourceState="shown" of={Stories.CustomIconOnly} />
+
+## Size Variants
+
+### Small Buttons
+
+For more compact interfaces:
+
+<Canvas withToolbar sourceState="shown" of={Stories.Small} />
+
+### Small with Icons
+
+Small buttons work well with icons:
+
+<Canvas withToolbar sourceState="shown" of={Stories.SmallWithIcon} />
+<Canvas withToolbar sourceState="shown" of={Stories.SmallWithIconAndLabel} />
+
+## States
+
+### Disabled
+
+Buttons can be disabled to prevent interaction:
+
+<Canvas withToolbar sourceState="shown" of={Stories.Disabled} />
+
+### Loading
+
+Show a loading state with optional custom text:
+
+<Canvas withToolbar sourceState="shown" of={Stories.Loading} />
+
+## Accessibility
+
+The Button component is built with accessibility in mind:
+
+- All buttons require a label (either through the `label` prop or children)
+- Loading states are properly announced to screen readers
+- Disabled states are properly communicated
+- Focus states are clearly visible
+- Icons are properly hidden from screen readers when used decoratively
+
+## Best Practices
+
+1. **Always provide a label** - Even for icon-only buttons, provide a descriptive label for accessibility
+2. **Choose appropriate variants** - Use primary for main actions, secondary for less important ones
+3. **Consider button size** - Use small buttons in dense interfaces
+4. **Use loading states** - Show loading states for async actions
+5. **Be consistent** - Use the same variant for similar actions throughout your interface
+
+## Common Patterns
+
+### Navigation
+
+```tsx
+<Link href="/some-page">
+  <Button icon="arrow-left" label="Back" />
+</Link>
+```
+
+### Form Actions
+
+```tsx
+<Button variant="create" icon="plus" label="Add Item" onClick={handleAdd} />
+```
+
+### Destructive Actions
+
+```tsx
+<Button
+  variant="destroy"
+  icon={<FaTrash />}
+  label="Delete"
+  onClick={handleDelete}
+/>
+```
+
+### Loading States
+
+```tsx
+<Button label="Save" isLoading={isSaving} loadingIndicator="Saving..." />
+```

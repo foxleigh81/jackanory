@@ -1,0 +1,30 @@
+.input-autocomplete {
+  position: relative;
+}
+
+.suggestions {
+  background-color: col.$main-panel-bg;
+  border: 1px solid col.$input-border;
+  border-radius: $border-radius;
+  box-shadow: $drop-shadow;
+  left: 0;
+  list-style: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: padding(0.5);
+  position: absolute;
+  right: 0;
+  top: calc(100% + 1px);
+  width: auto;
+  z-index: 1000;
+}
+
+.suggestion {
+  cursor: pointer;
+  padding: padding(0.5);
+
+  &.selected {
+    background-color: col.$action-focus-bg;
+    color: col.$action-text;
+  }
+}

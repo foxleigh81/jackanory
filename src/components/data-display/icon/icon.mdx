@@ -1,0 +1,58 @@
+import * as Stories from './icon.stories';
+
+import IconGallery from './gallery';
+
+<Meta of={Stories} />
+
+<Title type="stable">Icon</Title>
+
+The `Icon` component is used to display icons in the UI. It uses a script to
+automatically generate icons from SVG files in the `lib/icons` folder.
+
+<Tip type="note">
+  This is for internal, custom icons only. You can also use icons from the
+  react-icons package. Please consult the [react-icons
+  documentation](https://react-icons.github.io/react-icons/) for more
+  information.
+</Tip>
+
+## Usage
+
+<Canvas withToolbar>
+  <Story of={Stories.Primary} />
+</Canvas>
+
+## Adding a new icon
+
+To add a new icon, simply you can copy an existing icon from the 'src/components/data-display/icon/components' folder and replace the svg contents. Please ensure you maintain the 'fill', 'ref' and '...props' attributes in the svg tag.
+
+### Icon guidelines
+
+In order to keep the icon library consistent, please follow these guidelines when creating new icons:
+
+- Icons should be square
+- Icons should not have any colour or fill applied unless absolutely necessary
+- Icons should not have any stroke applied
+- Icons should not require any fonts or external resources
+- Icons should not have any padding or whitespace around them
+- Icons should not use any special effects such as drop shadows, gradients or glows
+- Any icon used in a way that would require a description for accessibility purposes should have a `title` element with a description of the icon
+
+<Tip type="danger">
+  Icons that do not follow these guidelines may cause issues when generating the
+  icon library and/or may not display correctly in the UI.
+</Tip>
+
+## Styling the icon
+
+As the Icon component just returns an SVG element, you can style it using CSS as you would any other SVG element by adding a `className` prop to the Icon and then styling it in your CSS file.
+
+## Gallery
+
+<Tip type="note">
+  All icons in the gallery are locked at 50px width for the sake of a neat
+  layout in Storybook. You can customise the size of the icon by passing a
+  'width' prop.
+</Tip>
+
+<IconGallery />

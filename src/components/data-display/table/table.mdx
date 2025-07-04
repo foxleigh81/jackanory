@@ -1,0 +1,23 @@
+import * as Stories from './table.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+<Tip type="note">
+  It is recommended that you use the
+  [TableFactory](/?path=/docs/components-factories-table-factory--docs)
+  component instead of the 'Table' component as this will generate a table for
+  you based on the data you provide as well as providing additional
+  functionality such as sorting, filtering and pagination.
+</Tip>
+
+<Primary />
+
+<Controls />
+
+You can also make the table rows striped by adding the `striped` prop.
+
+<Canvas withToolbar sourceState="shown" of={Stories.Striped} />

@@ -1,0 +1,31 @@
+import * as Stories from './table-cell.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+Please view the [Table](?path=/docs/components-data-display-table--docs) component to see the component in an actual `Table` component.
+
+{/* <WorksWith /> */}
+
+<Primary />
+
+<Controls />
+
+By default the TableCell component will render a `<td>` element, but you can also use it as a `<th>` element by setting the `th` prop to `true` e.g. `<TableCell th>`.
+
+<Canvas withToolbar sourceState="shown" of={Stories.RenderTh} />
+
+## Responsive Tables
+
+In order to render a table responsively, you must add a contextHeader prop to the TableCell component.
+
+This will tell the table which table header the cell belongs to. This prop is only optional under the following conditions:
+
+- The TableCell has the `th` prop set to `true`
+- The TableCell is part of a table with no headers
+
+Failure to provide a contextHeader prop will result in the table failing to render correctly on smaller screens.
+{/* (An example can be seen in the [TableFactory](?path=/docs/components-factories-table-factory--docs) component). */}

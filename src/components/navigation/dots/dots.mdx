@@ -1,0 +1,50 @@
+import { Meta, Story, Controls } from '@storybook/addon-docs/blocks';
+import * as DotsStories from './index.stories';
+
+<Meta of={DotsStories} />
+
+# Dots
+
+A navigation component that displays dots representing pages. Each dot can be clicked to navigate to that page.
+
+## Usage
+
+```tsx
+import Dots from '@/components/navigation/dots';
+
+<Dots
+  count={5}
+  currentPage={1}
+  onChange={(page) => console.log(page)}
+  showTooltips
+/>;
+```
+
+## Examples
+
+<Tip type="note">
+  The dots in this story are controlled via external state. They will only
+  change when clicked in "With page display" story.
+</Tip>
+
+### Default
+
+<Story of={DotsStories.Default} />
+
+### Without Tooltips
+
+Tooltips are enabled by default. To disable them, set the `showTooltips` prop to `false`.
+
+<Story of={DotsStories.WithoutTooltips} />
+
+## Props
+
+<Controls />
+
+## Features
+
+- Visual representation of page navigation
+- Accessible navigation with ARIA labels
+- Optional tooltips for better UX
+- Customizable styling through className
+- Keyboard navigation support

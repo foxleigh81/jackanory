@@ -1,0 +1,41 @@
+import * as Stories from './chip.stories';
+
+import { Chip } from './index';
+
+<Meta of={Stories} />
+
+<Title type="alpha">Chip</Title>
+
+<Description of={Chip} />
+
+<Tip type="warning">
+  This component should not be used for displaying alerts or notifications. Use
+  the Snackbar component instead.
+</Tip>
+
+## Basic Chip
+
+By default, a chip only requires the 'text' prop to be passed in. If no other props
+are provided then the chip will be rendered with the default styling and no delete icon.
+
+<Canvas withToolbar sourceState="shown" of={Stories.Default} />
+
+## Deletable Chip
+
+A Chip can be made deletable by passing in the 'onDelete' prop. This will display
+a delete icon on the right side of the chip and will call any function passed to
+the 'onDelete' prop when the icon is clicked.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithCancel} />
+
+## Chip with status colours
+
+A Chip can be given a status colour by passing in the 'status' prop. This will
+display the chip with the appropriate colour. The status prop can be one of the
+following: 'success', 'warning', 'error', 'info'. You can also pass 'default' as
+a a status prop but this is the equivalent of not passing a status prop at all.
+
+<Canvas withToolbar sourceState="shown" of={Stories.SuccessStatus} />
+<Canvas withToolbar sourceState="shown" of={Stories.WarningStatus} />
+<Canvas withToolbar sourceState="shown" of={Stories.DangerStatus} />
+<Canvas withToolbar sourceState="shown" of={Stories.InfoStatus} />

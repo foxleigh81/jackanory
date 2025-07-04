@@ -1,0 +1,49 @@
+.sortable-th {
+  padding-right: padding(1.5);
+}
+
+.sort-arrow {
+  color: col.$primary;
+  cursor: pointer;
+  opacity: 0.4;
+  position: absolute;
+  right: spacing(1);
+  top: spacing(1);
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out !important;
+
+  .header-solid & {
+    color: col.$light;
+  }
+
+  &::after {
+    content: '▾';
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.dir-asc {
+  transform: rotate(180deg);
+}
+
+.filter-input {
+  margin-bottom: 0;
+
+  input {
+    height: auto;
+    padding: padding(0.2);
+  }
+}
+
+.hide-header {
+  &::before {
+    display: none !important;
+  }
+}

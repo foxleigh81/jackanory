@@ -1,0 +1,27 @@
+import * as Stories from './list.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<WorksWith />
+
+<Description />
+
+It uses the `ListItem` component to render each item in the list. You can use the `<ListItem />` by importing it
+directly from `components/data-display/list/components/list-item` or simply by importing the List component
+and using `<List.Item />`.
+
+<Primary />
+
+<Controls />
+
+By default, the list component renders an unordered list without any markers (see example above).
+
+If you want to render an ordered list, you can pass "ordered" to the `type` prop.
+
+<Canvas withToolbar sourceState="shown" of={Stories.OrderedList} />
+
+Alternatively you can render an unordered list with markers by passing "unordered" to the `type` prop.
+
+<Canvas withToolbar sourceState="shown" of={Stories.UnorderedList} />

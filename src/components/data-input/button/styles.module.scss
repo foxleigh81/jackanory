@@ -1,0 +1,105 @@
+@use 'sass:color';
+
+.button {
+  display: flex;
+  position: relative;
+}
+
+.button-primary {
+  @include util.button-primary;
+}
+
+.button-secondary {
+  @include util.button-secondary;
+}
+
+.button-primary-transparent {
+  @include util.button-transparent(col.$primary, 40%);
+}
+
+.button-secondary-transparent {
+  @include util.button-transparent(col.$secondary);
+}
+
+.button-create {
+  @include util.button-create;
+}
+
+.button-create-transparent {
+  @include util.button-transparent(col.$action-create, 20%);
+}
+
+.button-destroy {
+  @include util.button-destroy;
+}
+
+.button-destroy-transparent {
+  @include util.button-transparent(
+    color.scale(col.$action-destroy, $lightness: -10%),
+    20%
+  );
+}
+
+.button-primary-link {
+  @include util.button-text;
+}
+
+.button-create-link {
+  @include util.button-text-create;
+}
+
+.button-destroy-link {
+  @include util.button-text-destroy;
+}
+
+.circular {
+  @include util.button-circular;
+}
+
+.icon-none {
+  :is(svg, .icon, img, picture) {
+    display: none;
+  }
+}
+
+@mixin has-icon {
+  align-items: center;
+  display: flex;
+
+  svg {
+    height: 100%;
+    width: 2.2rem;
+  }
+}
+
+.icon-left,
+.icon-right {
+  @include has-icon;
+
+  column-gap: spacing(1);
+  grid-template-columns: spacing(2) auto;
+}
+
+.icon-right {
+  @include has-icon;
+
+  :is(svg, .icon, img, picture) {
+    order: 2;
+  }
+}
+
+// The error to display if the user doesn't add an onClick or a href prop
+.error {
+  color: col.$danger;
+  font-weight: bold;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.small {
+  column-gap: spacing(0.7);
+  line-height: inherit;
+  padding: padding(1);
+}

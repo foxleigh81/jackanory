@@ -1,0 +1,65 @@
+# Getting Started
+
+This guide will help you set up your development environment for the Jackanory project.
+
+## Prerequisites
+
+- Node.js (version specified in package.json)
+- yarn
+- Git
+
+## Project Setup
+
+1. **Clone the repository**
+
+   ```bash
+   git clone [repository-url]
+   cd [repository-name]
+   ```
+
+2. **Set up environment variables**
+   - Copy `.env-example` to `.env`
+   - Fill in the required parameters
+
+3. **Install dependencies**
+
+   ```bash
+   yarn install
+   ```
+
+4. **Run a test build to ensure everything is working (optional)**
+
+   ```bash
+   yarn build && yarn build-storybook
+   ```
+
+## Running the Application
+
+### Development Mode
+
+```bash
+yarn dev
+```
+
+This will start both the Storybook client and Next in development mode.
+
+### Production Build
+
+```bash
+yarn build
+```
+
+This will create a production build in the `.next` directory.
+
+### Running Storybook
+
+```bash
+yarn storybook
+```
+
+This will start the Storybook development server on port 6006.
+
+## Next Steps
+
+- Read the [Development Guide](./development-guide.md) for more detailed information
+- Explore the [Styling Guide](./styling-guide.md)

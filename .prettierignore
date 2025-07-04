@@ -1,0 +1,28 @@
+# Generated Storybook documentation
+.storybook/.docs/
+
+# Build outputs
+.next/
+dist/
+build/
+storybook-static/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Coverage reports
+coverage/ 
+
+# IDE, OS and VCS files
+.vscode/
+.idea/
+.github/
+.DS_Store
+.gitignore
+.prettierignore
+.prettierrc
+.editorconfig
+.husky/

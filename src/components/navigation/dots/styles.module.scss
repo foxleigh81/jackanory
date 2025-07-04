@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  gap: spacing(0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: spacing(1);
+  height: spacing(1);
+  border-radius: 50%;
+  border: 2px solid col.$primary;
+  background-color: col.$light;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid col.$primary;
+    outline-offset: 2px;
+  }
+
+  &.active {
+    background-color: col.$primary;
+  }
+}

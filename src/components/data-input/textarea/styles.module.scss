@@ -1,0 +1,22 @@
+.type-multiline {
+  @include util.base-input;
+
+  height: auto;
+  line-height: 1.4;
+  min-height: 60px;
+  resize: none;
+  /** Firefox fallback */
+  scrollbar-color: col.$primary;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    margin: padding(0.2);
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: col.$primary;
+    border-radius: $border-radius;
+  }
+}

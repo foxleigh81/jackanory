@@ -1,0 +1,62 @@
+import * as Stories from './table-factory.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+As with other Factory components, the Table Factory is a wrapper around the Table component and all of its child
+components and provides a set of props that can be used to generate a working Table without having to handle any of the
+complexity of the components themselves.
+
+<Primary />
+
+<Controls />
+
+The TableFactory can take any JSON data and render it as a table. The data is parsed and the keys are used as the
+column headers. The values are used as the row data. The data can be any JSON object, but it is recommended that the
+data be an array of objects with the same keys. This will ensure that the table is rendered correctly.
+
+<Tip type="warning">
+  The data used for a cell can be a string, number, boolean, array or even a
+  valid JSX element. However if the data is an object, the object will rendered
+  as a string which reads "[object Object]".
+</Tip>
+
+## Table Headers
+
+By default the table renders with a solid header. This can be changed to a transparent header by setting the
+solidHeader prop to false.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithoutSolidHeader} />
+
+You can even disabled headers completely by setting the showHeader prop to false.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithoutHeader} />
+
+## Table Striping
+
+By default the table renders with striped rows. This can be changed to a solid row by setting the striped prop to false.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithoutStripes} />
+
+## Table Sorting
+
+You can enable sorting on the table by passing a set of options to the `sortable` prop.
+
+<Canvas withToolbar sourceState="shown" of={Stories.SortSpecificColumns} />
+
+You can also enable sorting on all columns by passing `sortable` an array with just '\*' as the only value.
+
+<Canvas withToolbar sourceState="shown" of={Stories.Sortable} />
+
+## Table Filtering
+
+You can enable filtering on the table by passing an array of column numbers (starting at 1) to the `filterable` prop.
+
+<Canvas withToolbar sourceState="shown" of={Stories.FilterSpecificColumns} />
+
+You can also enable filtering on all columns by passing an array with just '\*' to the `filterable` prop.
+
+<Canvas withToolbar sourceState="shown" of={Stories.Filterable} />

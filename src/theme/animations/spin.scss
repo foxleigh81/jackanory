@@ -1,0 +1,22 @@
+/**
+ Wobble animation
+ Usage:
+  @include animate.wobble(<options>);
+ Options:
+  - duration: duration of the animation (default: .5s)
+  - loop: number of times to loop the animation (default: infinite)
+*/
+@mixin spin($duration: 0.8s, $loop: infinite) {
+  @keyframes spin {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  & {
+    animation: spin $duration $loop linear;
+  }
+}

@@ -1,0 +1,26 @@
+<Meta title="Factories" />
+
+# Factory components
+
+Factory components are components that are used to create collections of other components,
+from a single component definition.
+
+## Data factories
+
+Most of the time you will use the factories to generate components purely from
+data. A prime example of this is the [TableFactory](?path=/docs/components-factories-table-factory--docs)
+component, which is a factory that generates a table from a data source.
+
+This is a big time saver, as you don't have to manually create a table component
+and then add and configure all the rows and cells. You can just pass the data
+to the factory and it will generate the table for you.
+
+## Collation factories
+
+Sometimes you will want to generate a more complex pattern of components, e.g. a
+form input with validation, a label and help text. You could do this by adding
+the components manually (and sometimes you may still want to do this if you want
+to add something that the factory doesn't support), but it is usually easier to
+just use the [InputFactory](?path=/docs/components-factories-input-factory--docs)
+component, which will generate the components for you and will also handle the
+input logic.

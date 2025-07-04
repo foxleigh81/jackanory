@@ -1,0 +1,50 @@
+.header button {
+  align-items: center;
+  background-color: col.$grey-200;
+  color: col.$body-text;
+  cursor: pointer;
+  display: grid;
+  font-size: type.$large-text-size;
+  font-weight: bold;
+  grid-template-columns: 1fr 40px;
+  padding: padding(1) padding(0.5) padding(1) padding(2);
+  text-align: left;
+  width: 100%;
+}
+
+.arrow {
+  align-items: center;
+  aspect-ratio: 1/1;
+  background-color: col.$light;
+  border-radius: 50%;
+  fill: col.$grey-800 !important;
+  height: 20px !important;
+  padding: padding(0.5);
+  justify-self: center;
+  transform: rotate(180deg);
+  transition: transform 0.5s ease-in-out !important;
+  width: 20px !important;
+
+  &.is-open {
+    transform: rotate(0deg);
+  }
+}
+
+.body {
+  background-color: col.$light;
+  color: col.$body-text;
+  overflow: hidden;
+  padding: padding(2);
+  transition: all 0.3s ease-in-out;
+
+  &.is-open {
+    max-height: 100%;
+  }
+
+  &.is-closed {
+    line-height: 0;
+    max-height: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}

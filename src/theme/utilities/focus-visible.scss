@@ -1,0 +1,14 @@
+@use '../colours' as col;
+
+@mixin focus-visible-style($colour: col.$keyboard-focus) {
+  box-shadow:
+    0 0 2px 2px col.$bg,
+    0 0 2px 5px $colour !important;
+  outline: 0 !important;
+}
+
+@mixin focus-visible($colour: col.$keyboard-focus) {
+  &:focus-visible {
+    @include focus-visible-style($colour);
+  }
+}

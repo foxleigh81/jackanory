@@ -1,0 +1,59 @@
+.label {
+  @include util.base-input-label();
+
+  &:hover {
+    cursor: default;
+
+    // Only apply pointer if label is associated with an enabled checkbox or radio button
+    &:has(input[type='checkbox']:enabled, input[type='radio']:enabled) {
+      cursor: pointer;
+    }
+
+    // Apply not-allowed cursor if associated checkbox/radio is disabled
+    &:has(input[type='checkbox']:disabled, input[type='radio']:disabled) {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.pos-above {
+  display: block;
+  margin-bottom: margin(0.5);
+
+  &.has-child {
+    margin-bottom: unset;
+
+    > * {
+      margin-top: margin(1);
+    }
+  }
+}
+
+.pos-before,
+.pos-after {
+  align-items: center;
+  display: grid;
+  gap: spacing(1);
+  grid-template-columns: max-content max-content;
+
+  &.required {
+    grid-template-columns: max-content max-content min-content;
+
+    .asterisk {
+      margin-left: margin(-1);
+    }
+  }
+}
+
+.large {
+  @include type.large-text();
+}
+
+.asterisk {
+  @include type.body-text();
+
+  color: col.$danger;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: margin(0.2);
+}

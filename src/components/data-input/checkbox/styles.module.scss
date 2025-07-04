@@ -1,0 +1,68 @@
+.input {
+  @include util.base-input;
+
+  appearance: none;
+  aspect-ratio: 1/1;
+  cursor: inherit;
+  display: grid;
+  height: 22px;
+  width: auto;
+
+  &::before {
+    background-color: transparent;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    content: '';
+    height: 60%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    border-color: col.$primary;
+    outline: none;
+  }
+
+  &:checked {
+    &::before {
+      background-color: CanvasText;
+    }
+  }
+
+  &:checked:disabled {
+    &::before {
+      background-color: col.$label-text;
+    }
+  }
+
+  &:disabled {
+    background-color: col.$grey-300;
+    border-color: col.$grey-400;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.icon-container {
+  position: relative;
+
+  svg {
+    height: 100%;
+    left: 0;
+    padding: 2px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &--hidden {
+    opacity: 0;
+    position: absolute;
+  }
+}

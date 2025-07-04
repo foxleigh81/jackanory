@@ -1,0 +1,44 @@
+import * as Stories from './text.stories';
+
+import { Text } from './index';
+
+<Meta of={Stories} />
+
+<Title of={Text} />
+
+<WorksWith of={Text} />
+
+<Description of={Text} />
+
+<Primary />
+
+<Controls />
+
+<Canvas withToolbar sourceState="shown" of={Stories.Disabled} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.ReadOnly} />
+
+## Non-text types
+
+In spite of it's name, the `Text` component can also be used to collect any kind of text, based input including, email addresses, numbers and more.
+
+Check the props table below or have a play with the controls to see the full list of types.
+
+Here's an example of the 'number' type.
+
+<Canvas withToolbar sourceState="shown" of={Stories.OtherTypes} />
+
+## Mobile only types
+
+The following types do not do anything exciting on desktop devices,
+however on a mobile device, they will change the users keyboard to
+include extra features. Such as a number pad or a '.com' button.
+
+Appearance-wise, they all appear as a reuglar text input, so it makes sense to
+group them together, view this page on mobile to see the differences.
+
+<Canvas withToolbar sourceState="shown" of={Stories.Tel} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.Email} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.URL} />

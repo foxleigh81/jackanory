@@ -1,0 +1,25 @@
+import * as Stories from './table-head.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+Please view the [Table](?path=/docs/components-data-display-table--docs) component to see the component in an actual `Table` component.
+
+{/* <WorksWith /> */}
+
+<Primary />
+
+## Solid header
+
+If you would prefer to render a solid header, you can use the `solid` prop.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithSolidHeader} />
+
+<Tip type="warning">
+  If you are rendering a table manually, make sure to use a `th` element for the
+  child of the `TableHead` component when using the `solid` prop. Otherwise the
+  solid styling will not be applied.
+</Tip>

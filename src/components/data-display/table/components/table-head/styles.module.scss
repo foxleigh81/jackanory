@@ -1,0 +1,8 @@
+.thead {
+  display: table-header-group;
+}
+
+.solid th {
+  background-color: col.$primary;
+  color: col.$light;
+}

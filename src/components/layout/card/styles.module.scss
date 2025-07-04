@@ -1,0 +1,17 @@
+.card {
+  @include util.card();
+}
+
+.v-spacing {
+  margin-bottom: $component-spacing;
+  margin-top: $component-spacing;
+}
+
+.h-spacing {
+  margin-left: $component-spacing;
+  margin-right: $component-spacing;
+}
+
+.no-bg {
+  background-color: unset;
+}

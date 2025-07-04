@@ -1,0 +1,48 @@
+@use 'sass:color';
+
+.input-container {
+  @include util.statuses('background', '.status-message');
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: margin(2);
+  padding: padding(0.3);
+  position: relative;
+
+  &.status-error {
+    border: 1px dotted color.scale(col.$error, $lightness: 40%);
+  }
+
+  .status-message {
+    align-items: center;
+    color: col.$light;
+    display: flex;
+    gap: spacing(0.5);
+    margin-top: margin(0.5);
+    padding: padding(0.5);
+  }
+
+  .icon {
+    height: 20px;
+    width: 20px;
+  }
+
+  .helper-text-top,
+  .helper-text-bottom {
+    @include type.input-label();
+
+    color: col.$grey-600;
+  }
+
+  .helper-text-top {
+    margin-bottom: margin(1);
+  }
+
+  .helper-text-bottom {
+    margin-top: margin(0.5);
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}

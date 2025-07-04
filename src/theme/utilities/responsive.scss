@@ -1,0 +1,8 @@
+//NOTE: If you are looking for the breakpoint variables, they are in styles/breakpoints.scss
+
+// A mixin to simplify writing breakpoints
+@mixin mq($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}

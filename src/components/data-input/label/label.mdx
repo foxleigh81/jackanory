@@ -1,0 +1,71 @@
+import * as Stories from './label.stories';
+
+import { Label } from './index';
+
+<Meta of={Stories} />
+
+<Title of={Label} />
+
+<WorksWith of={Label} />
+
+<Description of={Label} />
+
+<Tip type="danger">
+  It is very important that you pass the same `id` prop value to the Label and
+  the input
+</Tip>
+
+<Primary />
+
+<Controls />
+
+## Required label
+
+You can add a 'required' asterisk to the label by passing the 'required' prop to the component.
+
+<Canvas withToolbar sourceState="shown" of={Stories.Required} />
+
+## Large label
+
+The label can also be a larger label (which looks like a form Legend) by passing the 'largeLabel' prop to the component.
+
+<Canvas withToolbar sourceState="shown" of={Stories.Large} />
+
+## Simulated label
+
+You can also use the Label component to create a 'fake' label where a real label is not available / appropriate.
+
+<Tip type="warning">
+  This is not a recommended pattern and should only be used in exceptional
+  circumstances. You will also need to manually add any margins to ensure the
+  label is positioned correctly.
+</Tip>
+
+<Canvas withToolbar sourceState="shown" of={Stories.Simulated} />
+
+## Input as child
+
+You can also pass an input as a child to the Label component. If you do this,
+the label will be automatically associated with the input, however you will still
+need to pass the `id` prop as this is used to generate the test id and to hook
+into the validation system.
+
+<Tip>
+  {' '}
+  Some components can have issues when rendered via the InputFactory component.
+  If you are having an issue try passing the `parent` prop to the label. This
+  will prevent the `htmlFor` attribute from being set which usually fixes the
+  issue.{' '}
+</Tip>
+
+<Canvas withToolbar sourceState="shown" of={Stories.InputAsChild} />
+
+## Label Position
+
+If the input is a child of the label (see above), you may wish to alter the labels
+position relative to the input. By default the label will be positioned above the input. You can change this by
+passing the `position` prop to the component. Valid values are `above`, `before` and `after`.
+
+<Canvas withToolbar sourceState="shown" of={Stories.PositionBefore} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.PositionAfter} />

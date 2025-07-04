@@ -1,0 +1,38 @@
+.breadcrumbs {
+  font-size: type.$small-text-size;
+
+  ol {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    @include util.link();
+
+    font-size: type.$small-text-size;
+    padding: 0 padding(0.5);
+  }
+
+  .current-page {
+    color: col.$grey-900;
+    font-weight: bold;
+  }
+
+  .seperator {
+    display: flex;
+    margin-left: margin(0.2);
+    margin-right: margin(0.2);
+    user-select: none;
+
+    svg {
+      display: inline-block;
+      fill: col.$grey-400;
+      height: 18px;
+      width: 18px;
+    }
+  }
+}

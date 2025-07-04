@@ -1,0 +1,19 @@
+@use '../vars' as *;
+
+/**
+ * @mixin list
+ * @description creates a standardised list style with a customisable type
+ */
+@mixin list($type: disc) {
+  list-style-type: $type;
+  padding-left: padding(1.5);
+
+  li {
+    margin-bottom: margin(1);
+    line-height: 1.3;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.grid {
+  display: grid;
+  gap: spacing(2);
+  grid-auto-rows: 1fr;
+  margin-bottom: margin(2);
+
+  @include util.mq(bp.$medium-small) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include util.mq(bp.$medium) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  &-3-up {
+    @include util.mq(bp.$medium) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &-2-up {
+    @include util.mq(bp.$medium) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

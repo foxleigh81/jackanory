@@ -1,0 +1,49 @@
+import * as Stories from './flip-container.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+Any DOM element or React Component can be used within a flip container. Simply pass your content to the `front` and `back` props.
+
+<Primary />
+
+<Controls />
+
+## Controlling the flip
+
+By default, the flip container will flip when the user clicks on it. However there are two other ways to control the flip:
+
+### On hover
+
+You can set the `flipType` to `hover` to flip the container when the user hovers over it.
+
+<Canvas withToolbar sourceState="shown" of={Stories.HoverFlip} />
+
+### Via external controls
+
+You can also set the `flipType` to `controlled` and control the flip via external controls using the `isFlipped` prop.
+
+<Canvas withToolbar sourceState="shown" of={Stories.ControlledFlip} />
+
+<Tip type="warning">
+  If the flip container is being controlled by an external button, the button
+  should be given an `aria-controls` attribute with the value of the flip
+  container's `id` attribute. The button should also be given an `aria-expanded`
+  attribute with the value of `true` when the flip container is visible and
+  `false` when it is hidden.
+</Tip>
+
+## Positioning issues
+
+If you are having issues where the flip animation is causing the scrollbar to jump, you can add a `className` prop to the flip container and add the following CSS to your stylesheet:
+
+```css
+.your-class-name {
+  perspective-origin: bottom;
+}
+```
+
+This will cause the flip animation to originate from the bottom of the flip container, which will prevent the scrollbar from jumping. You can also use `perspective-origin: top` if you want the flip animation to originate from the top of the flip container instead.
