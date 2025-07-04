@@ -1,0 +1,124 @@
+@use 'sass:color';
+
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: padding(1) padding(2);
+  border-bottom: 1px solid col.$border;
+  position: relative;
+  z-index: $level-1;
+  background-color: col.$bg;
+}
+
+.navAndActionsContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: col.$bg;
+  z-index: $z-menu;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  padding: padding(6) padding(2) padding(2);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
+
+  &.isOpen {
+    transform: translateX(0);
+  }
+
+  @include util.mq(bp.$medium-large) {
+    position: static;
+    transform: none;
+    background: none;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: spacing(3);
+    overflow: visible;
+    z-index: auto;
+    transition: none;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  gap: spacing(1.5);
+
+  > * {
+    width: 100%;
+    text-align: center;
+  }
+
+  @include util.mq(bp.$medium-large) {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    gap: spacing(1);
+
+    > * {
+      width: auto;
+      text-align: left;
+    }
+  }
+}
+
+.menuToggleButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: $level-10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+
+  .iconLine {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: col.$body-text;
+    transition:
+      transform 0.3s ease-in-out,
+      opacity 0.3s ease-in-out;
+    transform-origin: center;
+  }
+
+  &.isOpen {
+    .iconLine:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .iconLine:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .iconLine:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+
+  @include util.mq(bp.$medium-large) {
+    display: none;
+  }
+}
+
+.subscribePanel {
+  width: 90vw;
+  height: 90vh;
+  max-width: 1200px;
+  max-height: 800px;
+}
+
+.subscribeIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}

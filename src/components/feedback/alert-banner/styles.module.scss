@@ -1,0 +1,52 @@
+@mixin banner($type, $mode: '') {
+  align-items: stretch;
+  background-color: col.$light;
+  border: 1px solid $type;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: $component-spacing;
+
+  .icon {
+    align-items: center;
+    background-color: $type;
+    color: col.$light;
+    display: flex;
+    justify-content: center;
+    padding: padding(2);
+  }
+
+  .message {
+    padding: padding(1) padding(2);
+
+    @if ($mode == 'dark') {
+      color: col.$light;
+    }
+
+    h2 {
+      @include type.heading-medium();
+
+      & {
+        color: col.$body-text;
+        margin-bottom: margin(0.5);
+      }
+    }
+  }
+
+  a {
+    @include util.link();
+  }
+}
+
+$banner-types: (
+  'error': col.$danger,
+  'success': col.$success,
+  'information': col.$info,
+  'warning': col.$warning
+);
+
+@each $name, $type in $banner-types {
+  .alert-banner-#{$name} {
+    @include banner($type);
+  }
+}

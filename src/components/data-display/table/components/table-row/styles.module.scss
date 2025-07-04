@@ -1,0 +1,21 @@
+@use 'sass:color';
+
+.table-row {
+  background-color: transparent;
+  display: table-row;
+  margin-bottom: 0;
+  padding: 0;
+
+  &.selectable {
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background: rgba(col.$dark, 0.08);
+    }
+  }
+
+  &.active {
+    background: color.adjust(col.$action-focus-bg, $lightness: 25%);
+  }
+}

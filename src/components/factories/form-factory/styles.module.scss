@@ -1,0 +1,31 @@
+@use 'sass:color';
+
+.error-summary {
+  background-color: color.scale(col.$error, $lightness: 80%);
+  border: 1px solid col.$error;
+  color: color.scale(col.$error, $lightness: -20%);
+  margin: 0 margin(2) margin(2) margin(2);
+  padding: padding(2);
+}
+
+.error-count {
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+}
+
+.icon {
+  height: 20px;
+  margin-right: margin(1);
+  width: 20px;
+}
+
+.error-list {
+  list-style: disc;
+  margin-bottom: 0;
+  margin-left: margin(2);
+}
+
+.button-group {
+  margin-left: margin(2);
+}

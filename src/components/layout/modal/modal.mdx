@@ -1,0 +1,59 @@
+import * as Stories from './modal.stories';
+
+import Modal from './index';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+The contents of a modal can be any valid React component. This example uses the `DialogBox` component.
+
+<Primary />
+
+<Controls />
+
+## Modal Usage
+
+The modal will be rendered as a child of the body element and will be positioned in the center of the screen.
+
+You can show and hide the modal by setting the `isOpen` prop to true or false.
+
+## Alert Modal
+
+The alert modal is a special case of the modal that is used to display a message to the user.
+Again the contents of the modal is up to you but the alert modal will have a role of `alertdialog` which will
+announce the modal to screen readers.
+
+<Canvas withToolbar sourceState="shown" of={Stories.AlertModal} />
+
+## Modal Sizes
+
+The modal can be rendered in four different sizes. The default size is `medium` which can be seen above.
+
+You can also have a `small` modal.
+
+<Canvas withToolbar sourceState="shown" of={Stories.SmallModal} />
+
+A `large` modal.
+
+<Canvas withToolbar sourceState="shown" of={Stories.LargeModal} />
+
+And an `extraLarge` modal.
+
+<Canvas withToolbar sourceState="shown" of={Stories.ExtraLargeModal} />
+
+## Modal content
+
+A modal containing a `video` element.
+
+<Canvas withToolbar sourceState="shown" of={Stories.VideoModal} />
+
+A modal containing various tabbable elements.
+
+<Canvas withToolbar sourceState="shown" of={Stories.TabFocusModal} />
+
+A modal containing a non-tabbable element.
+
+<Canvas withToolbar sourceState="shown" of={Stories.NoFocusModal} />

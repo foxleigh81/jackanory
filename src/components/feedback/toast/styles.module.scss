@@ -1,0 +1,128 @@
+@use 'sass:color';
+
+.toast-container {
+  align-items: center;
+  display: flex;
+  padding: padding(1.5);
+}
+
+.toast-close-button {
+  padding: 0 !important;
+
+  svg {
+    fill: col.$light;
+  }
+}
+
+.toast {
+  align-self: flex-end;
+  border-radius: $border-radius-lg;
+  box-shadow: $drop-shadow;
+  color: col.$light;
+  max-width: 384px;
+  overflow: hidden;
+  pointer-events: auto;
+  position: relative;
+  width: 100%;
+
+  &.success {
+    background: col.$success;
+
+    .progress-bar {
+      background-color: color.scale(col.$success, $lightness: -10%);
+    }
+  }
+
+  &.error {
+    background: col.$danger;
+
+    .progress-bar {
+      background-color: color.scale(col.$danger, $lightness: -10%);
+    }
+  }
+
+  &.info {
+    background: col.$info;
+
+    .progress-bar {
+      background-color: color.scale(col.$info, $lightness: -10%);
+    }
+  }
+
+  &.warning {
+    background: col.$warning;
+
+    .progress-bar {
+      background-color: color.scale(col.$warning, $lightness: -10%);
+    }
+  }
+
+  &.default {
+    background: col.$grey-300;
+    color: col.$body-text;
+
+    .toast-close-button {
+      svg {
+        fill: col.$body-text;
+      }
+    }
+  }
+}
+
+.toast-content {
+  flex: 1;
+  font-weight: 500;
+  margin-left: margin(1);
+}
+
+.toast-icon {
+  height: 2rem;
+  width: 2rem;
+}
+
+.sr-only {
+  border-width: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.progress-bar {
+  animation: track-progress linear 1 forwards;
+  background-color: col.$grey-600;
+  bottom: 0;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  transform-origin: left;
+  width: 100%;
+}
+
+@keyframes track-progress {
+  0% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+// transform ease-out duration-300 transition
+.transition-enter {
+  transform: translate3d(0, 10px, 0);
+  transition-duration: 300ms;
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}

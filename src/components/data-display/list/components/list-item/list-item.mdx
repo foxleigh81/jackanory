@@ -1,0 +1,37 @@
+import * as Stories from './list-item.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+<Primary />
+
+<Controls />
+
+## List type
+
+You can specify the type of list the item is in by passing the correct value `type` prop.
+However, if you are using this component from within a `List` component then it will automatically
+inherit the type from the parent.
+
+### Within an ordered list
+
+<Canvas withToolbar sourceState="shown" of={Stories.IsInOrderedList} />
+
+### Within an unordered list
+
+<Canvas withToolbar sourceState="shown" of={Stories.IsInUnorderedList} />
+
+## Interactions
+
+You can add an `onClick` handler to a `ListItem` to make it interactive. This will add a hover
+state and a focus state to the item.
+
+<Canvas withToolbar sourceState="shown" of={Stories.IsClickable} />
+
+You can also add an `active` prop to the `ListItem` to indicate that this list
+item is currently active.
+
+<Canvas withToolbar sourceState="shown" of={Stories.IsActive} />

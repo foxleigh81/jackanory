@@ -1,0 +1,505 @@
+@use 'typography' as type;
+@use 'colours' as col;
+@use 'utilities/link' as *;
+@use 'utilities/buttons' as *;
+@use 'utilities/rich-text-elements' as *;
+@use 'vars/spacing' as *;
+
+.db {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.dashboard-layout {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  width: 100vw;
+  padding: padding(4);
+}
+
+.app-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+.app-content {
+  display: grid;
+  grid-template-rows: 1fr;
+  height: 100%;
+  position: relative;
+}
+
+.panel-content {
+  padding: padding(3);
+  max-height: 50vh;
+  overflow-y: auto;
+
+  @include rich-text-elements();
+}
+
+.vertical-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  width: 100%;
+}
+
+.vertical-layout__top {
+  grid-row: 1;
+}
+
+.vertical-layout__main {
+  position: relative;
+  grid-row: 2;
+  min-height: 0; // This prevents content from forcing the grid to expand
+}
+
+.vertical-layout__bottom {
+  grid-row: 3;
+}
+
+// Margin
+.m-0 {
+  margin: 0;
+}
+
+.m-1 {
+  margin: 0.25rem;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-3 {
+  margin: 1rem;
+}
+
+.m-4 {
+  margin: 1.5rem;
+}
+
+.m-5 {
+  margin: 3rem;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-5 {
+  margin-bottom: 3rem;
+}
+
+.ml-0 {
+  margin-left: 0;
+}
+
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.ml-3 {
+  margin-left: 1rem;
+}
+
+.ml-4 {
+  margin-left: 1.5rem;
+}
+
+.ml-5 {
+  margin-left: 3rem;
+}
+
+.mr-0 {
+  margin-right: 0;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mr-3 {
+  margin-right: 1rem;
+}
+
+.mr-4 {
+  margin-right: 1.5rem;
+}
+
+.mr-5 {
+  margin-right: 3rem;
+}
+
+// Padding
+.p-0 {
+  padding: 0;
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 1rem;
+}
+
+.p-4 {
+  padding: 1.5rem;
+}
+
+.p-5 {
+  padding: 3rem;
+}
+
+.pt-0 {
+  padding-top: 0;
+}
+
+.pt-1 {
+  padding-top: 0.25rem;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pt-3 {
+  padding-top: 1rem;
+}
+
+.pt-4 {
+  padding-top: 1.5rem;
+}
+
+.pt-5 {
+  padding-top: 3rem;
+}
+
+.pb-0 {
+  padding-bottom: 0;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
+.pb-3 {
+  padding-bottom: 1rem;
+}
+
+.pb-4 {
+  padding-bottom: 1.5rem;
+}
+
+.pb-5 {
+  padding-bottom: 3rem;
+}
+
+.pl-0 {
+  padding-left: 0;
+}
+
+.pl-1 {
+  padding-left: 0.25rem;
+}
+
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
+.pl-3 {
+  padding-left: 1rem;
+}
+
+.pl-4 {
+  padding-left: 1.5rem;
+}
+
+.pl-5 {
+  padding-left: 3rem;
+}
+
+.pr-0 {
+  padding-right: 0;
+}
+
+.pr-1 {
+  padding-right: 0.25rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
+}
+
+.pr-3 {
+  padding-right: 1rem;
+}
+
+.pr-4 {
+  padding-right: 1.5rem;
+}
+
+.pr-5 {
+  padding-right: 3rem;
+}
+
+// Text alignment
+.ta-l {
+  text-align: left;
+}
+
+.ta-c {
+  text-align: center;
+}
+
+.ta-r {
+  text-align: right;
+}
+
+.justify {
+  text-align: justify;
+}
+
+// Font weight
+.fw-normal {
+  font-weight: 400;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.fw-light {
+  font-weight: 300;
+}
+
+// Width
+.w-100,
+.w-full {
+  width: 100%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+// Height
+.h-100,
+.h-full {
+  height: 100%;
+}
+
+.h-75 {
+  height: 75%;
+}
+
+.h-50 {
+  height: 50%;
+}
+
+.h-25 {
+  height: 25%;
+}
+
+// Flexbox
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.items-center {
+  place-items: center;
+}
+
+.content-center {
+  place-content: center;
+}
+
+.gap-0 {
+  gap: 0;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.gap-3 {
+  gap: 3rem;
+}
+
+.gap-4 {
+  gap: 4rem;
+}
+
+// Overflow
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+// Typography
+// NOTE: These should match the typography variables in the _typography.scss file.
+// Please keep them in sync.
+
+.body-text {
+  @include type.body-text;
+}
+
+.small-text {
+  @include type.small-text;
+}
+
+.large-text {
+  @include type.large-text;
+}
+
+.title {
+  @include type.title;
+}
+
+.heading-large {
+  @include type.heading-large;
+}
+
+.heading-medium {
+  @include type.heading-medium;
+}
+
+.heading-small {
+  @include type.heading-small;
+}
+
+.input {
+  @include type.input;
+}
+
+.input-label {
+  @include type.input-label;
+}
+
+.input-placeholder {
+  @include type.input-placeholder;
+}
+
+.form-metadata {
+  @include type.form-metadata;
+}
+
+.button {
+  @include button(col.$primary-button, col.$light);
+}
+
+.link {
+  @include link();
+}

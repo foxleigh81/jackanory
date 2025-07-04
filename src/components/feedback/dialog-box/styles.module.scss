@@ -1,0 +1,47 @@
+.confirmation-dialogue {
+  background-color: col.$main-panel-bg;
+  border: 1px solid col.$grey-400;
+  border-radius: $border-radius;
+  box-shadow: $modal-shadow;
+  display: grid;
+  font-size: type.$body-text-size;
+  grid-template-rows: max-content 1fr;
+  place-items: center;
+  width: fit-content;
+}
+
+.fit-container {
+  height: 100%;
+  width: 100%;
+}
+
+.inner {
+  display: grid;
+  gap: spacing(1);
+  grid-auto-rows: 1fr;
+  height: 100%;
+  padding: padding(2);
+  width: 100%;
+}
+
+.title {
+  background-color: col.$grey-300;
+  border-bottom: 1px solid col.$grey-400;
+  font-size: type.$large-text-size;
+  font-weight: bold;
+  padding: padding(1) padding(2);
+  text-align: center;
+  width: 100%;
+}
+
+.button-container {
+  align-self: center;
+  display: flex;
+  gap: spacing(1);
+  justify-content: center;
+}
+
+.both-buttons {
+  // The transparent button makes the buttons look off-center, so the padding is adjusted to compensate.
+  padding-right: padding(2);
+}

@@ -1,0 +1,8 @@
+@use '../colours' as col;
+@use '../vars' as *;
+
+@mixin paper() {
+  background-color: col.$main-panel-bg;
+  margin: 0;
+  padding: padding(2.5) padding(3);
+}

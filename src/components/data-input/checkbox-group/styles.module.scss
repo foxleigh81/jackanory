@@ -1,0 +1,19 @@
+.checkbox-group {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  gap: spacing(2);
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &.vertical {
+    flex-direction: column;
+  }
+}
+
+.legend {
+  @include util.legend();
+  @include util.base-input-label();
+}

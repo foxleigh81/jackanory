@@ -1,0 +1,126 @@
+@use 'vars/spacing';
+@use 'breakpoints' as bp;
+@use 'utilities/responsive' as util;
+
+/**
+NOTE: If you add, remove or rename a typography variable,
+you will need to update the _utility-classes.scss file
+to match.
+*/
+
+$body-text-size: 1.4rem;
+
+@mixin body-text {
+  font-size: $body-text-size;
+  line-height: 2.1rem;
+}
+
+$small-text-size: 1.2rem;
+
+@mixin small-text {
+  font-size: $small-text-size;
+}
+
+$large-text-size: 1.6rem;
+
+@mixin large-text {
+  font-size: $large-text-size;
+}
+
+/* Headings */
+
+$title-size: 10rem;
+
+@mixin title {
+  font-weight: 800;
+  letter-spacing: 0;
+  font-size: 18vw;
+
+  @include util.mq(620px) {
+    font-size: calc($title-size / 1.2);
+  }
+
+  @include util.mq(bp.$medium) {
+    font-size: $title-size;
+    line-height: 1;
+  }
+}
+
+$heading-large-size: 3.4rem;
+
+@mixin heading-large {
+  font-weight: 800;
+  letter-spacing: 0;
+  font-size: calc($heading-large-size / 1.5);
+
+  @include util.mq(bp.$medium) {
+    font-size: $heading-large-size;
+  }
+}
+
+$heading-medium-size: 2.4rem;
+
+@mixin heading-medium {
+  font-weight: 800;
+  letter-spacing: 0;
+  font-size: calc($heading-medium-size / 1.5);
+
+  @include util.mq(bp.$medium) {
+    font-size: $heading-medium-size;
+  }
+}
+
+$heading-small-size: 2rem;
+
+@mixin heading-small {
+  font-weight: 600;
+  font-size: calc($heading-small-size / 1.5);
+
+  @include util.mq(bp.$medium) {
+    font-size: $heading-small-size;
+  }
+}
+
+/* Forms and buttons */
+$input-size: $body-text-size;
+
+@mixin input {
+  font-size: $input-size;
+  line-height: 1rem;
+}
+
+$input-label-size: $body-text-size;
+
+@mixin input-label {
+  font-size: $input-label-size;
+  line-height: 1rem;
+}
+
+$input-placeholder-size: $input-size;
+
+@mixin input-placeholder {
+  font-size: $input-placeholder-size;
+  line-height: 1.8rem;
+}
+
+$form-metadata-size: 1.2rem;
+
+@mixin form-metadata {
+  font-size: $form-metadata-size;
+  line-height: 1.8rem;
+}
+
+$button-size: $input-size;
+
+@mixin button {
+  font-size: $button-size;
+  line-height: 1;
+}
+
+/* Links */
+$link-size: $body-text-size;
+
+@mixin link {
+  font-size: $link-size;
+  line-height: 1;
+}

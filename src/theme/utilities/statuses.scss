@@ -1,0 +1,92 @@
+@use '../vars' as *;
+@use '../colours' as col;
+@use 'focus-visible' as *;
+@use 'sass:color';
+
+$statuses: (
+  error: col.$error,
+  success: col.$success,
+  warning: col.$warning,
+  info: col.$info
+);
+
+@mixin statuses($type, $child: '') {
+  @each $status, $color in $statuses {
+    &.status-#{$status} #{$child} {
+      @if $type == 'border' {
+        border-color: $color;
+      }
+
+      @if $type == 'color' or $type == 'colour' {
+        color: $color;
+      }
+
+      @if $type == 'background' {
+        background-color: $color;
+      }
+
+      @if $type == 'background-faded' {
+        background-color: color.scale($color, $lightness: 40%);
+      }
+      // Use this if you want the element to have a hover state
+      @if $type == 'border-hover' {
+        border-color: $color;
+
+        &:hover {
+          @if color.lightness($color) > 50 {
+            border-color: color.scale($color, $lightness: -10%);
+          } @else {
+            border-color: color.scale($color, $lightness: 10%);
+          }
+
+          border-color: $color;
+        }
+      }
+
+      @if $type == 'color-hover' or $type == 'colour-hover' {
+        color: $color;
+
+        &:hover {
+          @if color.lightness($color) > 50 {
+            color: color.scale($color, $lightness: -10%);
+          } @else {
+            color: color.scale($color, $lightness: 10%);
+          }
+        }
+      }
+
+      @if $type == 'background-hover' {
+        background-color: $color;
+
+        &:hover {
+          @if color.lightness($color) > 50 {
+            background-color: color.scale($color, $lightness: -10%);
+          } @else {
+            background-color: color.scale($color, $lightness: 10%);
+          }
+        }
+      }
+
+      /** Quite a specific use case where you want the border to lighten/darken
+      /* on hover but you also want a subtle light background colour as well
+      /*/
+      @if $type == 'background-border-hover' {
+        border-color: $color;
+
+        &:hover {
+          background-color: color.scale($color, $lightness: 45%);
+
+          @if color.lightness($color) > 50 {
+            border-color: color.scale($color, $lightness: -10%);
+          } @else {
+            border-color: color.scale($color, $lightness: 10%);
+          }
+        }
+      }
+
+      @if $type == 'focus' {
+        @include focus-visible($color);
+      }
+    }
+  }
+}

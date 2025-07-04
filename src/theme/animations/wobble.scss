@@ -1,0 +1,27 @@
+@mixin wobble($amount: 8deg, $duration: 0.5s, $loop: infinite) {
+  @keyframes wobble {
+    0% {
+      transform: rotate(0);
+    }
+
+    25% {
+      transform: rotate(-#{$amount});
+    }
+
+    50% {
+      transform: rotate($amount);
+    }
+
+    75% {
+      transform: rotate(-#{$amount});
+    }
+
+    100% {
+      transform: rotate(0);
+    }
+  }
+
+  & {
+    animation: wobble $duration $loop;
+  }
+}

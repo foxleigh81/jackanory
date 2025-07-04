@@ -1,0 +1,36 @@
+import * as Stories from './accordion.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+This component is a simple wrapper with an additional `Accordion.Item` component
+included for convenience.
+
+Rather than use this component directly, consider using the <a href="/?path=/docs/components-factories-accordion-factory--docs">AccordionFactory</a> component to generate your accordion from data.
+
+Using this component alongside `Accordion.Item` allows you to build an accordion from scratch
+This can be useful if your requirements are more complex than the `AccordionFactory` component can handle.
+
+<Primary />
+
+<Controls />
+
+## Usage examples
+
+Here are two examples of how you might use this component, both of these examples
+are availble from the <a href="/?path=/docs/components-factories-accordion-factory--docs">AccordionFactory</a> component.
+
+### Specify the open item
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithOpenItem} />
+
+### Limit the number of open items to one
+
+<Tip type="note">
+  If you use the AccordionFactory, this is the default behaviour.
+</Tip>
+
+<Canvas withToolbar sourceState="shown" of={Stories.LimitOpenItemsToOne} />

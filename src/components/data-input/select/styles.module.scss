@@ -1,0 +1,71 @@
+.input-select-container {
+  @include util.base-input();
+
+  align-items: center;
+  display: grid;
+  grid-template-areas: 'select';
+  min-width: 200px;
+  padding: 0;
+
+  &::after {
+    background-color: col.$primary;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    content: '';
+    grid-area: select;
+    height: 7px;
+    justify-self: end;
+    margin-right: margin(1);
+    width: 13px;
+    z-index: 2;
+  }
+
+  &.status-error {
+    &::after {
+      background-color: col.$error;
+    }
+  }
+}
+
+.input-select {
+  @include type.input();
+  @include util.focus-visible();
+  @include util.statuses('focus');
+  @include util.statuses('border');
+  @include util.statuses('background-faded');
+
+  appearance: none;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  grid-area: select;
+  height: 100%;
+  line-height: 1.5;
+  outline: none;
+  padding: padding(0.5) padding(1);
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:focus {
+    background-color: col.$input-focus-bg;
+    border-color: col.$input-border-focus;
+  }
+}
+
+.multi-select-container select {
+  @include util.base-input();
+
+  min-height: 10rem;
+
+  option {
+    padding: padding(0.5) padding(1);
+  }
+
+  &::after {
+    display: none;
+  }
+}

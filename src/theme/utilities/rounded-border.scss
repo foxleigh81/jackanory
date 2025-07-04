@@ -1,0 +1,5 @@
+@use '../vars' as *;
+
+@mixin rounded-border() {
+  border-radius: $border-radius $border-radius $border-radius $border-radius;
+}

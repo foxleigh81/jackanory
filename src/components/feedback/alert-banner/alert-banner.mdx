@@ -1,0 +1,40 @@
+import * as Stories from './alert-banner.stories';
+
+import { AlertBanner } from './index';
+
+<Meta of={Stories} />
+
+<Title of={AlertBanner} />
+
+<Description of={AlertBanner} />
+
+<Primary />
+
+<Controls />
+
+## Info Banner
+
+<Canvas withToolbar sourceState="shown" of={Stories.InfoBanner} />
+
+## Warning Banner
+
+<Canvas withToolbar sourceState="shown" of={Stories.WarningBanner} />
+
+## Error Banner
+
+<Canvas withToolbar sourceState="shown" of={Stories.DangerBanner} />
+
+## Success Banner
+
+<Tip>
+  {' '}
+  The success banner is also an example of a banner with HTML content.{' '}
+</Tip>
+
+<Canvas withToolbar sourceState="shown" of={Stories.SuccessBanner} />
+
+## Banner with no title
+
+A title can be specified if required, however if no title is specified it will default to the title of the status, e.g. 'Warning'.
+
+<Canvas withToolbar sourceState="shown" of={Stories.NoTitle} />

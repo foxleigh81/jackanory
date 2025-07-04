@@ -1,0 +1,68 @@
+import * as Stories from './toast.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+<Tip type="warning">
+  The `Toast` component is not used in the same way as most other components.
+  See 'usage' below.
+</Tip>
+
+<Primary />
+
+<Controls />
+
+## Usage
+
+You will never actually need to import the `Toast` component directly. Instead, you will use the
+`createToast` method from the helpers library and call it with the message you want to display.
+
+```js
+import { createToast } from 'lib/helpers/create-toast';
+
+createToast('Hello world!');
+```
+
+<Tip type="note">
+  In order to show a toast message a `ToastProvider` must be present on the
+  page. All Jackanory pages have a `ToastProvider` present by default.
+</Tip>
+
+## Toast Types
+
+There are 4 types of toast messages (in addition to the default type) that can be displayed.
+
+### Success
+
+```js
+createToast.success('Success message');
+```
+
+<Canvas withToolbar sourceState="shown" of={Stories.Success} />
+
+### Error
+
+```js
+createToast.error('Error message');
+```
+
+<Canvas withToolbar sourceState="shown" of={Stories.Error} />
+
+### Warning
+
+```js
+createToast.warning('Warning message');
+```
+
+<Canvas withToolbar sourceState="shown" of={Stories.Warning} />
+
+### Info
+
+```js
+createToast.info('Info message');
+```
+
+<Canvas withToolbar sourceState="shown" of={Stories.Info} />

@@ -1,0 +1,116 @@
+/**
+ * Rich Text utility for comprehensive HTML element styling
+ * Provides consistent styling for all HTML elements commonly found in rich text content
+ */
+
+@use '../colours' as col;
+@use '../typography' as type;
+@use '../vars' as *;
+@use 'link' as util;
+
+@mixin rich-text-elements {
+  h2 {
+    @include type.heading-large();
+
+    & {
+      margin-bottom: margin(1);
+    }
+  }
+
+  h3 {
+    @include type.heading-medium();
+
+    & {
+      font-weight: bold;
+      margin-bottom: margin(1);
+    }
+  }
+
+  h4 {
+    @include type.heading-small();
+
+    & {
+      margin-bottom: margin(1);
+    }
+  }
+
+  h5 {
+    @include type.body-text();
+
+    & {
+      font-weight: bold;
+      margin-bottom: margin(1);
+    }
+  }
+
+  p {
+    @include type.body-text();
+
+    & {
+      line-height: 1.5;
+      margin-bottom: margin(1);
+    }
+  }
+
+  blockquote {
+    background-color: col.$main-panel-bg;
+    border-left: 5px solid col.$grey-500;
+    margin-bottom: margin(1);
+    padding: padding(1) padding(2);
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  ul,
+  ol,
+  dl {
+    @include type.body-text();
+    margin-bottom: margin(1);
+  }
+
+  li,
+  dd {
+    @include type.body-text();
+    margin-bottom: margin(0.5);
+  }
+
+  dt {
+    @include type.body-text();
+  }
+
+  /*
+   * Only one H1 is allowed per page, so we can use this to prevent
+   * the rich text component displaying any H1s.
+   */
+  h1 {
+    color: col.$danger;
+    font-size: type.$heading-large-size;
+    font-weight: bold;
+    line-height: 1.2;
+    padding: 1rem;
+
+    &::before {
+      background-color: col.$danger;
+      color: col.$light;
+      content: '!';
+      float: left;
+      font-size: 2rem;
+      margin-right: 1rem;
+      padding: padding(1);
+      text-align: center;
+    }
+
+    &::after {
+      color: col.$danger;
+      content: 'H1 tags are not allowed in rich text';
+      display: block;
+      font-size: 2rem;
+    }
+  }
+
+  a {
+    @include util.link();
+  }
+}

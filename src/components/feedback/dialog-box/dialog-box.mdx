@@ -1,0 +1,49 @@
+import * as Stories from './dialog-box.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+<Primary />
+
+<Controls />
+
+## With different button variants
+
+You can change the button variants by passing the `confirmVariant` and `cancelVariant` props.
+
+As you can see in the above example, having a green button to confirm a delete action is a bit odd. So you can change the variant to `destroy` instead.
+
+<Canvas withToolbar sourceState="shown" of={Stories.ButtonVariants} />
+
+## Confirm only
+
+If you only want the dialogue to display a confirm button then you only need to pass the `confirmAction` prop.
+
+<Canvas withToolbar sourceState="shown" of={Stories.ConfirmOnly} />
+
+## Custom labels
+
+You can change the labels on the buttons by passing the `confirmLabel` and `cancelLabel` props.
+
+<Canvas withToolbar sourceState="shown" of={Stories.CustomLabels} />
+
+## Extra information
+
+Sometimes just a title isn't enough context for the user. If you want to pass an additional message to the user you can pass the `message` prop.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithMessage} />
+
+## Expand to fit container
+
+You can make the dialog expand to fit the container by passing the `fitContainer` prop. This is useful if you want to use the dialogue in a modal.
+
+<Tip type="warning">
+  {' '}
+  The dialog content will still be centered in the middle of the container. So
+  be mindful of the height of the container or it might look odd.
+</Tip>
+
+<Canvas withToolbar sourceState="shown" of={Stories.FitContainer} />

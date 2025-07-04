@@ -1,0 +1,245 @@
+import * as Stories from './input-factory.stories';
+
+import { InputFactory } from './index';
+
+<Meta of={Stories} />
+
+<Title of={InputFactory} />
+
+<WorksWith of={InputFactory} />
+
+<Description of={InputFactory} />
+
+It is recommended that you use the `InputFactory` component to render your inputs.
+This will ensure that all inputs are styled consistently and that they are accessible.
+
+In addition, it will automatically apply the correct labels, helper texts and validation
+states to your inputs.
+
+<Primary />
+
+By default, the InputFactory will fill 100% of the parent container but you can override this by passing in a `width`, `minWidth` or `maxWidth` prop. These properties
+behave in the same was as their corresponding CSS properties.
+
+<Tip>
+  If you want to add support for another input type, see 'Adding new input
+  types' below.
+</Tip>
+
+## Usage
+
+You can output your required input components by passing in the `type` prop.
+
+The following are the available types and their corresponding components:
+
+<table
+  style={{
+    width: '100%'
+  }}
+>
+  <thead>
+    <tr>
+      <td>Type</td>
+      <td>Component rendered</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`text`</td>
+      <td>
+        <a href="/?path=/docs/components-inputs-text--docs">Text</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`password`</td>
+      <td>
+        <a href="">Password</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`number`</td>
+      <td>
+        <a href="">Number</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`url`</td>
+      <td>
+        <a href="">URL</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`email`</td>
+      <td>
+        <a href="">Email</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`tel`</td>
+      <td>
+        <a href="">Telephone</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`textarea`</td>
+      <td>
+        <a href="">Textarea</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`select`</td>
+      <td>
+        <a href="">Select</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`autocomplete`</td>
+      <td>
+        <a href="">Autocomplete</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`datetime`</td>
+      <td>
+        <a href="">Datetime</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`file`</td>
+      <td>
+        <a href="">File</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`checkbox`</td>
+      <td>
+        <a href="">Checkbox</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`checkboxgroup`</td>
+      <td>
+        <a href="">CheckboxGroup</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`radio`</td>
+      <td>
+        <a href="">Radio</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`radiogroup`</td>
+      <td>
+        <a href="">RadioGroup</a>
+      </td>
+    </tr>
+    <tr>
+      <td>`toggleSwitch`</td>
+      <td>
+        <a href="">ToggleSwitch</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+For examples on how to implement the various inputs, please see below.
+
+## Input types
+
+### Text Input
+
+<Canvas withToolbar sourceState="shown" of={Stories.TextInput} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.TextAreaInput} />
+
+### Radio Button and Checkboxes
+
+When using radio buttons or checkboxes, be sure to include the `hideLabel` prop,
+otherwise you'll end up with multiple lables.
+
+<Canvas withToolbar sourceState="shown" of={Stories.CheckboxInput} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.RadioInput} />
+
+### Radio group
+
+<Canvas withToolbar sourceState="shown" of={Stories.RadioGroup} />
+
+### Select
+
+This project requires the use of a fully-styleble select element. The `Select`
+component is a drop in replacement for the native select element. It is
+fully navigatable with either keyboard or mouse, and styled to match the rest of the project.
+
+<Canvas withToolbar sourceState="shown" of={Stories.SelectInput} />
+
+### File Upload
+
+<Canvas withToolbar sourceState="shown" of={Stories.FileUploadInput} />
+
+### Autocomplete
+
+<Canvas withToolbar sourceState="shown" of={Stories.AutoCompleteInput} />
+
+### Date & Time input
+
+<Canvas withToolbar sourceState="shown" of={Stories.DatePickerInput} />
+
+## Input States
+
+<Canvas withToolbar sourceState="shown" of={Stories.DefaultState} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.ErrorState} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.WarningState} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.SuccessState} />
+
+### With helper text
+
+<Canvas withToolbar sourceState="shown" of={Stories.HelperText} />
+
+### Disabled
+
+<Canvas withToolbar sourceState="shown" of={Stories.DisabledInput} />
+
+### Read Only
+
+<Canvas withToolbar sourceState="shown" of={Stories.ReadOnlyInput} />
+
+### Required
+
+<Canvas withToolbar sourceState="shown" of={Stories.RequiredInput} />
+
+<Tip type="note">
+  The below stories are not controllable via the Storybook controls panel. They
+  will soon be upgraded to use actions and controls.
+</Tip>
+
+## Connecting to application state
+
+As the inputs all extend the props of their native counterparts, you can use
+them in your application state in the same way.
+
+Simply pass an `onChange` prop to the child component or the `InputFactory` itself, and it will be called
+when the value changes.
+
+## Component compatibility <a id="compatibility"></a>
+
+Not all inputs are compatible with InputFactory, this is usually because the input implements InputFactory internally.
+
+You can quickly tell if a component is compatibile as you will be able to see a <WorksWith component="InputFactory" /> badge at the top of the story.
+
+## Adding new input types
+
+The list of inputs is documented in the `types/input-types.ts` file in the component folder. The list is comprehensive,
+but not exhaustive, it's fairly straightforward to add support for new types. Here's a quick run-through:
+
+1. In the `types/input-types.ts` file, add a new type, e.g. `| 'autocomplete'` (note the pipe, that tells typescript to treat this as an additional entry).
+2. In the `helpers/render-input.tsx` file add the new input type to the components import and then update the `switch` statement to include the new type.
+3. Update this story to include an example of the new type
+
+## Props
+
+<ArgTypes of={InputFactory} />

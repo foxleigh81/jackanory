@@ -1,0 +1,97 @@
+import * as Stories from './card.stories';
+
+import Card from './index.tsx';
+
+<Meta of={Stories} />
+
+<Title of={Card} />
+
+<Description of={Card} />
+
+By default, the card only has a background, a border-radius and a drop shadow (all of which can be disabled) and displays the content in a
+in a single row css grid layout. It relies on the child components to set the appropriate width, height and internal spacing.
+
+External spacing around the card should ideally be set by the parent component but you can add spacing to the card itself by passing in
+the `vSpacing` and/or `hSpacing` boolean props.
+
+You can also pass a `className` prop and style it yourself but this is discouraged unless absolutely necessary.
+
+<Primary />
+
+<Tip>
+  As the{' '}
+  <a href="/docs/components-layout-card-components-card-header--docs">
+    CardHeader
+  </a>{' '}
+  and{' '}
+  <a href="/docs/components-layout-card-components-card-body--docs">CardBody</a>{' '}
+  components are children, you can not interact with their props from within
+  this story. To see the props available to these components, please see their
+  own stories
+</Tip>
+
+<Controls />
+
+## Usage
+
+You can pass any child you want to the Card component, but to get the best out of it, you should use the pre-styled CardHeader and CardBody components.
+
+### CardBody
+
+The CardBody component adds some extra padding and automatically expands to the available space within the card.
+
+You can import the `CardBody` component directly from the `components/cards/components/card-body` folder if you wish, however it is recommended to
+import the `Card` component and then use `Card.Body` to access the CardBody component.
+
+<Tip type="warning">
+  The contents of CardBody will not have any default styling applied to it, so
+  you will need to add your own.
+</Tip>
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithBody} />
+
+### CardHeader
+
+The CardHeader component adds some extra padding and a bottom border to the card.
+
+You can import the `CardHeader` component directly from the `components/cards/components/card-header` folder if you wish, however it is recommended to
+import the `Card` component and then use `Card.Header` to access the CardBody component.
+
+The component automatically detects there are 2 children here and has adjusted the CSS
+grid layout to make room for the header.
+
+<Tip type="danger">
+  This component is not that smart, it assumes if there are two children then
+  the first one is a CardHeader.
+</Tip>
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithHeader} />
+
+By default, the header is transparent but you can pass a 'bg' prop to change the background color of the header to one of 'primary', 'secondary' or 'tertiary'
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithPrimaryHeader} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithSecondaryHeader} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithTertiaryHeader} />
+
+## Status Header colours
+
+The CardHeader also supports the status colours. You can pass a 'bg' prop to change the background color of the header to one of 'success', 'warning', 'danger' or 'info'
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithSuccessHeader} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithWarningHeader} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithDangerHeader} />
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithInfoHeader} />
+
+## Supports Cards
+
+<a id="compatibility"></a>
+
+The CardHeader and CardBody component were made for the `Card` component, however they also work as children of other components.
+If you see the badge below, it means the component supports the CardHeader and CardBody components without needing to include the Card component itself.
+
+<WorksWith of={Card} badgeOnly />

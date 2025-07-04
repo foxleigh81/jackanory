@@ -1,0 +1,61 @@
+@use '../vars' as *;
+@use 'statuses' as *;
+@use 'focus-visible' as *;
+@use '../colours' as col;
+@use '../typography.scss' as type;
+
+@mixin base-input() {
+  background-color: col.$input-bg;
+  border: 1px solid col.$input-border;
+  border-radius: $border-radius;
+  color: col.$input-text;
+  margin: 0;
+  padding: padding(0.6) padding(1.2);
+  transition: box-shadow 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 100%;
+
+  &.disabled,
+  &:disabled {
+    border-color: col.$border;
+    box-shadow: none;
+    color: col.$disabled-input-text;
+  }
+
+  .read-only,
+  &:read-only:is(textarea, input[type='text'], input[type='password']) {
+    border-color: col.$border;
+    box-shadow: none;
+    color: col.$disabled-input-text;
+    cursor: not-allowed;
+  }
+
+  @include type.body-text();
+  @include type.input();
+  @include statuses('focus');
+  @include statuses('border');
+  @include statuses('background-faded');
+
+  &:focus-visible {
+    background-color: col.$input-focus-bg;
+    outline: none;
+    border: none;
+  }
+}
+
+@mixin base-input-label() {
+  @include type.input-label();
+
+  color: col.$label-text;
+}
+
+@mixin legend() {
+  @include base-input-label();
+  @include type.large-text();
+
+  margin-bottom: margin(1);
+}
+
+@mixin checkbox-input() {
+  display: inline-block;
+  margin-right: margin(1);
+}

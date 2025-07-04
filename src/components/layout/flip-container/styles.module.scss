@@ -1,0 +1,32 @@
+.flip-container {
+  background-color: transparent;
+  height: 100%;
+  perspective: 1000px;
+  width: 100%;
+}
+
+.flip-inner {
+  height: 100%;
+  position: relative;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  width: 100%;
+}
+
+.flip-container.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+  cursor: pointer;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.back {
+  transform: rotateY(180deg);
+}

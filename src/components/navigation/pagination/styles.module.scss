@@ -1,0 +1,35 @@
+.pagination-container {
+  align-items: center;
+  display: flex;
+  max-height: 4rem;
+}
+
+.pagination-item {
+  @include type.button;
+
+  & {
+    margin-left: margin(0.5);
+    min-width: 3rem;
+    padding: padding(1);
+  }
+}
+
+.pagination-item.selected {
+  @include util.button-primary;
+
+  & {
+    margin-left: margin(0.5);
+    min-width: 3rem;
+    padding: padding(1);
+  }
+}
+
+.pagination-item.selected {
+  @include util.button-primary;
+
+  & {
+    margin-left: margin(0.5);
+    min-width: 3rem;
+    padding: padding(1);
+  }
+}

@@ -1,0 +1,46 @@
+import * as Stories from './grid.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+<Primary />
+
+<Controls />
+
+## Setting the column count
+
+You can specify the maximum number of columns with the `columns` prop.
+The grid will automatically adjust the number of columns based on the available space.
+
+By default, the grid will display 4 columns at full-width, 3 columns at the $medium breakpoint, 2 columns at $medium-small, and 1 column at anything smaller.
+
+You can also specify the max number of columns to 3 or 2, which will display 3 columns full-width, 2 columns at $medium, and 1 column at anything smaller.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithThreeColumns} />
+
+Or you can have a max of 2 columns, which will display 2 columns full-width, and 1 column at anything smaller.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithTwoColumns} />
+
+If you want only 1 column, this component is not for you.
+
+## Choosing the root node
+
+By default, the grid will render a `<div>` element as the root node. However, it can be useful to render a `<ul>` or `<ol>` element instead.
+You can do this by specifying the `as` prop.
+
+<Tip type="danger">
+  It is up to you to ensure that the children of the Grid are valid items for
+  your chosen root node.
+</Tip>
+
+### Render as `<ul>`
+
+<Canvas withToolbar sourceState="shown" of={Stories.RenderAsUl} />
+
+### Render as `<ol>`
+
+<Canvas withToolbar sourceState="shown" of={Stories.RenderAsOl} />

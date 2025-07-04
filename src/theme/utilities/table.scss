@@ -1,0 +1,119 @@
+@use '../vars' as *;
+@use '../breakpoints' as *;
+@use '../colours' as col;
+@use '../breakpoints.scss' as bp;
+@use 'responsive' as *;
+
+/** It is recommended to use the `Table` or `TableGenerator` component to make
+a table, however if you are using the table directly, you can use this mixin
+to add the correct styles.
+
+NOTE: These mixins WILL NOT enable more advanced features like sorting, filtering,
+striping, responsive tables, etc. It is meant to be a simple table style only,
+you must use one of the components listed above for those features to work */
+
+$inner-border-radius: calc($border-radius - 1px);
+
+@mixin base-table() {
+  background-color: col.$bg;
+  border: 1px solid col.$border;
+  border-collapse: separate;
+  border-radius: $border-radius;
+  border-spacing: 0;
+}
+
+@mixin base-table-cell($tag) {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: padding();
+  position: relative;
+
+  @include mq(bp.$medium) {
+    display: table-cell;
+    padding: padding(0.5) padding(1);
+
+    &::before {
+      display: none !important;
+    }
+  }
+
+  &::before {
+    content: attr(data-heading) ': ';
+    display: inline-block;
+    font-weight: bold;
+    margin-right: margin();
+    width: 25%;
+  }
+
+  @if $tag == 'th' {
+    display: none;
+
+    @include mq(bp.$medium) {
+      display: table-cell;
+      font-weight: bold;
+    }
+  }
+}
+
+@mixin base-table-row() {
+  display: block;
+  margin-bottom: margin(1);
+  padding: padding(1) padding(1.5);
+
+  @include mq(bp.$medium) {
+    background-color: transparent;
+    display: table-row;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  &:not(:last-child) {
+    td,
+    th {
+      border-bottom:
+        1px solid col.$border,
+        30%;
+    }
+  }
+}
+
+@mixin base-table-tbody {
+  tr:last-child {
+    th:first-of-type,
+    td:first-of-type {
+      border-bottom-left-radius: $inner-border-radius;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-bottom-right-radius: $inner-border-radius;
+    }
+  }
+}
+
+@mixin base-table-thead {
+  display: none;
+
+  @include mq(bp.$medium) {
+    display: table-header-group;
+  }
+
+  &:first-of-type {
+    th:first-of-type,
+    td:first-of-type {
+      border-top-left-radius: $inner-border-radius;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-top-right-radius: $inner-border-radius;
+    }
+  }
+
+  td,
+  th {
+    border-bottom:
+      1px solid col.$border,
+      30%;
+  }
+}

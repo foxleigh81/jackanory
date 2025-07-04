@@ -1,0 +1,78 @@
+@use 'sass:color';
+
+.toggle-switch {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: spacing(0.7);
+  margin-top: margin(0.5);
+  -webkit-tap-highlight-color: transparent;
+  width: fit-content;
+
+  &.readonly,
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 0;
+
+    .switch {
+      @include util.focus-visible-style();
+    }
+  }
+}
+
+.switch {
+  background-color: col.$light;
+  border: 1px solid col.$input-border;
+  border-radius: 60px;
+  cursor: pointer;
+  display: inline-block;
+  height: spacing(2.4);
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  vertical-align: middle;
+  width: spacing(5);
+}
+
+.inner {
+  background-color: col.$primary;
+  border-radius: 50%;
+  box-shadow: 2px 0 0 rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  height: spacing(1.8);
+  left: 3px;
+  opacity: 0.8;
+  position: absolute;
+  top: 2px;
+  transition: all 0.3s ease-in-out;
+  width: spacing(1.8);
+}
+
+.text {
+  @include util.base-input-label();
+}
+
+.real-input {
+  display: none;
+}
+
+.real-input:checked + .switch {
+  background-color: col.$action;
+}
+
+.real-input:checked + .switch .inner {
+  background-color: col.$bg;
+  left: calc(100% - (spacing(1.8) + 3px));
+  opacity: 1;
+}
+
+.real-input:disabled + .switch {
+  background-color: col.$action-disabled;
+  box-shadow: none;
+
+  .inner {
+    background-color: color.scale(col.$action-disabled, $lightness: -20%);
+  }
+}

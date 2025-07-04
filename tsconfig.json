@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "es6",
+    "skipLibCheck": true,
+    "lib": ["dom", "es6", "scripthost", "es2023"],
+    "jsx": "preserve",
+    "noEmitHelpers": false,
+    "noUnusedLocals": false,
+    "allowUnreachableCode": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "strictNullChecks": false,
+    "sourceMap": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.d.ts",
+    ".next/types/**/*.ts",
+    ".storybook/**/*.ts"
+  ],
+  "exclude": ["node_modules", ".storybook"]
+}

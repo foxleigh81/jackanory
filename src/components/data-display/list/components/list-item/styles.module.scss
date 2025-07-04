@@ -1,0 +1,50 @@
+.list-item {
+  &.is-active {
+    background: col.$action;
+
+    .inner {
+      color: col.$body-text-inverse;
+    }
+  }
+
+  &.is-clickable {
+    .inner {
+      appearance: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:focus-visible {
+        box-shadow: 0 0 0 2px col.$keyboard-focus;
+        outline: 0;
+      }
+    }
+
+    &:hover {
+      background: col.$action-hover;
+
+      .inner {
+        color: col.$body-text-inverse;
+      }
+    }
+  }
+
+  &.is-loading {
+    @include util.skeleton();
+  }
+
+  &.in-ordered-list,
+  &.in-unordered-list {
+    .inner {
+      padding: 0 padding(1);
+    }
+  }
+}
+
+.inner {
+  color: col.$body-text;
+  display: block;
+  font-size: type.$body-text-size;
+  padding: padding(1) 0;
+  text-align: left;
+  width: 100%;
+}

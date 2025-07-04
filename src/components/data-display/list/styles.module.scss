@@ -1,0 +1,13 @@
+.list {
+  list-style-type: none;
+
+  &.type-ordered {
+    list-style-type: decimal;
+    margin-left: margin(1.5);
+  }
+
+  &.type-unordered {
+    list-style-type: disc;
+    margin-left: margin(1.5);
+  }
+}

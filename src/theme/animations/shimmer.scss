@@ -1,0 +1,31 @@
+@use '../colours' as col;
+
+/**
+ Shimmer animation for skeleton loading states
+ Usage:
+  @include animate.shimmer(<options>);
+ Options:
+  - duration: duration of the animation (default: 1.5s)
+  - loop: number of times to loop the animation (default: infinite)
+*/
+@mixin shimmer($duration: 1.5s, $loop: infinite) {
+  @keyframes shimmer {
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: calc(200px + 100%) 0;
+    }
+  }
+
+  & {
+    background: linear-gradient(
+      90deg,
+      col.$grey-300,
+      col.$grey-200,
+      col.$grey-300
+    );
+    background-size: 200px 100%;
+    animation: shimmer $duration $loop;
+  }
+}

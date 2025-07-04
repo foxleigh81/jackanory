@@ -1,0 +1,106 @@
+import * as Stories from './tooltip.stories';
+
+import { Tooltip } from './index';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+<Primary />
+
+<Controls />
+
+## Usage instructions
+
+The tooltip should wrap the element that triggers it. This is so that the tooltip can be positioned relative to the triggering element.
+
+The content of the tooltip is set via the `content` prop. This can be a string or a React element.
+
+## Using the tooltip on a non-focusable element
+
+If the tooltip is used on a non-focusable element, such as a `<span>`, then you need to add `tabIndex="0"` to the element so that it can be focused.
+
+<Canvas withToolbar sourceState="shown" of={Stories.TooltipOnSpan} />
+
+## Positioning the tooltip
+
+You can set the position of the tooltip using the `position` prop. If no position is set, the tooltip will be positioned at the bottom of the element.
+
+Options for position are:
+
+### Top
+
+<Canvas withToolbar sourceState="shown" of={Stories.Top} />
+
+### Bottom
+
+<Canvas withToolbar sourceState="shown" of={Stories.Bottom} />
+
+### Left
+
+<Canvas withToolbar sourceState="shown" of={Stories.Left} />
+
+### Right
+
+<Canvas withToolbar sourceState="shown" of={Stories.Right} />
+
+### Small Target
+
+When the target is small the tooltip arrow will be centered.
+
+<Canvas withToolbar sourceState="shown" of={Stories.SmallTarget} />
+
+### Long Tooltip
+
+The tooltip arrow is also centered when the target width is less than 80% of the tooltip width.
+
+<Canvas withToolbar sourceState="shown" of={Stories.LongTooltip} />
+
+## Manually controlling the tooltip visibility
+
+By default, the tooltip will be shown when the element is hovered over or focused. If you want to manually control the visibility of the tooltip, you can use the `isVisible` prop.
+
+<Canvas withToolbar sourceState="shown" of={Stories.ControlledShow} />
+
+<Tip type="danger">
+  Setting `isVisible` to false will also prevent the tooltip from being shown
+  when the element is hovered over or focused, so use this prop with caution
+</Tip>
+
+## Using a Component as the trigger
+
+When using a regular DOM element as the trigger, the tooltip will be shown
+when the element is hovered over or focused.
+
+If you want to use a React component as the trigger, you will need to ensure that
+the component is able to receive forwarded refs. This is because the tooltip
+needs to be able to attach event listeners to the component.
+
+You can do this by using the `forwardRef` function from React on your child component.
+
+Most of these stories use the `Button` component which can accept a ref by default, if you need
+to add a ref to one of your own components, you can do so like this:
+
+```jsx
+const MyComponent = React.forwardRef(function MyComponent(props, ref) {
+  //  Spread the props to the underlying DOM element.
+  return (
+    <div {...props} ref={ref}>
+      My component
+    </div>
+  );
+});
+
+// ...
+
+<Tooltip title="Delete">
+  <MyComponent />
+</Tooltip>;
+```
+
+<Tip type="note">
+  If you feel that one of the Jackanory components should be able to accept a
+  ref, please contact a member of the development team or raise a pull request.
+</Tip>

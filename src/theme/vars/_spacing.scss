@@ -1,0 +1,29 @@
+$root-spacing: 1rem;
+
+$padding: $root-spacing;
+$margin: $root-spacing;
+
+$paragraph-spacing: $margin * 1.5;
+$segment-padding: $padding * 4;
+
+$gutters: $root-spacing * 1.5;
+$component-spacing: $gutters;
+
+/***************/
+/*  Functions  */
+/***************/
+
+// The below functions allow you to use the above margin and padding vars
+// like so: vars.margin(3) which will be the equivalent of doing vars.$margin*3
+// You can use this function without a multiplier (e.g. vars.padding()) if you prefer that to vars.$padding
+@function margin($multiplier: 1) {
+  @return $margin * $multiplier;
+}
+
+@function padding($multiplier: 1) {
+  @return $padding * $multiplier;
+}
+
+@function spacing($multiplier: 1) {
+  @return $root-spacing * $multiplier;
+}

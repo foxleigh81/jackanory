@@ -1,0 +1,31 @@
+/**
+  In order to avoid issues with z-index, we have create a set of variables that can be used to set the z-index of the element.
+  Please do not use any other z-index than the ones below but feel free to add your own if needed.
+*/
+
+$level-minus-3: -3;
+$level-minus-2: -2;
+$level-minus-1: -1;
+$level-0: 0;
+$level-1: 100;
+$level-2: 200;
+$level-3: 300;
+$level-4: 400;
+$level-5: 500;
+$level-6: 600;
+$level-7: 700;
+$level-8: 800;
+$level-9: 900;
+$level-10: 1000;
+$level-11: 2000; // This one goes up to 11
+
+/** Specific z-indexes */
+
+$z-tooltip: $level-11;
+$z-modal: $level-10;
+$z-dropdown: $level-9;
+$z-menu: $level-9;
+$z-sticky: $level-8;
+$z-overlay: $level-6;
+$z-map-search: 2;
+$z-sidebar: 1;

@@ -1,0 +1,114 @@
+import * as Stories from './form-factory.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+As with other Factory components, the Form Factory is a wrapper around the various Input components and the HTML form element
+that provides a set of props that can be used to automatically generate a working form without having to handle any of the
+complexity of form handling or having to work with the components themselves.
+
+<Primary />
+
+<ArgTypes />
+
+## Usage
+
+FormFactory requires 3 props to be passed to it in order to function:
+
+### The `formData` prop
+
+This is an object that contains the data that will be used to populate the form. It should be in the format of:
+
+A very basic example of this would be:
+
+```js
+const formData = {
+  fieldsets: [
+    {
+      legend: 'Personal Details',
+      fields: [
+        {
+          name: 'firstName',
+          label: 'First Name'
+        },
+        {
+          inputName: 'lastName',
+          label: 'Surname'
+        }
+      ]
+    }
+  ]
+};
+```
+
+This would create a simple form with a single fieldset containing two inputs, one for the first name and one for the last name as well as a single 'Submit' button.
+
+<Tip type="warning">
+  You must specify at least one fieldset (legend is optional)
+</Tip>
+
+You can specify the buttons that you want to appear on the form by adding an `actions` array.
+
+```js
+const formData = {
+  fieldsets: [
+    {
+      legend: 'Personal Details',
+      fields: [
+        {
+          name: 'firstName',
+          label: 'First Name'
+        },
+        {
+          inputName: 'lastName',
+          label: 'Surname'
+        }
+      ]
+    }
+  ],
+  actions: [
+    {
+      type: 'submit',
+      label: 'Submit'
+    },
+    {
+      type: 'reset',
+      label: 'Reset'
+    }
+  ]
+};
+```
+
+<Tip>
+  The data you can pass to `fieldsets`, `fields` and `actions` are all based on
+  the props for the `fieldset`, `InputFactory` and `Button` components
+  respectively, so any of those props are valid here!.
+</Tip>
+
+You can also pass `name`, `id` and `action` props in `formData` to set the name, id and action of the form element. You can also pass a `className` prop for custom styling (see below).
+
+### The `schema` prop
+
+In order for the FormFactory to be able to validate the form data, it needs to be provided with a schema that describes the
+inputs and their validation rules. It uses [Yup](https://github.com/jquense/yup) to do this, so the schema is a Yup schema
+object.
+
+Take a look at the `schema.ts` file in the `mocks` folder for this component to see an example of how to create a schema.
+
+### The `onSubmit` prop
+
+The `onSubmit` prop is a function that will be called when the form is submitted it is the same as a regular onSubmit attribute
+on a form element, the only difference is that this isn't optional.
+
+## Styling
+
+You should always still to the default styling of the form elements as much as possible, but some circumstances may require
+custom styling (e.g. splitting form fields into columns). In these cases, you can pass a `className` prop to various parts
+of the `formData` object to add a class to the relevant element.
+
+The example below has a custom class on the the fieldset and the age input field.
+
+<Canvas withToolbar sourceState="shown" of={Stories.CustomStyledForm} />

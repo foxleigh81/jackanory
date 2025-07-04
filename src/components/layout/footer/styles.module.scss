@@ -1,0 +1,56 @@
+@use 'sass:color';
+@use '@/theme/vars/elevation';
+
+.footer {
+  background-color: col.$bg;
+  color: col.$grey-700;
+  padding: padding(1);
+  font-size: type.$small-text-size;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: spacing(1);
+  border-top: 1px solid col.$border;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: elevation.$level-1;
+  text-align: center;
+
+  @include util.mq(bp.$medium-large) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: padding(0.5) padding(1.5);
+    gap: 0;
+    text-align: left;
+  }
+}
+
+.left,
+.right {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: spacing(0.5);
+
+  @include util.mq(bp.$medium-large) {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+}
+
+.separator {
+  margin: 0 margin(0.5);
+  color: col.$grey-500;
+
+  @media (max-width: #{bp.$medium-large - 1px}) {
+    display: none;
+  }
+}
+
+.version {
+  font-weight: 600;
+}

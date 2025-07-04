@@ -1,0 +1,32 @@
+.story-wrapper {
+  height: 150px;
+  width: 400px;
+}
+
+.flip-button {
+  margin-bottom: 2rem;
+}
+
+.front,
+.back {
+  background-color: #ebd0d0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+  display: grid;
+  padding: 10px;
+  place-items: center;
+  position: relative;
+
+  span {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+}
+
+.back {
+  background-color: #96b2ea;
+}

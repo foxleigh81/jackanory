@@ -1,0 +1,123 @@
+@use '../colours' as col;
+@use '../typography.scss' as type;
+@use '../vars' as *;
+
+/**
+ * Base mixin for legend list container
+ */
+@mixin legend-list() {
+  display: flex;
+  flex-direction: column;
+  color: col.$body-text;
+  @include type.body-text;
+  list-style: none;
+  padding: padding(1);
+  margin: 0;
+  gap: spacing(0.3);
+}
+
+/**
+ * Base mixin for legend list items
+ */
+@mixin legend-list-item() {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+  gap: spacing(1);
+  margin-bottom: margin(1);
+  color: col.$body-text;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * Base mixin for legend icons
+ */
+@mixin legend-icon() {
+  flex-shrink: 0;
+  height: 20px;
+  width: 20px;
+  justify-self: center;
+}
+
+/**
+ * Mixin for RAG (Red, Amber, Green) status colors
+ */
+@mixin rag-status($type: 'color') {
+  @if $type == 'color' {
+    &.red {
+      .icon {
+        color: col.$rag-red;
+      }
+    }
+
+    &.amber {
+      .icon {
+        color: col.$rag-amber;
+      }
+    }
+
+    &.green {
+      .icon {
+        color: col.$rag-green;
+      }
+    }
+
+    &.grey {
+      .icon {
+        color: col.$rag-grey;
+      }
+    }
+  }
+
+  @if $type == 'fill' {
+    &.red {
+      .icon {
+        fill: rgba(col.$rag-red, 0.4);
+      }
+    }
+
+    &.amber {
+      .icon {
+        fill: rgba(col.$rag-amber, 0.4);
+      }
+    }
+
+    &.green {
+      .icon {
+        fill: rgba(col.$rag-green, 0.4);
+      }
+    }
+
+    &.grey {
+      .icon {
+        fill: rgba(col.$rag-grey, 0.4);
+      }
+    }
+  }
+}
+
+/**
+ * Mixin for investment plan colors
+ */
+@mixin investment-plan-colors() {
+  &.ipOne {
+    .icon {
+      color: col.$ip-one;
+    }
+  }
+
+  &.ipTwo {
+    .icon {
+      color: col.$ip-two;
+    }
+  }
+
+  &.ipThree {
+    .icon {
+      color: col.$ip-three;
+    }
+  }
+}

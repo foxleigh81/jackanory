@@ -1,0 +1,171 @@
+.page {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 4rem;
+  font-family: var(--font-geist-sans);
+  background: col.$bg;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  grid-row-start: 1;
+  align-items: center;
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.logo {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.title {
+  @include type.heading-large;
+  color: col.$body-text;
+  margin: 0;
+  line-height: 1.2;
+
+  @include util.mq(bp.$small) {
+    font-size: 3rem;
+  }
+
+  @include util.mq(bp.$medium) {
+    font-size: 4rem;
+  }
+}
+
+.highlight {
+  background: col.$gradient-primary;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.description {
+  @include type.large-text;
+  color: col.$grey-600;
+  max-width: 600px;
+  margin: 0;
+  line-height: 1.6;
+
+  @include util.mq(bp.$small) {
+    font-size: 1.2rem;
+  }
+
+  @include util.mq(bp.$medium) {
+    font-size: 1.4rem;
+  }
+}
+
+.gettingStarted {
+  max-width: 600px;
+  text-align: center;
+  margin-top: 2rem;
+
+  h2 {
+    @include type.heading-medium;
+    color: col.$primary;
+    margin: 0 0 2rem 0;
+  }
+
+  p {
+    @include type.body-text;
+    color: col.$grey-600;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.code {
+  background: col.$grey-100;
+  border: 1px solid col.$border;
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  font-family: var(--font-geist-mono);
+  font-size: 0.9em;
+  color: col.$primary;
+  font-weight: 600;
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .page {
+    background: col.$bg-dark;
+  }
+
+  .title {
+    color: col.$body-text-inverse;
+  }
+
+  .description {
+    color: col.$grey-400;
+  }
+
+  .gettingStarted {
+    h2 {
+      color: col.$primary;
+    }
+
+    p {
+      color: col.$grey-400;
+    }
+  }
+
+  .code {
+    background: col.$grey-800;
+    border-color: col.$grey-700;
+    color: col.$secondary;
+  }
+}
+
+// Responsive adjustments
+@include util.mq(bp.$small) {
+  .page {
+    padding: 1.5rem;
+    gap: 3rem;
+  }
+
+  .main {
+    gap: 2rem;
+  }
+}
+
+@include util.mq(bp.$medium) {
+  .page {
+    padding: 3rem;
+    gap: 5rem;
+  }
+
+  .main {
+    gap: 4rem;
+  }
+}

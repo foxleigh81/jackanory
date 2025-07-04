@@ -1,0 +1,34 @@
+.avatar {
+  aspect-ratio: 1 / 1;
+  background-color: col.$bg;
+  border-radius: 50%;
+  height: 100%;
+  overflow: hidden;
+
+  .image {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .initials {
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+
+  text {
+    dominant-baseline: middle;
+    fill: col.$light;
+    font-weight: bold;
+    text-anchor: middle;
+  }
+}
+
+.is-loading {
+  @include util.skeleton();
+}

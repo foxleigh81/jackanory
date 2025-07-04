@@ -1,0 +1,99 @@
+import * as Stories from './avatar.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+<Primary />
+
+<Controls />
+
+<Tip type="warning">
+  All avatars in these stories are rendered with the same background colour in
+  order to make snapshots consistent. However, if you do not specify a `colour`
+  prop, a random colour will be selected for each render
+</Tip>
+
+## With an image
+
+An avatar can also display an image by passing an `imagePath` prop.
+
+<Tip type="note">
+  Whilst it's preferrable to provide an appropriately sized image, the component
+  will automatically resize the image to fit the avatar.
+</Tip>
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithImage} />
+
+If the image has any transparency then the background colour will show through.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithTransparentImage} />
+
+## Without an image
+
+If no image is passed to the component then it will display the user's initials against a coloured background. If no colour is passed to the component then a random colour will be selected.
+
+<Tip type="danger">
+  The text colour of the intials are currently hard-coded to white. This means
+  that if you pass a light colour to the component then the initials may not be
+  visible. This should be addressed in a future release
+</Tip>
+
+## Unknown user
+
+If no user data is passed to the component then it will display a ? character.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithUnknownUser} />
+
+## Specified size
+
+An avatar will render at a default size of 80px by 80px. You can specify a different size by passing a `size` prop.
+This prop can be any valid CSS size value.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithDefinedSize} />
+
+## Handling different name formats
+
+The component can handle many different name formats:
+
+### Single word name
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithSingleWordName} />
+
+### Three word name
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithThreeWordName} />
+
+### Long name
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithLongName} />
+
+### Hyphenated surname
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithHyphenatedSurname} />
+
+### Hyphenated first name
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithHyphenatedFirstName} />
+
+### Hyphenated first and surname
+
+<Canvas
+  withToolbar
+  sourceState="shown"
+  of={Stories.WithHyphenatedFirstNameAndSurname}
+/>
+
+### International characters
+
+<Canvas
+  withToolbar
+  sourceState="shown"
+  of={Stories.WithInternationalCharacters}
+/>
+
+### Non-latin characters
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithNonLatinCharacters} />
