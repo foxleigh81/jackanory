@@ -1,4 +1,4 @@
-@use '../colours' as col;
+@use '../colors' as col;
 
 @mixin focus-visible-style($colour: col.$keyboard-focus) {
   box-shadow:

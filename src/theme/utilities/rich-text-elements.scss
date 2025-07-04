@@ -3,7 +3,7 @@
  * Provides consistent styling for all HTML elements commonly found in rich text content
  */
 
-@use '../colours' as col;
+@use '../colors' as col;
 @use '../typography' as type;
 @use '../vars' as *;
 @use 'link' as util;
