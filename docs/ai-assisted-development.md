@@ -16,7 +16,9 @@ However, AI-generated output must always be carefully reviewed, understood, and 
 ## AI Ruleset used on Jackanory
 
 This is a set of rules/instructions for the AI to follow when generating code for the Jackanory project.
-Please add these to your IDE of choice when using AI to generate code (e.g. a `.cursorrules` file).
+You may add these to your IDE of choice when using AI to generate code (e.g. a `.cursorrules` file).
+
+Feel free to edit them to suit your preferences.
 
 ```markdown
 # AI Ruleset for Jackanory
@@ -28,7 +30,7 @@ Please add these to your IDE of choice when using AI to generate code (e.g. a `.
 - Explain your thought process clearly. If unsure, say so directly.
 - If you feel there is more clairification needed, ask for it.
 - If multiple good solutions exist, present options and I will decide.
-- Always use npm;
+- Always use yarn;
 
 ## TypeScript & React
 
@@ -53,7 +55,7 @@ Please add these to your IDE of choice when using AI to generate code (e.g. a `.
 
 ## Project Structure & Naming
 
-- File naming: kebab-case (e.g., my-component.tsx).
+- File naming: lower kebab-case (e.g., my-component.tsx).
 - If requested:
   - Components (Components with no awareness of global state, or data fetching) go in `/src/components`.
   - Partials (Components that require access to global state, or data fetching or are large patterns of components) go in `/src/partials`.
@@ -62,7 +64,7 @@ Please add these to your IDE of choice when using AI to generate code (e.g. a `.
 ## Storybook
 
 - All components and partials require an index.stories.tsx file with interaction tests.
-- Do not add prefixes to storybook titles.
+- Do not add a title to a story.
 - Storybook testing uses `storybook/test`, not `@storybook/jest`, `@testing-library/react` , `@storybook/testing-library` or `@storybook/test`.
 
 ## Testing
