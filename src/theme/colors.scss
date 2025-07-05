@@ -42,7 +42,7 @@ $info: hsl(214, 60%, 48%);
 $error: $danger;
 
 /* RAG colours */
-/* NOTE: You will need to update the exports/colors.ts file if you change these */
+/* These are used for data visualisation only and are not accessible enough for text */
 $rag-green: hsl(107, 54%, 44%);
 $rag-amber: hsl(42, 96%, 54%);
 $rag-red: hsl(359, 89%, 48%);

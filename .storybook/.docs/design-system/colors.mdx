@@ -6,75 +6,43 @@
 
 The Jackanory design system provides a comprehensive color palette designed for accessibility, consistency, and brand alignment.
 
-## Brand Colors
+## Backgrounds
+
+<ColorPalette>
+  <ColorItem title="Bg" subtitle="hsl(0, 0%, 100%)" colors={['hsl(0, 0%, 100%)']} />
+  <ColorItem title="Bg Dark" subtitle="hsl(0, 0%, 9%)" colors={['hsl(0, 0%, 9%)']} />
+  <ColorItem title="Main Panel Bg" subtitle="hsl(0, 0%, 100%)" colors={['hsl(0, 0%, 100%)']} />
+  <ColorItem title="Alt Panel Bg" subtitle="hsl(0, 0%, 98%)" colors={['hsl(0, 0%, 98%)']} />
+</ColorPalette>
+
+- **Bg**: `hsl(0, 0%, 100%)`
+- **Bg Dark**: `hsl(0, 0%, 9%)`
+- **Main Panel Bg**: `hsl(0, 0%, 100%)`
+- **Alt Panel Bg**: `hsl(0, 0%, 98%)`
+
+## Brand Colours
 
 <ColorPalette>
   <ColorItem title="Primary" subtitle="hsl(327, 100%, 38%)" colors={['hsl(327, 100%, 38%)']} />
   <ColorItem title="Secondary" subtitle="hsl(273, 100%, 35%)" colors={['hsl(273, 100%, 35%)']} />
   <ColorItem title="Tertiary" subtitle="hsl(198, 100%, 95%)" colors={['hsl(198, 100%, 95%)']} />
+</ColorPalette>
+
+- **Primary**: `hsl(327, 100%, 38%)`
+- **Secondary**: `hsl(273, 100%, 35%)`
+- **Tertiary**: `hsl(198, 100%, 95%)`
+
+## Dark and light base colours
+
+<ColorPalette>
   <ColorItem title="Dark" subtitle="hsl(0, 0%, 7%)" colors={['hsl(0, 0%, 7%)']} />
   <ColorItem title="Light" subtitle="hsl(0, 0%, 100%)" colors={['hsl(0, 0%, 100%)']} />
 </ColorPalette>
 
-### Primary Brand Colors
+- **Dark**: `hsl(0, 0%, 7%)`
+- **Light**: `hsl(0, 0%, 100%)`
 
-- **Primary**: `hsl(327, 100%, 38%)` - Magenta - Main brand color
-- **Secondary**: `hsl(273, 100%, 35%)` - Purple - Secondary brand color
-- **Tertiary**: `hsl(198, 100%, 95%)` - Light blue - Accent color
-
-### Base Colors
-
-- **Dark**: `hsl(0, 0%, 7%)` - True dark
-- **Light**: `hsl(0, 0%, 100%)` - Pure white
-
-### Usage Example
-
-<Source
-  language="scss"
-  code={`.brand-button {
-    background: col.\$primary;
-    color: col.\$light;
-    &:hover {
-      background: col.\$secondary;
-    }
-}`}
-/>
-
-## Background Colors
-
-<ColorPalette>
-  <ColorItem title="Main Background" subtitle="hsl(0, 0%, 100%)" colors={['hsl(0, 0%, 100%)']} />
-  <ColorItem title="Panel Background" subtitle="hsl(0, 0%, 100%)" colors={['hsl(0, 0%, 100%)']} />
-  <ColorItem title="Alternative Panel" subtitle="hsl(0, 0%, 98%)" colors={['hsl(0, 0%, 98%)']} />
-  <ColorItem title="Dark Background" subtitle="hsl(0, 0%, 9%)" colors={['hsl(0, 0%, 9%)']} />
-</ColorPalette>
-
-### Light Theme
-
-- **Main Background**: `hsl(0, 0%, 100%)` - Main background (white)
-- **Panel Background**: `hsl(0, 0%, 100%)` - Panel background
-- **Alternative Panel**: `hsl(0, 0%, 98%)` - Alternative panel background
-
-### Dark Theme
-
-- **Dark Background**: `hsl(0, 0%, 9%)` - Dark mode background
-
-### Background Usage Example
-
-<Source
-  language="scss"
-  code={`.panel {
-    background: col.\$main-panel-bg;
-    &.alternative {
-      background: col.\$alt-panel-bg;
-    }
-    @media (prefers-color-scheme: dark) {
-      background: col.\$bg-dark;
-    }
-}`}
-/>
-
-## Grey Scale System
+## Grey shades
 
 <ColorPalette>
   <ColorItem title="Grey 100" subtitle="hsl(0, 0%, 98%)" colors={['hsl(0, 0%, 98%)']} />
@@ -88,335 +56,137 @@ The Jackanory design system provides a comprehensive color palette designed for 
   <ColorItem title="Grey 900" subtitle="hsl(0, 0%, 7%)" colors={['hsl(0, 0%, 7%)']} />
 </ColorPalette>
 
-A comprehensive 9-step grey scale for consistent neutral colors:
+- **Grey 100**: `hsl(0, 0%, 98%)`
+- **Grey 200**: `hsl(0, 0%, 94%)`
+- **Grey 300**: `hsl(0, 0%, 90%)`
+- **Grey 400**: `hsl(0, 0%, 77%)`
+- **Grey 500**: `hsl(0, 0%, 60%)`
+- **Grey 600**: `hsl(0, 0%, 40%)`
+- **Grey 700**: `hsl(0, 0%, 20%)`
+- **Grey 800**: `hsl(0, 0%, 13%)`
+- **Grey 900**: `hsl(0, 0%, 7%)`
 
-- **Grey 100**: `hsl(0, 0%, 98%)` - Lightest grey - subtle backgrounds
-- **Grey 200**: `hsl(0, 0%, 94%)` - Light grey - borders, dividers
-- **Grey 300**: `hsl(0, 0%, 90%)` - Light grey - disabled states
-- **Grey 400**: `hsl(0, 0%, 77%)` - Medium-light grey - placeholders
-- **Grey 500**: `hsl(0, 0%, 60%)` - Medium grey - secondary text
-- **Grey 600**: `hsl(0, 0%, 40%)` - Medium-dark grey - body text
-- **Grey 700**: `hsl(0, 0%, 20%)` - Dark grey - headings
-- **Grey 800**: `hsl(0, 0%, 13%)` - Darker grey - high contrast
-- **Grey 900**: `hsl(0, 0%, 7%)` - Darkest grey - maximum contrast
-
-### Usage Guidelines
-
-- **100-300**: Backgrounds, subtle borders, disabled states
-- **400-500**: Placeholders, secondary text, form borders
-- **600-700**: Primary text, headings, important content
-- **800-900**: High contrast text, dark mode backgrounds
-
-### Grey Scale Usage Example
-
-<Source
-  language="scss"
-  code={`.text-hierarchy {
-    .primary-text {
-      color: col.\$grey-900;
-    }
-    .secondary-text {
-      color: col.\$grey-600;
-    }
-    .muted-text {
-      color: col.\$grey-500;
-    }
-    .border {
-      border: 1px solid col.\$grey-200;
-    }
-}`}
-/>
-
-## Typography Colors
+## Typography
 
 <ColorPalette>
   <ColorItem title="Body Text" subtitle="hsl(180, 4%, 2%)" colors={['hsl(180, 4%, 2%)']} />
   <ColorItem title="Body Text Inverse" subtitle="hsl(0, 0%, 90%)" colors={['hsl(0, 0%, 90%)']} />
 </ColorPalette>
 
-- **Body Text**: `hsl(180, 4%, 2%)` - Primary text color
-- **Body Text Inverse**: `hsl(0, 0%, 90%)` - Text on dark backgrounds
+- **Body Text**: `hsl(180, 4%, 2%)`
+- **Body Text Inverse**: `hsl(0, 0%, 90%)`
 
-### Typography Usage Example
-
-<Source
-  language="scss"
-  code={`.article {
-    color: col.\$body-text;
-    .dark-section {
-      background: col.\$dark;
-      color: col.\$body-text-inverse;
-    }
-}`}
-/>
-
-## Status Colors
+## Statuses
 
 <ColorPalette>
-  <ColorItem title="Success" subtitle="hsl(150, 100%, 26%)" colors={['hsl(150, 100%, 26%)']} />
   <ColorItem title="Warning" subtitle="hsl(33, 88%, 36%)" colors={['hsl(33, 88%, 36%)']} />
+  <ColorItem title="Success" subtitle="hsl(150, 100%, 26%)" colors={['hsl(150, 100%, 26%)']} />
   <ColorItem title="Danger" subtitle="hsl(8, 73%, 49%)" colors={['hsl(8, 73%, 49%)']} />
   <ColorItem title="Info" subtitle="hsl(214, 60%, 48%)" colors={['hsl(214, 60%, 48%)']} />
+  <ColorItem title="Error" subtitle="hsl(8, 73%, 49%)" colors={['hsl(8, 73%, 49%)']} />
 </ColorPalette>
 
-Semantic colors for communicating state and feedback:
+- **Warning**: `hsl(33, 88%, 36%)`
+- **Success**: `hsl(150, 100%, 26%)`
+- **Danger**: `hsl(8, 73%, 49%)`
+- **Info**: `hsl(214, 60%, 48%)`
+- **Error**: `hsl(8, 73%, 49%)`
 
-- **Success**: `hsl(150, 100%, 26%)` - Green - success states
-- **Warning**: `hsl(33, 88%, 36%)` - Orange - warning states
-- **Danger**: `hsl(8, 73%, 49%)` - Red - error/danger states
-- **Info**: `hsl(214, 60%, 48%)` - Blue - informational states
+## RAG colours
 
-### Status Colors Usage Example
-
-<Source
-  language="scss"
-  code={`.alert {
-    padding: padding(2);
-    border-radius: 4px;
-    &.success {
-      background: color.adjust(col.\$success, \$lightness: 45%);
-      border: 1px solid col.\$success;
-      color: col.\$success;
-    }
-    &.warning {
-      background: color.adjust(col.\$warning, \$lightness: 35%);
-      border: 1px solid col.\$warning;
-      color: col.\$warning;
-    }
-    &.danger {
-      background: color.adjust(col.\$danger, \$lightness: 40%);
-      border: 1px solid col.\$danger;
-      color: col.\$danger;
-    }
-    &.info {
-      background: color.adjust(col.\$info, \$lightness: 40%);
-      border: 1px solid col.\$info;
-      color: col.\$info;
-    }
-}`}
-/>
-
-## RAG Colors
+These are used for data visualisation only and are not accessible enough for text
 
 <ColorPalette>
-  <ColorItem title="RAG Green" subtitle="hsl(107, 54%, 44%)" colors={['hsl(107, 54%, 44%)']} />
-  <ColorItem title="RAG Amber" subtitle="hsl(42, 96%, 54%)" colors={['hsl(42, 96%, 54%)']} />
-  <ColorItem title="RAG Red" subtitle="hsl(359, 89%, 48%)" colors={['hsl(359, 89%, 48%)']} />
-  <ColorItem title="RAG Grey" subtitle="hsl(200, 1%, 55%)" colors={['hsl(200, 1%, 55%)']} />
-  <ColorItem title="RAG Blue" subtitle="hsl(214, 60%, 48%)" colors={['hsl(214, 60%, 48%)']} />
+  <ColorItem title="Rag Green" subtitle="hsl(107, 54%, 44%)" colors={['hsl(107, 54%, 44%)']} />
+  <ColorItem title="Rag Amber" subtitle="hsl(42, 96%, 54%)" colors={['hsl(42, 96%, 54%)']} />
+  <ColorItem title="Rag Red" subtitle="hsl(359, 89%, 48%)" colors={['hsl(359, 89%, 48%)']} />
+  <ColorItem title="Rag Grey" subtitle="hsl(200, 1%, 55%)" colors={['hsl(200, 1%, 55%)']} />
+  <ColorItem title="Rag Blue" subtitle="hsl(214, 60%, 48%)" colors={['hsl(214, 60%, 48%)']} />
 </ColorPalette>
 
-Special colors for Red, Amber, Green status indicators commonly used in data visualization:
+- **Rag Green**: `hsl(107, 54%, 44%)`
+- **Rag Amber**: `hsl(42, 96%, 54%)`
+- **Rag Red**: `hsl(359, 89%, 48%)`
+- **Rag Grey**: `hsl(200, 1%, 55%)`
+- **Rag Blue**: `hsl(214, 60%, 48%)`
 
-- **RAG Green**: `hsl(107, 54%, 44%)` - RAG Green
-- **RAG Amber**: `hsl(42, 96%, 54%)` - RAG Amber
-- **RAG Red**: `hsl(359, 89%, 48%)` - RAG Red
-- **RAG Grey**: `hsl(200, 1%, 55%)` - RAG Grey (neutral/unknown)
-- **RAG Blue**: `hsl(214, 60%, 48%)` - RAG Blue (informational)
-
-### RAG Colors Usage Example
-
-<Source
-  language="scss"
-  code={`.status-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    &.green {
-      background: col.\$rag-green;
-    }
-    &.amber {
-      background: col.\$rag-amber;
-    }
-    &.red {
-      background: col.\$rag-red;
-    }
-    &.grey {
-      background: col.\$rag-grey;
-    }
-    &.blue {
-      background: col.\$rag-blue;
-    }
-}`}
-/>
-
-## Interactive Element Colors
+## Buttons
 
 <ColorPalette>
   <ColorItem title="Primary Button" subtitle="hsl(327, 100%, 38%)" colors={['hsl(327, 100%, 38%)']} />
-  <ColorItem title="Primary Button Hover" subtitle="hsl(327, 100%, 32%)" colors={['hsl(327, 100%, 32%)']} />
+  <ColorItem title="Primary Button Text" subtitle="hsl(0, 0%, 100%)" colors={['hsl(0, 0%, 100%)']} />
   <ColorItem title="Secondary Button" subtitle="hsl(273, 100%, 35%)" colors={['hsl(273, 100%, 35%)']} />
-  <ColorItem title="Secondary Button Hover" subtitle="hsl(273, 100%, 37%)" colors={['hsl(273, 100%, 37%)']} />
+  <ColorItem title="Secondary Button Text" subtitle="hsl(0, 0%, 100%)" colors={['hsl(0, 0%, 100%)']} />
 </ColorPalette>
+
+- **Primary Button**: `hsl(327, 100%, 38%)`
+- **Primary Button Text**: `hsl(0, 0%, 100%)`
+- **Secondary Button**: `hsl(273, 100%, 35%)`
+- **Secondary Button Text**: `hsl(0, 0%, 100%)`
+
+## Inputs
+
+<ColorPalette>
+  <ColorItem title="Input Bg" subtitle="hsl(0, 0%, 100%)" colors={['hsl(0, 0%, 100%)']} />
+  <ColorItem title="Input Border" subtitle="hsl(0, 0%, 60%)" colors={['hsl(0, 0%, 60%)']} />
+  <ColorItem title="Input Border Focus" subtitle="hsl(327, 100%, 38%)" colors={['hsl(327, 100%, 38%)']} />
+  <ColorItem title="Label Text" subtitle="hsl(180, 4%, 2%)" colors={['hsl(180, 4%, 2%)']} />
+  <ColorItem title="Input Text" subtitle="hsl(180, 4%, 2%)" colors={['hsl(180, 4%, 2%)']} />
+  <ColorItem title="Disabled Input Text" subtitle="hsl(0, 5%, 30%)" colors={['hsl(0, 5%, 30%)']} />
+</ColorPalette>
+
+- **Input Bg**: `hsl(0, 0%, 100%)`
+- **Input Border**: `hsl(0, 0%, 60%)`
+- **Input Border Focus**: `hsl(327, 100%, 38%)`
+- **Label Text**: `hsl(180, 4%, 2%)`
+- **Input Text**: `hsl(180, 4%, 2%)`
+- **Disabled Input Text**: `hsl(0, 5%, 30%)`
+
+## Links
+
+Style also applies to text buttons
 
 <ColorPalette>
   <ColorItem title="Link" subtitle="hsl(220, 73%, 34%)" colors={['hsl(220, 73%, 34%)']} />
-  <ColorItem title="Link Hover" subtitle="hsl(220, 73%, 14%)" colors={['hsl(220, 73%, 14%)']} />
   <ColorItem title="Link Disabled" subtitle="hsl(0, 5%, 46%)" colors={['hsl(0, 5%, 46%)']} />
 </ColorPalette>
 
-### Buttons
+- **Link**: `hsl(220, 73%, 34%)`
+- **Link Disabled**: `hsl(0, 5%, 46%)`
 
-- **Primary Button**: `hsl(327, 100%, 38%)` - Primary button background
-- **Primary Button Hover**: `hsl(327, 100%, 32%)` - Primary button hover state
-- **Secondary Button**: `hsl(273, 100%, 35%)` - Secondary button background
-- **Secondary Button Hover**: `hsl(273, 100%, 37%)` - Secondary button hover state
+## Actions
 
-### Links
+<ColorPalette>
+  <ColorItem title="Action" subtitle="hsl(220, 73%, 34%)" colors={['hsl(220, 73%, 34%)']} />
+  <ColorItem title="Action Destroy" subtitle="hsl(8, 73%, 49%)" colors={['hsl(8, 73%, 49%)']} />
+  <ColorItem title="Action Create" subtitle="hsl(150, 100%, 26%)" colors={['hsl(150, 100%, 26%)']} />
+  <ColorItem title="Action Disabled" subtitle="hsl(0, 0%, 60%)" colors={['hsl(0, 0%, 60%)']} />
+  <ColorItem title="Action Text" subtitle="hsl(0, 0%, 100%)" colors={['hsl(0, 0%, 100%)']} />
+</ColorPalette>
 
-- **Link**: `hsl(220, 73%, 34%)` - Link color
-- **Link Hover**: `hsl(220, 73%, 14%)` - Link hover state
-- **Link Disabled**: `hsl(0, 5%, 46%)` - Disabled link
+- **Action**: `hsl(220, 73%, 34%)`
+- **Action Destroy**: `hsl(8, 73%, 49%)`
+- **Action Create**: `hsl(150, 100%, 26%)`
+- **Action Disabled**: `hsl(0, 0%, 60%)`
+- **Action Text**: `hsl(0, 0%, 100%)`
 
-### Form Inputs
+## Shadows and borders
 
-<Source
-  language="scss"
-  code={`\$input-bg: \$bg; // Input background
-  \$input-focus-bg: color.adjust(\$primary, \$lightness: 59%); // Focus background
-  \$input-border: \$grey-500; // Input border
-  \$input-border-focus: \$primary; // Focus border
-  \$label-text: \$body-text; // Label text
-  \$input-text: \$body-text; // Input text
-\$disabled-input-text: hsl(0, 5%, 30%); // Disabled input text`}
-/>
+<ColorPalette>
+  <ColorItem title="Shadow" subtitle="hsl(0, 0%, 0%)" colors={['hsl(0, 0%, 0%)']} />
+  <ColorItem title="Border" subtitle="hsl(30, 3%, 87%)" colors={['hsl(30, 3%, 87%)']} />
+  <ColorItem title="Border Dark" subtitle="hsl(0, 0%, 44%)" colors={['hsl(0, 0%, 44%)']} />
+</ColorPalette>
 
-### Actions
+- **Shadow**: `hsl(0, 0%, 0%)`
+- **Border**: `hsl(30, 3%, 87%)`
+- **Border Dark**: `hsl(0, 0%, 44%)`
 
-<Source
-  language="scss"
-  code={`\$action: \$link; // Default action color
-  \$action-destroy: \$danger; // Destructive action
-  \$action-create: \$success; // Create action
-  \$action-disabled: hsl(0, 0%, 60%); // Disabled action
-  // Hover states
-  \$action-hover: color.adjust(\$action, \$lightness: 15%);
-  \$action-destroy-hover: color.adjust(\$action-destroy, \$lightness: 10%);
-  \$action-create-hover: color.adjust(\$action-create, \$lightness: 10%);
-  // Focus backgrounds
-  \$action-focus-bg: color.adjust(\$primary, \$lightness: 20%);
-  \$action-destroy-focus-bg: color.adjust(\$action-destroy, \$lightness: 20%);
-  \$action-create-focus-bg: color.adjust(\$action-create, \$lightness: 20%);
-\$action-text: hsl(0, 0%, 100%); // Action text color`}
-/>
+## A11y compliance
 
-## Borders and Shadows
+<ColorPalette>
+  <ColorItem title="Keyboard Focus" subtitle="hsl(47, 100%, 51%)" colors={['hsl(47, 100%, 51%)']} />
+</ColorPalette>
 
-<Source
-  language="scss"
-  code={`\$shadow: hsl(0, 0%, 0%); // Shadow color
-  \$border: hsl(30, 3%, 87%); // Default border
-\$border-dark: hsl(0, 0%, 44%); // Dark border`}
-/>
-
-## Accessibility
-
-<Source
-  language="scss"
-  code={`\$keyboard-focus: hsl(47, 100%, 51%); // High-contrast focus indicator`}
-/>
-
-### Focus States
-
-<Source
-  language="scss"
-  code={`.focusable-element {
-    &:focus-visible {
-      outline: 2px solid col.\$keyboard-focus;
-      outline-offset: 2px;
-    }
-}`}
-/>
-
-## Gradients
-
-<Source
-  language="scss"
-  code={`\$gradient-primary: linear-gradient(90deg, \$primary, \$secondary);`}
-/>
-
-### Usage Example
-
-<Source
-  language="scss"
-  code={`.gradient-background {
-    background: col.\$gradient-primary;
-    color: col.\$light;
-  }
-  .gradient-text {
-    background: col.\$gradient-primary;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}`}
-/>
-
-## Color Manipulation
-
-Use SCSS color functions for consistent color variations:
-
-<Source
-  language="scss"
-  code={`@use 'sass:color';
-  .button {
-    background: col.\$primary;
-    &:hover {
-      background: color.adjust(col.\$primary, \$lightness: -10%);
-    }
-    &:active {
-      background: color.adjust(col.\$primary, \$lightness: -15%);
-    }
-    &.light {
-      background: color.adjust(col.\$primary, \$lightness: 40%);
-      color: col.\$primary;
-    }
-}`}
-/>
-
-## TypeScript Integration
-
-Colors are exported to TypeScript for use in JavaScript components:
-
-<Source
-  language="typescript"
-  code={`// src/theme/exports/colors.ts
-  export const colors = {
-    primary: 'hsl(327, 100%, 38%)',
-    secondary: 'hsl(273, 100%, 35%)',
-    ragGreen: 'hsl(107, 54%, 44%)',
-    ragAmber: 'hsl(42, 96%, 54%)',
-    ragRed: 'hsl(359, 89%, 48%)'
-    // ... other colors
-} as const;`}
-/>
-
-**Note**: When updating colors in `colours.scss`, remember to update the corresponding TypeScript exports in `exports/colors.ts`.
-
-## Best Practices
-
-### 1. Use Semantic Names
-
-<Source
-  language="scss"
-  code={`// ✅ Good - semantic meaning
-  .error-message {
-    color: col.\$danger;
-  }
-  // ❌ Bad - color-based naming
-  .red-text {
-    color: col.\$danger;
-}`}
-/>
-
-### 2. Maintain Contrast Ratios
-
-Ensure sufficient contrast for accessibility (WCAG AA: 4.5:1 for normal text, 3:1 for large text).
-
-### 3. Use Color Functions
-
-Leverage SCSS color functions for consistent variations rather than hardcoding similar colors.
-
-### 4. Test in Dark Mode
-
-Consider how colors will appear in dark mode and provide appropriate alternatives.
+- **Keyboard Focus**: `hsl(47, 100%, 51%)`
 
