@@ -23,7 +23,6 @@ const projectRoot = path.dirname(path.resolve('./package.json'));
 const SCSS_COLORS_PATH = path.join(projectRoot, 'src/theme/colors.scss');
 const TS_EXPORTS_PATH = path.join(projectRoot, 'src/theme/exports/colors.ts');
 const DOCS_PATH = path.join(projectRoot, 'docs/design-system/colors.md');
-const TEMPLATE_PATH = path.join(projectRoot, 'scripts/templates/colors-template.md');
 
 /**
  * Convert SCSS variable name to camelCase TypeScript variable name
