@@ -26,7 +26,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "generate": "run-s generate:*",
-    "generate:colors": "node ./scripts/generate-colours.mjs",
+    "generate:colors": "node ./scripts/generate-colors.mjs",
     "generate:docs": "node ./scripts/generate-sb-docs.mjs",
     "test": "run-s test:*",
     "test:ts": "tsc --noEmit",
