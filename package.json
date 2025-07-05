@@ -25,12 +25,14 @@
     "format": "prettier --write .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "generate-docs": "node ./scripts/generate-sb-docs.mjs",
+    "generate": "run-s generate:*",
+    "generate:colors": "node ./scripts/generate-colours.mjs",
+    "generate:docs": "node ./scripts/generate-sb-docs.mjs",
     "test": "run-s test:*",
     "test:ts": "tsc --noEmit",
     "test:storybook": "test-storybook",
     "test:unit": "vitest run --config vitest.unit.config.ts",
-    "preflight": "concurrently \"yarn generate-docs\" \"yarn format\" \"yarn lint\" \"yarn build\" \"yarn test\"",
+    "preflight": "concurrently \"yarn generate\" \"yarn format\" \"yarn lint\" \"yarn build\" \"yarn test\"",
     "prepare": "husky"
   },
   "dependencies": {
