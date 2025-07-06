@@ -1,11 +1,11 @@
 .input-select-container {
-  @include util.base-input();
-
   align-items: center;
   display: grid;
   grid-template-areas: 'select';
   min-width: 200px;
   padding: 0;
+
+  @include util.base-input();
 
   &::after {
     background-color: col.$primary;

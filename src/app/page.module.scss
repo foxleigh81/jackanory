@@ -23,18 +23,19 @@
 
 .logo {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
-  transition: transform 0.3s ease;
+  @include util.safe-transition(transform 0.3s ease, none);
 
   &:hover {
-    transform: scale(1.05);
+    @include util.safe-transform(scale(1.05), none);
   }
 }
 
 .title {
-  @include type.heading-large;
   color: col.$body-text;
   margin: 0;
   line-height: 1.2;
+
+  @include type.heading-large;
 
   @include util.mq(bp.$small) {
     font-size: 3rem;
@@ -51,7 +52,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
-  animation: gradient 3s ease infinite;
+  @include util.safe-animation(gradient 3s ease infinite, none);
 }
 
 @keyframes gradient {
@@ -88,16 +89,18 @@
   margin-top: 2rem;
 
   h2 {
-    @include type.heading-medium;
     color: col.$primary;
     margin: 0 0 2rem 0;
+
+    @include type.heading-medium;
   }
 
   p {
-    @include type.body-text;
     color: col.$grey-600;
     margin: 0 0 1.5rem 0;
     line-height: 1.6;
+
+    @include type.body-text;
 
     &:last-child {
       margin-bottom: 0;

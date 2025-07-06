@@ -1,6 +1,4 @@
 .type-multiline {
-  @include util.base-input;
-
   height: auto;
   line-height: 1.4;
   min-height: 60px;
@@ -8,6 +6,8 @@
   /** Firefox fallback */
   scrollbar-color: col.$primary;
   scrollbar-width: thin;
+
+  @include util.base-input;
 
   &::-webkit-scrollbar {
     background-color: transparent;

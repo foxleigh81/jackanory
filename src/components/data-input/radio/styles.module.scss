@@ -1,6 +1,4 @@
 .input {
-  @include util.base-input;
-
   appearance: none;
   aspect-ratio: 1/1;
   border: 1px solid col.$border;
@@ -9,6 +7,8 @@
   height: 22px;
   padding: padding(0.5);
   width: auto;
+
+  @include util.base-input;
 
   &:hover {
     cursor: pointer;

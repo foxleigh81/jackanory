@@ -1,12 +1,12 @@
 .input {
-  @include util.base-input;
-
   appearance: none;
   aspect-ratio: 1/1;
   cursor: inherit;
   display: grid;
   height: 22px;
   width: auto;
+
+  @include util.base-input;
 
   &::before {
     background-color: transparent;
