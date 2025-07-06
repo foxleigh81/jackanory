@@ -4,7 +4,6 @@ import bundleAnalyzer from '@next/bundle-analyzer';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true,
     domains: ['localhost']
   },
   sassOptions: {
