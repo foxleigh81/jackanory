@@ -124,6 +124,7 @@ export const SmallTarget: Story = {
     content: 'Small target',
     children: (
       <button
+        aria-label="Small target"
         style={{
           width: '10px',
           height: '10px',

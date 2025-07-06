@@ -89,6 +89,7 @@ export const Tooltip: React.FC<Props> = ({
   const [showTooltip, setShowTooltip] = useState(isVisible ?? false);
   const arrowRef = React.useRef<SVGSVGElement>(null);
   const [arrowOffset, setArrowOffset] = useState(0);
+  const tooltipId = React.useId();
 
   const { refs, floatingStyles, context } = useFloating({
     open: showTooltip,
@@ -150,6 +151,7 @@ export const Tooltip: React.FC<Props> = ({
 
   const childrenProps = {
     ...getReferenceProps(),
+    'aria-describedby': showTooltip ? tooltipId : undefined,
     ref: useForkRef(
       React.isValidElement(children) && 'ref' in children
         ? (children.ref as React.Ref<HTMLElement>)
@@ -166,6 +168,7 @@ export const Tooltip: React.FC<Props> = ({
         showTooltip && (
           <div
             data-testid="tooltip"
+            id={tooltipId}
             ref={refs.setFloating}
             style={floatingStyles}
             className={[styles['tooltip'], className || '']

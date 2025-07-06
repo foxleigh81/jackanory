@@ -124,19 +124,23 @@ export const InputFactory = forwardRef<HTMLInputElement, Props>(
       variant === 'radiogroup' ||
       variant === 'checkboxgroup';
 
-    let describedby = undefined;
+    // Build aria-describedby from multiple sources
+    const descriptionIds: string[] = [];
 
     if (helperText) {
-      describedby = `${generateID}-help`;
+      descriptionIds.push(`${generateID}-help`);
     }
 
-    if (status === 'error') {
-      describedby = `${generateID}-error`;
+    if (status === 'error' && statusMessage) {
+      descriptionIds.push(`${generateID}-error`);
     }
 
-    if (helperText && status === 'error') {
-      describedby = `${generateID}-help ${generateID}-error`;
+    if (status === 'warning' && statusMessage) {
+      descriptionIds.push(`${generateID}-warning`);
     }
+
+    const describedby =
+      descriptionIds.length > 0 ? descriptionIds.join(' ') : undefined;
 
     const inputProps = {
       name,
@@ -215,8 +219,25 @@ export const InputFactory = forwardRef<HTMLInputElement, Props>(
           </div>
         )}
         {statusMessage && (
-          <div id={`${generateID}-error`} className={styles['status-message']}>
-            <Icon use="error" className={styles['icon']} />
+          <div
+            id={`${generateID}-${status}`}
+            className={[styles['status-message'], styles[`status-${status}`]]
+              .filter(Boolean)
+              .join(' ')}
+            role={status === 'error' ? 'alert' : 'status'}
+            aria-live={status === 'error' ? 'assertive' : 'polite'}
+          >
+            <Icon
+              use={
+                status === 'error'
+                  ? 'error'
+                  : status === 'warning'
+                    ? 'warning'
+                    : 'info'
+              }
+              className={styles['icon']}
+              aria-hidden="true"
+            />
             <span>{statusMessage}</span>
           </div>
         )}

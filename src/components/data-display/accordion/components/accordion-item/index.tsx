@@ -63,6 +63,18 @@ export const AccordionItem: React.FC<Props> = ({
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    switch (e.key) {
+      case 'Enter':
+      case ' ':
+        e.preventDefault();
+        handleClick();
+        break;
+      default:
+        break;
+    }
+  };
+
   const Header = headerLevel;
 
   return (
@@ -74,6 +86,7 @@ export const AccordionItem: React.FC<Props> = ({
       >
         <button
           onClick={handleClick}
+          onKeyDown={handleKeyDown}
           role="button"
           aria-controls={`${uniqueItemId}-body`}
           aria-expanded={open}

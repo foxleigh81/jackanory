@@ -141,7 +141,10 @@ export const TabFocusModal: Story = {
           isOpen={showModal}
           onDismiss={() => setShowModal(false)}
         >
-          <input data-testid="empty-input" />
+          <label>
+            Name
+            <input data-testid="empty-input" />
+          </label>
           <div tabIndex={0} data-testid="focus-div">
             A focusable div
           </div>

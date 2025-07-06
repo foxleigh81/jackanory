@@ -24,9 +24,9 @@ import 'prismjs/components/prism-diff';
 import 'prismjs/components/prism-git';
 
 // Import plugins
+import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
-import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 
 import type { SourceProps } from './types';
 

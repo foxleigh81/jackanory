@@ -49,6 +49,36 @@ const Tabs: React.FC<Props> = ({
     if (handleChange) handleChange(tabIndex);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent, index: number) => {
+    let newIndex = index;
+
+    switch (event.key) {
+      case 'ArrowLeft':
+        event.preventDefault();
+        newIndex = index > 0 ? index - 1 : tabs.length - 1;
+        break;
+      case 'ArrowRight':
+        event.preventDefault();
+        newIndex = index < tabs.length - 1 ? index + 1 : 0;
+        break;
+      case 'Home':
+        event.preventDefault();
+        newIndex = 0;
+        break;
+      case 'End':
+        event.preventDefault();
+        newIndex = tabs.length - 1;
+        break;
+      default:
+        return;
+    }
+
+    handleTabChange(newIndex);
+    // Focus the newly selected tab
+    const newTab = document.getElementById(`tab-${tabs[newIndex].contentId}`);
+    newTab?.focus();
+  };
+
   useEffect(() => {
     setActiveTab(selectedTab);
   }, [selectedTab]);
@@ -69,7 +99,11 @@ const Tabs: React.FC<Props> = ({
             key={tab.contentId}
             role="tab"
             onClick={() => handleTabChange(index)}
+            onKeyDown={(event) => handleKeyDown(event, index)}
             aria-selected={isActive}
+            aria-controls={tab.contentId}
+            tabIndex={isActive ? 0 : -1}
+            id={`tab-${tab.contentId}`}
           >
             {tab.label}
           </button>

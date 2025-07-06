@@ -22,7 +22,7 @@
   padding: padding(0.5);
   justify-self: center;
   transform: rotate(180deg);
-  transition: transform 0.5s ease-in-out !important;
+  @include util.safe-transition(transform 0.5s ease-in-out);
   width: 20px !important;
 
   &.is-open {
@@ -35,7 +35,7 @@
   color: col.$body-text;
   overflow: hidden;
   padding: padding(2);
-  transition: all 0.3s ease-in-out;
+  @include util.safe-transition(all 0.3s ease-in-out);
 
   &.is-open {
     max-height: 100%;

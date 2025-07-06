@@ -9,6 +9,14 @@ export interface Props extends React.ComponentProps<'td'> {
    * Forces the cell to output a 'th' instead of a 'td'
    */
   th?: boolean;
+  /**
+   * Scope for header cells (col, row, colgroup, rowgroup)
+   */
+  scope?: 'col' | 'row' | 'colgroup' | 'rowgroup';
+  /**
+   * Headers attribute for associating data cells with header cells
+   */
+  headers?: string;
 }
 
 /**
@@ -18,6 +26,8 @@ export const TableCell: React.FC<Props> = ({
   className,
   children,
   th,
+  scope,
+  headers,
   ...props
 }: Props) => {
   const TagChooser = th ? 'th' : 'td';
@@ -27,6 +37,8 @@ export const TableCell: React.FC<Props> = ({
       className={[styles['table-cell'], th && styles['th'], className]
         .filter(Boolean)
         .join(' ')}
+      scope={th ? scope : undefined}
+      headers={!th ? headers : undefined}
       {...props}
     >
       {children}

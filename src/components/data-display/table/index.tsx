@@ -14,6 +14,14 @@ export interface Props extends React.ComponentProps<'table'> {
    * Should the table be striped
    */
   striped?: boolean;
+  /**
+   * Accessible caption for the table
+   */
+  caption?: string;
+  /**
+   * Accessible summary for the table
+   */
+  summary?: string;
 }
 
 interface ComponentProps extends React.FC<Props> {
@@ -29,6 +37,8 @@ interface ComponentProps extends React.FC<Props> {
 export const Table: ComponentProps = ({
   className,
   striped,
+  caption,
+  summary,
   children,
   ...props
 }: Props) => (
@@ -36,8 +46,10 @@ export const Table: ComponentProps = ({
     className={[styles['table'], striped && styles['striped'], className].join(
       ' '
     )}
+    summary={summary}
     {...props}
   >
+    {caption && <caption>{caption}</caption>}
     {children}
   </table>
 );
