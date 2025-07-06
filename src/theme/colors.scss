@@ -41,14 +41,6 @@ $danger: hsl(8, 73%, 49%);
 $info: hsl(214, 60%, 48%);
 $error: $danger;
 
-/* RAG colours */
-/* NOTE: You will need to update the exports/colors.ts file if you change these */
-$rag-green: hsl(107, 54%, 44%);
-$rag-amber: hsl(42, 96%, 54%);
-$rag-red: hsl(359, 89%, 48%);
-$rag-grey: hsl(200, 1%, 55%);
-$rag-blue: hsl(214, 60%, 48%);
-
 /* Buttons */
 $primary-button: $primary;
 $primary-button-hover: color.adjust($primary-button, $lightness: -6%);
@@ -96,6 +88,12 @@ $border-dark: hsl(0, 0%, 44%);
 
 /* A11y compliance */
 $keyboard-focus: hsl(47, 100%, 51%);
+
+/* High contrast mode colors */
+$high-contrast-text: hsl(0, 0%, 0%);
+$high-contrast-bg: hsl(0, 0%, 100%);
+$high-contrast-border: hsl(0, 0%, 0%);
+$high-contrast-focus: hsl(47, 100%, 51%);
 
 /* Gradients */
 $gradient-primary: linear-gradient(90deg, $primary, $secondary);
