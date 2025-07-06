@@ -5,10 +5,50 @@
     0 0 2px 2px col.$bg,
     0 0 2px 5px $colour !important;
   outline: 0 !important;
+
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    outline: 2px solid ButtonText !important;
+    outline-offset: 2px !important;
+    box-shadow: none !important;
+  }
+
+  // Forced colors mode support (Windows High Contrast)
+  @media (forced-colors: active) {
+    outline: 2px solid ButtonText !important;
+    outline-offset: 2px !important;
+    box-shadow: none !important;
+  }
 }
 
 @mixin focus-visible($colour: col.$keyboard-focus) {
   &:focus-visible {
     @include focus-visible-style($colour);
+  }
+
+  // Fallback for browsers that don't support :focus-visible
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+// Enhanced focus ring for interactive elements
+@mixin enhanced-focus($colour: col.$keyboard-focus, $offset: 2px) {
+  &:focus-visible {
+    outline: 2px solid $colour;
+    outline-offset: $offset;
+    box-shadow: 0 0 0 4px rgba($colour, 0.2);
+
+    @media (prefers-contrast: high) {
+      outline: 3px solid ButtonText;
+      outline-offset: $offset;
+      box-shadow: none;
+    }
+
+    @media (forced-colors: active) {
+      outline: 3px solid ButtonText;
+      outline-offset: $offset;
+      box-shadow: none;
+    }
   }
 }

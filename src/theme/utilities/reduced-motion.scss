@@ -1,0 +1,143 @@
+/**
+ * Reduced motion utilities for respecting user preferences
+ * These mixins help ensure animations don't cause vestibular disorders
+ */
+
+// Mixin to apply styles only when motion is allowed
+@mixin motion-allowed {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+// Mixin to apply styles only when reduced motion is preferred
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// Mixin for safe animations that respect reduced motion
+@mixin safe-animation($animation, $fallback: none) {
+  animation: $fallback;
+
+  @include motion-allowed {
+    animation: $animation;
+  }
+}
+
+// Mixin for safe transitions that respect reduced motion
+@mixin safe-transition($transition, $fallback: none) {
+  transition: $fallback;
+
+  @include motion-allowed {
+    transition: $transition;
+  }
+}
+
+// Mixin for safe transforms that respect reduced motion
+@mixin safe-transform($transform, $fallback: none) {
+  transform: $fallback;
+
+  @include motion-allowed {
+    transform: $transform;
+  }
+}
+
+// Mixin to disable all animations and transitions in reduced motion
+@mixin disable-motion {
+  @include reduced-motion {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+// Mixin for essential animations that should always run but be faster in reduced motion
+@mixin essential-animation($animation, $reduced-duration: 0.1s) {
+  animation: $animation;
+
+  @include reduced-motion {
+    animation-duration: $reduced-duration;
+  }
+}
+
+// Mixin for focus animations that should be instant in reduced motion
+@mixin focus-animation($animation) {
+  @include motion-allowed {
+    animation: $animation;
+  }
+
+  @include reduced-motion {
+    // Instant focus indication for reduced motion
+    animation: none;
+  }
+}
+
+// Mixin for hover effects that should be instant in reduced motion
+@mixin hover-animation($property, $value, $duration: 0.2s) {
+  transition: $property $duration ease;
+
+  @include reduced-motion {
+    transition: $property 0s;
+  }
+
+  &:hover {
+    #{$property}: $value;
+  }
+}
+
+// Mixin for loading animations that should be simplified in reduced motion
+@mixin loading-animation($animation, $fallback-animation: none) {
+  animation: $fallback-animation;
+
+  @include motion-allowed {
+    animation: $animation;
+  }
+
+  @include reduced-motion {
+    // Provide a simple, non-moving alternative
+    animation: $fallback-animation;
+  }
+}
+
+// Mixin for scroll-based animations that should be disabled in reduced motion
+@mixin scroll-animation($animation) {
+  @include motion-allowed {
+    animation: $animation;
+  }
+
+  @include reduced-motion {
+    animation: none;
+    // Ensure content is visible without animation
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Mixin for parallax effects that should be disabled in reduced motion
+@mixin parallax-effect($transform) {
+  @include motion-allowed {
+    transform: $transform;
+  }
+
+  @include reduced-motion {
+    transform: none;
+  }
+}
+
+// Utility class for elements that should be hidden in reduced motion
+.motion-only {
+  @include reduced-motion {
+    display: none !important;
+  }
+}
+
+// Utility class for elements that should only show in reduced motion
+.reduced-motion-only {
+  display: none;
+
+  @include reduced-motion {
+    display: block;
+  }
+}

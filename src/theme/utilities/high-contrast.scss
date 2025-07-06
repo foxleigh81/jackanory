@@ -1,0 +1,163 @@
+@use '../colors' as col;
+
+/**
+ * High contrast mode support mixins
+ * These mixins help ensure components work well in high contrast modes
+ */
+
+// Mixin for high contrast mode support
+@mixin high-contrast-mode {
+  @media (prefers-contrast: high) {
+    @content;
+  }
+}
+
+// Mixin for forced colors mode (Windows High Contrast)
+@mixin forced-colors-mode {
+  @media (forced-colors: active) {
+    @content;
+  }
+}
+
+// Mixin for both high contrast modes
+@mixin enhanced-contrast-mode {
+  @media (prefers-contrast: high), (forced-colors: active) {
+    @content;
+  }
+}
+
+// High contrast text styles
+@mixin high-contrast-text($color: ButtonText) {
+  @include enhanced-contrast-mode {
+    color: $color !important;
+  }
+}
+
+// High contrast background styles
+@mixin high-contrast-background($color: ButtonFace) {
+  @include enhanced-contrast-mode {
+    background-color: $color !important;
+  }
+}
+
+// High contrast border styles
+@mixin high-contrast-border($color: ButtonText, $width: 1px, $style: solid) {
+  @include enhanced-contrast-mode {
+    border: $width $style $color !important;
+  }
+}
+
+// High contrast button styles
+@mixin high-contrast-button {
+  @include enhanced-contrast-mode {
+    background-color: ButtonFace !important;
+    color: ButtonText !important;
+    border: 2px solid ButtonText !important;
+
+    &:hover,
+    &:focus {
+      background-color: Highlight !important;
+      color: HighlightText !important;
+      border-color: HighlightText !important;
+    }
+
+    &:disabled {
+      background-color: ButtonFace !important;
+      color: GrayText !important;
+      border-color: GrayText !important;
+    }
+  }
+}
+
+// High contrast link styles
+@mixin high-contrast-link {
+  @include enhanced-contrast-mode {
+    color: LinkText !important;
+
+    &:visited {
+      color: VisitedText !important;
+    }
+
+    &:hover,
+    &:focus {
+      color: HighlightText !important;
+      background-color: Highlight !important;
+    }
+  }
+}
+
+// High contrast form input styles
+@mixin high-contrast-input {
+  @include enhanced-contrast-mode {
+    background-color: Field !important;
+    color: FieldText !important;
+    border: 2px solid ButtonText !important;
+
+    &:focus {
+      outline: 2px solid Highlight !important;
+      outline-offset: 2px !important;
+    }
+
+    &:disabled {
+      background-color: ButtonFace !important;
+      color: GrayText !important;
+      border-color: GrayText !important;
+    }
+  }
+}
+
+// High contrast focus indicator
+@mixin high-contrast-focus($offset: 2px) {
+  @include enhanced-contrast-mode {
+    outline: 2px solid Highlight !important;
+    outline-offset: $offset !important;
+    box-shadow: none !important;
+  }
+}
+
+// Remove decorative elements in high contrast mode
+@mixin hide-in-high-contrast {
+  @include enhanced-contrast-mode {
+    display: none !important;
+  }
+}
+
+// Ensure visibility in high contrast mode
+@mixin ensure-visibility-high-contrast {
+  @include enhanced-contrast-mode {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+// High contrast card/panel styles
+@mixin high-contrast-panel {
+  @include enhanced-contrast-mode {
+    background-color: Canvas !important;
+    color: CanvasText !important;
+    border: 2px solid ButtonText !important;
+  }
+}
+
+// High contrast status colors
+@mixin high-contrast-status($type: 'info') {
+  @include enhanced-contrast-mode {
+    @if $type == 'error' or $type == 'danger' {
+      color: CanvasText !important;
+      background-color: Mark !important;
+      border-color: CanvasText !important;
+    } @else if $type == 'success' {
+      color: CanvasText !important;
+      background-color: Canvas !important;
+      border: 2px solid CanvasText !important;
+    } @else if $type == 'warning' {
+      color: CanvasText !important;
+      background-color: Mark !important;
+      border-color: CanvasText !important;
+    } @else {
+      color: CanvasText !important;
+      background-color: Canvas !important;
+      border: 1px solid CanvasText !important;
+    }
+  }
+}
