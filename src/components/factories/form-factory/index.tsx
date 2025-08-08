@@ -18,6 +18,7 @@ import Form from '../../data-input/form';
 import type InputProps from '../../factories/input-factory/types/input-props';
 import type InputTypes from '../../factories/input-factory/types/input-types';
 import type ComponentStatuses from '@/libs/types/component-statuses';
+import type InputOption from '@/libs/types/input-option';
 
 export interface FieldSetData extends FieldsetProps {
   /**
@@ -101,25 +102,58 @@ export const FormFactory: React.FC<Props> = ({
   testID = formData.id ? `form-factory-${formData.id}` : 'form-factory',
   ...props
 }: Props) => {
+  // Extract default values from form data
+  const getDefaultValues = () => {
+    const defaults: Record<string, unknown> = {};
+    formData.fieldsets.forEach((fieldset) => {
+      fieldset.fields.forEach((field) => {
+        if (field.variant === 'radiogroup') {
+          const fieldWithOptions = field as FieldData & {
+            options?: InputOption[];
+          };
+          if (fieldWithOptions.options) {
+            const checkedOption = fieldWithOptions.options.find(
+              (option) => 'checked' in option && option.checked
+            );
+            if (checkedOption) {
+              defaults[field.name] = checkedOption.value;
+            }
+          }
+        } else if (
+          field.variant === 'toggleswitch' ||
+          field.variant === 'checkbox'
+        ) {
+          // Default to false for toggle switches and checkboxes unless explicitly set
+          const fieldWithChecked = field as FieldData & { checked?: boolean };
+          defaults[field.name] = fieldWithChecked.checked || false;
+        }
+      });
+    });
+    return defaults;
+  };
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors }
   } = useForm({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
+    defaultValues: getDefaultValues()
   });
 
   const getErrors = (input: string) => {
     if (errors[input]) {
       return {
         status: 'error' as ComponentStatuses,
-        statusMessage: errors[input]?.message as string
+        statusMessage: errors[input]?.message as string,
+        error: errors[input]?.message as string
       };
     }
     return {
       status: 'default' as ComponentStatuses,
-      statusMessage: '' as string
+      statusMessage: '' as string,
+      error: undefined
     };
   };
 
@@ -152,14 +186,18 @@ export const FormFactory: React.FC<Props> = ({
               {...fieldSetProps}
             >
               {fieldset.fields.map((field) => {
-                const { variant, name, ...rest } = field;
+                const { variant, name, required, ...rest } = field;
+                const registerProps = register(name, {
+                  required: required ? 'This field is required' : false
+                });
                 return (
                   <InputFactory
                     key={name}
                     variant={variant || 'text'}
                     {...rest}
+                    required={required}
                     {...getErrors(name)}
-                    {...register(name)}
+                    {...registerProps}
                   />
                 );
               })}

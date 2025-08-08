@@ -10,7 +10,6 @@ import { createPortal } from 'react-dom';
 
 import Button from '../../data-input/button';
 import { useFocusTrap } from '@/libs/hooks/use-focus-trap';
-import { useFocusRestoration } from '@/libs/hooks/use-focus-restoration';
 
 /* Import Stylesheet */
 import styles from './styles.module.scss';
@@ -77,17 +76,11 @@ const Modal = ({
     [size, className]
   );
 
-  // Use the new focus management hooks
+  // Use focus trap hook for focus management
   const focusTrapRef = useFocusTrap({
     isActive: open,
     returnFocusElement: returnFocusElementRef?.current,
-    focusFirstElement: true
-  });
-
-  useFocusRestoration({
-    isActive: open,
-    restoreElement: returnFocusElementRef?.current,
-    restoreOnUnmount: true
+    focusFirstElement: false // We'll handle initial focus manually
   });
 
   const onDismissHandler = useCallback(() => {
@@ -116,37 +109,79 @@ const Modal = ({
     setOpen(isOpen || false);
   }, [isOpen]);
 
+  // Handle initial focus when modal opens
+  useEffect(() => {
+    if (open && focusTrapRef.current) {
+      const container = focusTrapRef.current;
+
+      // Find the first focusable element that is not the close button
+      const focusableElements = container.querySelectorAll<HTMLElement>(
+        [
+          'input:not([disabled])',
+          'select:not([disabled])',
+          'textarea:not([disabled])',
+          'video[controls]',
+          'audio[controls]',
+          '[contenteditable]:not([contenteditable="false"])',
+          'button:not([disabled]):not([data-modal-close="true"])',
+          '[href]',
+          '[tabindex="0"]'
+        ].join(',')
+      );
+
+      if (focusableElements.length > 0) {
+        // Focus the first non-close-button element
+        focusableElements[0].focus();
+      } else {
+        // If no other focusable elements, focus the container
+        container.focus();
+      }
+    }
+  }, [open]);
+
   useEffect(() => {
     if (open) {
       document.addEventListener('keydown', handleKeyDown);
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
     } else {
       document.removeEventListener('keydown', handleKeyDown);
+      // Restore body scroll when modal is closed
+      document.body.style.overflow = '';
     }
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
+      // Restore body scroll on cleanup
+      document.body.style.overflow = '';
     };
   }, [open, handleKeyDown]);
 
+  const handleBackdropClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      // Close modal if clicking on backdrop (outside content)
+      if (e.target === e.currentTarget) {
+        onDismissHandler();
+      }
+    },
+    [onDismissHandler]
+  );
+
   const ModalContent = (
-    <div data-testid="modal" className={modalStyle}>
-      <Button
-        className={styles['close']}
-        onClick={onDismissHandler}
-        icon="close"
-        circular
-        small
-        hideLabel
-        label="Close"
-      />
+    <div
+      data-testid="modal"
+      className={modalStyle}
+      onClick={handleBackdropClick}
+    >
       <div
+        ref={focusTrapRef as React.RefObject<HTMLDivElement>}
         className={styles['content']}
-        aria-modal="true"
         role={dialogRole}
+        aria-modal="true"
         aria-label={modalName}
         aria-describedby={modalDescription ? 'modal-description' : undefined}
         tabIndex={-1}
-        ref={focusTrapRef as React.RefObject<HTMLDivElement>}
+        onClick={(e) => e.stopPropagation()}
       >
         {modalDescription && (
           <div id="modal-description" className={styles['sr-only']}>
@@ -154,6 +189,17 @@ const Modal = ({
           </div>
         )}
         {children}
+        <Button
+          className={styles['close']}
+          onClick={onDismissHandler}
+          icon="close"
+          circular
+          small
+          hideLabel
+          label="Close"
+          tabIndex={0}
+          data-modal-close="true"
+        />
       </div>
     </div>
   );

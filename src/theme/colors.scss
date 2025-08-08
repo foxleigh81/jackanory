@@ -41,6 +41,17 @@ $danger: hsl(8, 73%, 49%);
 $info: hsl(214, 60%, 48%);
 $error: $danger;
 
+/* RAG status colors */
+$rag-red: $danger;
+$rag-amber: $warning;
+$rag-green: $success;
+$rag-grey: $grey-500;
+
+/* Investment plan colors */
+$ip-one: hsl(210, 100%, 56%);
+$ip-two: hsl(280, 100%, 70%);
+$ip-three: hsl(120, 100%, 35%);
+
 /* Buttons */
 $primary-button: $primary;
 $primary-button-hover: color.adjust($primary-button, $lightness: -6%);

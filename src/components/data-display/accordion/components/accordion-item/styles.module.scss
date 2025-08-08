@@ -1,4 +1,5 @@
-.header button {
+.header button,
+.accordion-button {
   align-items: center;
   background-color: col.$grey-200;
   color: col.$body-text;
@@ -10,6 +11,26 @@
   padding: padding(1) padding(0.5) padding(1) padding(2);
   text-align: left;
   width: 100%;
+  border: 2px solid transparent;
+  @include util.safe-transition(all 0.2s ease-in-out);
+
+  &:hover {
+    background-color: col.$grey-300;
+    border-color: col.$primary;
+  }
+
+  &:focus-visible {
+    outline: 3px solid col.$primary;
+    outline-offset: 2px;
+    background-color: col.$grey-100;
+    border-color: col.$primary;
+    box-shadow: 0 0 0 1px col.$primary inset;
+  }
+
+  &:active {
+    background-color: col.$grey-400;
+    transform: translateY(1px);
+  }
 }
 
 .arrow {
@@ -22,8 +43,9 @@
   padding: padding(0.5);
   justify-self: center;
   transform: rotate(180deg);
-  @include util.safe-transition(transform 0.5s ease-in-out);
   width: 20px !important;
+
+  @include util.safe-transition(transform 0.5s ease-in-out);
 
   &.is-open {
     transform: rotate(0deg);

@@ -28,6 +28,10 @@ export interface Props extends React.InputHTMLAttributes<HTMLSelectElement> {
    * The selected value(s) of the input when the component loads
    */
   value?: InputValue;
+  /** Error message for the input */
+  error?: string;
+  /** Helper text for the input */
+  helperText?: string;
 }
 
 /**
@@ -44,6 +48,9 @@ export const Select: React.FC<Props> = ({
   multiple,
   value,
   onChange,
+  error,
+  helperText,
+  required,
   ...props
 }: Props) => {
   const [selectOptions, setSelectOptions] = useState<InputOption[]>(options);
@@ -78,6 +85,8 @@ export const Select: React.FC<Props> = ({
     }
   };
 
+  const selectId = id || changeCase(name, 'kebab');
+
   return (
     <div
       className={[
@@ -91,8 +100,8 @@ export const Select: React.FC<Props> = ({
     >
       <select
         name={name}
-        id={id || changeCase(name, 'kebab')}
-        data-testid={id || changeCase(name, 'kebab')}
+        id={selectId}
+        data-testid={selectId}
         className={[
           styles['input-select'],
           styles[`status-${status || 'default'}`],
@@ -101,8 +110,13 @@ export const Select: React.FC<Props> = ({
           .filter(Boolean)
           .join(' ')}
         multiple={multiple}
+        required={required}
         onChange={handleChange}
         defaultValue={selectedValues}
+        aria-invalid={error ? 'true' : 'false'}
+        aria-required={required ? 'true' : 'false'}
+        aria-errormessage={error ? `${selectId}-error` : undefined}
+        aria-describedby={helperText ? `${selectId}-helper` : undefined}
         {...props}
       >
         {placeholder && !multiple && <option value="">{placeholder}</option>}

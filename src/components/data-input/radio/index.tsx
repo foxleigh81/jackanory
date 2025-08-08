@@ -16,8 +16,11 @@ export const Radio: React.FC<Props> = ({
   name,
   id,
   status,
+  helperText,
   ...props
 }: Props) => {
+  const inputId = id || changeCase(name, 'kebab');
+
   return (
     <input
       type="radio"
@@ -29,9 +32,10 @@ export const Radio: React.FC<Props> = ({
         .filter(Boolean)
         .join(' ')}
       name={name}
-      id={id || changeCase(name, 'kebab')}
-      data-testid={id || changeCase(name, 'kebab')}
+      id={inputId}
+      data-testid={inputId}
       disabled={disabled}
+      aria-describedby={helperText ? `${inputId}-helper` : undefined}
       {...props}
     />
   );

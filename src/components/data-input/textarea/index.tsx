@@ -18,6 +18,10 @@ export interface Props extends React.ComponentProps<'textarea'> {
    * @default 'default'
    */
   status?: ComponentStatuses;
+  /** Error message for the input */
+  error?: string;
+  /** Helper text for the input */
+  helperText?: string;
 }
 
 /**
@@ -28,12 +32,17 @@ export const Textarea: React.FC<Props> = ({
   name,
   status,
   className,
+  error,
+  helperText,
+  required,
   ...props
 }: Props) => {
+  const inputId = id || changeCase(name, 'kebab');
+
   return (
     <textarea
-      id={id || changeCase(name, 'kebab')}
-      data-testid={id || changeCase(name, 'kebab')}
+      id={inputId}
+      data-testid={inputId}
       name={name}
       className={[
         styles['input'],
@@ -43,6 +52,10 @@ export const Textarea: React.FC<Props> = ({
       ]
         .filter(Boolean)
         .join(' ')}
+      aria-invalid={error ? 'true' : 'false'}
+      aria-required={required ? 'true' : 'false'}
+      aria-errormessage={error ? `${inputId}-error` : undefined}
+      aria-describedby={helperText ? `${inputId}-helper` : undefined}
       {...props}
     />
   );

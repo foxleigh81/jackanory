@@ -130,7 +130,8 @@ export const bigForm = {
           options: [
             {
               label: 'Yes',
-              value: 'yes'
+              value: 'yes',
+              checked: true
             },
             {
               label: 'No',

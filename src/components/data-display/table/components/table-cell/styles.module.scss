@@ -7,3 +7,71 @@
 .th {
   font-weight: bold;
 }
+
+.sortable {
+  padding: 0;
+}
+
+.sort-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: spacing(0.5);
+  border: 2px solid transparent;
+  @include util.safe-transition(all 0.2s ease-in-out);
+
+  &:hover {
+    background-color: col.$grey-100;
+    border-color: col.$primary;
+  }
+
+  &:focus-visible {
+    outline: 3px solid col.$primary;
+    outline-offset: 2px;
+    background-color: col.$grey-100;
+    border-color: col.$primary;
+    box-shadow: 0 0 0 1px col.$primary inset;
+  }
+
+  &:active {
+    background-color: col.$grey-200;
+    transform: translateY(1px);
+  }
+}
+
+.sort-icon {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  fill: col.$grey-600;
+  @include util.safe-transition(transform 0.2s ease-in-out);
+
+  .sort-button:hover & {
+    fill: col.$primary;
+  }
+
+  &.sort-ascending {
+    transform: rotate(-90deg);
+  }
+
+  &.sort-descending {
+    transform: rotate(90deg);
+  }
+
+  &.sort-icon-neutral {
+    opacity: 0.4;
+    transform: rotate(0deg);
+
+    .sort-button:hover & {
+      opacity: 0.8;
+    }
+  }
+}

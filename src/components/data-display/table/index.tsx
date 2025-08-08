@@ -19,9 +19,13 @@ export interface Props extends React.ComponentProps<'table'> {
    */
   caption?: string;
   /**
-   * Accessible summary for the table
+   * Accessible description for the table (replaces deprecated summary)
    */
-  summary?: string;
+  'aria-describedby'?: string;
+  /**
+   * Accessible label for the table
+   */
+  'aria-label'?: string;
 }
 
 interface ComponentProps extends React.FC<Props> {
@@ -38,7 +42,6 @@ export const Table: ComponentProps = ({
   className,
   striped,
   caption,
-  summary,
   children,
   ...props
 }: Props) => (
@@ -46,7 +49,6 @@ export const Table: ComponentProps = ({
     className={[styles['table'], striped && styles['striped'], className].join(
       ' '
     )}
-    summary={summary}
     {...props}
   >
     {caption && <caption>{caption}</caption>}

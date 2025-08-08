@@ -16,12 +16,17 @@ export const Text: React.FC<Props> = ({
   type = 'text',
   status = 'default',
   className,
+  error,
+  helperText,
+  required,
   ...props
 }: Props) => {
+  const inputId = id || changeCase(name, 'kebab');
+
   return (
     <input
-      id={id || changeCase(name, 'kebab')}
-      data-testid={id || changeCase(name, 'kebab')}
+      id={inputId}
+      data-testid={inputId}
       name={name}
       className={[
         styles['input'],
@@ -32,6 +37,11 @@ export const Text: React.FC<Props> = ({
         .filter(Boolean)
         .join(' ')}
       type={type}
+      required={required}
+      aria-invalid={error ? 'true' : 'false'}
+      aria-required={required ? 'true' : 'false'}
+      aria-errormessage={error ? `${inputId}-error` : undefined}
+      aria-describedby={helperText ? `${inputId}-helper` : undefined}
       {...props}
     />
   );

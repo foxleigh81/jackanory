@@ -10,6 +10,10 @@ export interface InputComponent
    * @default 'default'
    */
   status?: ComponentStatuses;
+  /** Error message for the input */
+  error?: string;
+  /** Helper text for the input */
+  helperText?: string;
 }
 
 export default InputComponent;

@@ -1,6 +1,6 @@
 import { action } from 'storybook/actions';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { within, userEvent, expect } from 'storybook/test';
+import { within, userEvent, expect, waitFor } from 'storybook/test';
 
 // Import component files
 import AccordionFactory from './index';
@@ -95,21 +95,28 @@ export const WithPlayFunction: Story = {
   play: async ({ args, canvasElement, step }) => {
     const component = within(canvasElement).getByTestId('accordion-factory');
     const itemHeaders = within(component).getAllByRole('button');
-    const itemBodies = within(component).getAllByRole('region');
+
     await step('The accordion items are rendered', async () => {
       expect(itemHeaders).toHaveLength(args.items.length);
-      expect(itemBodies).toHaveLength(args.items.length);
     });
+
     await step('The accordion items are closed', async () => {
       itemHeaders.forEach((itemHeader) => {
         expect(itemHeader.getAttribute('aria-expanded')).toBe('false');
       });
     });
+
     await step('The accordion items can be opened', async () => {
       for (const itemHeader of itemHeaders) {
         await userEvent.click(itemHeader);
         expect(itemHeader.getAttribute('aria-expanded')).toBe('true');
       }
+
+      // After opening all items, check that regions are now accessible
+      await waitFor(async () => {
+        const itemBodies = within(component).getAllByRole('region');
+        expect(itemBodies).toHaveLength(args.items.length);
+      });
     });
   }
 };

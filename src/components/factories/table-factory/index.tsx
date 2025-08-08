@@ -151,6 +151,16 @@ export const TableFactory: React.FC<Props> = ({
                   <Table.Cell
                     key={changeCase(header, 'kebab')}
                     th
+                    scope="col"
+                    aria-sort={
+                      isActive
+                        ? sortDirection === 'asc'
+                          ? 'ascending'
+                          : 'descending'
+                        : isSortable
+                          ? 'none'
+                          : undefined
+                    }
                     className={isSortable && styles['sortable-th']}
                   >
                     <>
@@ -158,9 +168,9 @@ export const TableFactory: React.FC<Props> = ({
                         ? changeCase(header, 'sentence')
                         : header}
                       {isSortable && (
-                        <span
-                          role="button"
-                          aria-label={`Sort by ${header} (${sortDirection})`}
+                        <button
+                          type="button"
+                          aria-label={`Sort by ${header} (${isActive ? sortDirection : 'asc'})`}
                           className={[
                             styles['sort-arrow'],
                             styles[`dir-${sortDirection}`],

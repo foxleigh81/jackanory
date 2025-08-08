@@ -58,10 +58,8 @@ export const WithPlayFunction: Story = {
   },
   play: async ({ args, canvasElement, step }) => {
     const itemHeader = within(canvasElement).getByRole('button');
-    const itemBody = within(canvasElement).getByRole('region');
-    await step('The accordion item is rendered', async () => {
+    await step('The accordion item header is rendered', async () => {
       expect(itemHeader).toBeTruthy();
-      expect(itemBody).toBeTruthy();
     });
     await step('The accordion item is closed', async () => {
       expect(itemHeader.getAttribute('aria-expanded')).toBe('false');
@@ -69,6 +67,9 @@ export const WithPlayFunction: Story = {
     await step('The accordion item is opened', async () => {
       await userEvent.click(itemHeader);
       expect(itemHeader.getAttribute('aria-expanded')).toBe('true');
+      // Now that it's open, we can find the region
+      const itemBody = within(canvasElement).getByRole('region');
+      expect(itemBody).toBeTruthy();
     });
     await step('The onClick handler is called', async () => {
       expect(args.onClick).toHaveBeenCalled();

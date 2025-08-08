@@ -52,6 +52,7 @@ export const bigFormSchema = yup
         return true;
       }),
     Cats: yup.string().required(),
+    Lights: yup.boolean(),
     // When testing against a checkbox or radio, you should use oneOf instead of required
     // as an unchecked checkbox still technically has a value (false)
     Terms: yup

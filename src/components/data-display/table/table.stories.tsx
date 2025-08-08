@@ -13,9 +13,15 @@ const meta: Meta<typeof Table> = {
       <>
         <Table.Head>
           <Table.Row>
-            <Table.Cell th>Name</Table.Cell>
-            <Table.Cell th>Age</Table.Cell>
-            <Table.Cell th>Occupation</Table.Cell>
+            <Table.Cell th scope="col">
+              Name
+            </Table.Cell>
+            <Table.Cell th scope="col">
+              Age
+            </Table.Cell>
+            <Table.Cell th scope="col">
+              Occupation
+            </Table.Cell>
           </Table.Row>
         </Table.Head>
         <Table.Body>

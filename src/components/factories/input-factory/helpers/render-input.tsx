@@ -22,7 +22,10 @@ import { ToggleSwitch } from '../../../data-input/toggle-switch';
 const renderInput = (
   name: string,
   type: InputTypes,
-  props: React.ComponentProps<'input'>,
+  props: React.ComponentProps<'input'> & {
+    error?: string;
+    helperText?: string;
+  },
   label: string,
   options: unknown[] = []
 ) => {
@@ -84,15 +87,18 @@ const renderInput = (
       return (
         <Autocomplete name={name} {...props} options={options as string[]} />
       );
-    case 'radiogroup':
+    case 'radiogroup': {
+      const { value, ...radioGroupProps } = props;
       return (
         <RadioGroup
           name={name}
           groupLabel={label}
           options={options as InputOption[]}
-          {...props}
+          value={typeof value === 'string' ? value : value?.toString()}
+          {...radioGroupProps}
         />
       );
+    }
     case 'checkboxgroup':
       return (
         <CheckboxGroup

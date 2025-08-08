@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 /* Import Stylesheet */
 import styles from './styles.module.scss';
 
@@ -43,6 +43,7 @@ const Tabs: React.FC<Props> = ({
   ...props
 }: Props) => {
   const [activeTab, setActiveTab] = useState(selectedTab);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const handleTabChange = (tabIndex: number) => {
     setActiveTab(tabIndex);
@@ -69,14 +70,18 @@ const Tabs: React.FC<Props> = ({
         event.preventDefault();
         newIndex = tabs.length - 1;
         break;
+      case 'Tab':
+        // Allow Tab key to leave the tablist - no preventDefault
+        return;
       default:
         return;
     }
 
     handleTabChange(newIndex);
-    // Focus the newly selected tab
-    const newTab = document.getElementById(`tab-${tabs[newIndex].contentId}`);
-    newTab?.focus();
+    // Focus the newly selected tab using ref for more reliable focusing
+    setTimeout(() => {
+      tabRefs.current[newIndex]?.focus();
+    }, 0);
   };
 
   useEffect(() => {
@@ -104,6 +109,9 @@ const Tabs: React.FC<Props> = ({
             aria-controls={tab.contentId}
             tabIndex={isActive ? 0 : -1}
             id={`tab-${tab.contentId}`}
+            ref={(el) => {
+              tabRefs.current[index] = el;
+            }}
           >
             {tab.label}
           </button>

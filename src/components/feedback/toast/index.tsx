@@ -90,8 +90,17 @@ export const Toast: React.FC<Props> = (props: Props) => {
         .filter(Boolean)
         .join(' ')}
       {...eventHandlers}
-      role="alert"
-      aria-live={type === 'success' ? 'polite' : 'assertive'}
+      role={
+        type === 'error' || type === 'warning' || type === 'info'
+          ? 'alert'
+          : 'status'
+      }
+      aria-live={
+        type === 'error' || type === 'warning' || type === 'info'
+          ? 'assertive'
+          : 'polite'
+      }
+      aria-atomic="true"
     >
       <div className={styles['toast-container']}>
         {type !== 'default' && (

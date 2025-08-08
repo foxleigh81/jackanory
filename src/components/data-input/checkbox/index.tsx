@@ -20,6 +20,9 @@ export const Checkbox: React.FC<Props> = ({
   className,
   status,
   value,
+  error,
+  helperText,
+  required,
   ...props
 }: Props) => {
   if (!id && !name) {
@@ -28,11 +31,13 @@ export const Checkbox: React.FC<Props> = ({
     );
   }
 
+  const inputId = id || changeCase(name, 'kebab');
+
   return (
     <span className={styles['icon-container']}>
       <input
-        id={id || changeCase(name, 'kebab')}
-        data-testid={id || changeCase(name, 'kebab')}
+        id={inputId}
+        data-testid={inputId}
         name={name}
         type="checkbox"
         className={[
@@ -45,6 +50,11 @@ export const Checkbox: React.FC<Props> = ({
         defaultChecked={checked}
         disabled={disabled}
         defaultValue={value}
+        required={required}
+        aria-invalid={error ? 'true' : 'false'}
+        aria-required={required ? 'true' : 'false'}
+        aria-errormessage={error ? `${inputId}-error` : undefined}
+        aria-describedby={helperText ? `${inputId}-helper` : undefined}
         {...props}
       />
     </span>

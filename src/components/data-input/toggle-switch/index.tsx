@@ -5,7 +5,6 @@ import {
   useEffect,
   useCallback,
   FocusEvent,
-  KeyboardEvent,
   ChangeEvent
 } from 'react';
 
@@ -37,6 +36,14 @@ export interface Props extends InputComponent {
    * @default checkbox
    */
   type?: string;
+  /**
+   * Accessible label for the toggle switch
+   */
+  'aria-label'?: string;
+  /**
+   * ID of element that labels the toggle switch
+   */
+  'aria-labelledby'?: string;
 }
 
 /* Render component */
@@ -55,15 +62,20 @@ export const ToggleSwitch = ({
   onBlur,
   onChange,
   type = 'checkbox',
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
   ...props
 }: Props) => {
   const [focused, setFocused] = useState(false);
-  const [isChecked, setIsChecked] = useState(checked || false);
+  const [visualChecked, setVisualChecked] = useState(checked || false);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Update visual state when props change or input is interacted with
   useEffect(() => {
-    setIsChecked(checked || false);
+    if (checked !== undefined) {
+      setVisualChecked(checked);
+    }
   }, [checked]);
 
   const handleOnFocus = useCallback(
@@ -82,24 +94,9 @@ export const ToggleSwitch = ({
     [onBlur]
   );
 
-  const simulateClick = useCallback(() => {
-    if (disabled || readOnly) return;
-    inputRef?.current?.click();
-  }, [disabled, readOnly]);
-
-  const handleInputKeyDown = useCallback(
-    (e: KeyboardEvent<HTMLDivElement>) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        simulateClick();
-      }
-    },
-    [simulateClick]
-  );
-
   const handleInputChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      setIsChecked(e.target.checked);
+      setVisualChecked(e.target.checked);
       onChange?.(e);
     },
     [onChange]
@@ -111,9 +108,7 @@ export const ToggleSwitch = ({
   return (
     <div
       data-testid={`${ID}-label`}
-      tabIndex={0}
-      onKeyDown={handleInputKeyDown}
-      onClick={simulateClick}
+      onClick={() => inputRef.current?.focus()}
       className={[
         styles['toggle-switch'],
         focused ? styles['focused'] : '',
@@ -132,8 +127,12 @@ export const ToggleSwitch = ({
           name={name}
           id={ID}
           type={type}
+          role="switch"
+          aria-checked={visualChecked}
+          aria-label={ariaLabel}
+          aria-labelledby={ariaLabelledBy}
           data-testid={`${ID}-input`}
-          checked={isChecked}
+          defaultChecked={checked}
           disabled={disabled}
           readOnly={readOnly}
           onFocus={handleOnFocus}
@@ -144,7 +143,7 @@ export const ToggleSwitch = ({
           <span className={styles['inner']} />
         </div>
         <span className={styles['text']}>
-          {stateText[isChecked ? 'on' : 'off'] || stateText.on}
+          {stateText[visualChecked ? 'on' : 'off']}
         </span>
       </>
     </div>

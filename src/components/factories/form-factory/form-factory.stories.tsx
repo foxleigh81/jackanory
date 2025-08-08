@@ -320,7 +320,7 @@ export const SubmitForm: Story = {
               Email: 'john@smith.net',
               FavouriteColour: 'red',
               Cats: 'yes',
-              Lights: false,
+              Lights: true,
               Terms: true,
               Badger: true
             },

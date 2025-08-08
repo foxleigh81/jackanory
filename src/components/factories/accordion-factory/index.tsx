@@ -48,6 +48,7 @@ export const AccordionFactory: React.FC<Props> = ({
   ...props
 }: Props) => {
   const [openItem, setOpenItem] = useState<number | null>(null);
+  const [openItems, setOpenItems] = useState<Set<number>>(new Set());
 
   const accordionItems = items.map(
     ({ header, body, isOpen, onClick }, index) => (
@@ -55,10 +56,22 @@ export const AccordionFactory: React.FC<Props> = ({
         key={changeCase(header, 'kebab')}
         header={header}
         headerLevel={headerLevel}
-        isOpen={isOpen || openItem === index}
+        isOpen={
+          isOpen || (allowMultiple ? openItems.has(index) : openItem === index)
+        }
         onClick={() => {
-          if (!allowMultiple) {
-            setOpenItem(index);
+          if (allowMultiple) {
+            setOpenItems((prev) => {
+              const newSet = new Set(prev);
+              if (newSet.has(index)) {
+                newSet.delete(index);
+              } else {
+                newSet.add(index);
+              }
+              return newSet;
+            });
+          } else {
+            setOpenItem(index === openItem ? null : index);
           }
           if (onClick) onClick();
         }}
@@ -69,7 +82,7 @@ export const AccordionFactory: React.FC<Props> = ({
   );
 
   return (
-    <Accordion data-testId="accordion-factory" {...props}>
+    <Accordion data-testid="accordion-factory" {...props}>
       {accordionItems}
     </Accordion>
   );

@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useId } from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from '../../../../data-display/icon';
-import { changeCase } from '@/libs/helpers/change-case';
+import { useLiveRegion } from '../../../../utilities/live-region';
+import ScreenReaderOnly from '../../../../utilities/screen-reader-only';
 
 /* Import Stylesheet */
 import styles from './styles.module.scss';
@@ -34,6 +35,11 @@ export interface Props {
    * with the event as the optional first argument
    */
   onClick?: (e?: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  /**
+   * Adds a keyboard handler to the header of the accordion item
+   * with the event as the optional first argument
+   */
+  onKeyDown?: (e?: React.KeyboardEvent<HTMLElement>) => void;
 }
 
 /**
@@ -45,33 +51,48 @@ export const AccordionItem: React.FC<Props> = ({
   isOpen = false,
   id,
   onClick,
+  onKeyDown,
   children
 }: Props) => {
   const [open, setOpen] = useState(isOpen);
+  const { announce } = useLiveRegion();
 
-  const itemId = changeCase(id || header, 'kebab');
-  const uniqueItemId = `${itemId}-${useId()}`;
+  const itemId =
+    id ||
+    header
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]/g, '');
+  const uniqueItemId = itemId;
 
   useEffect(() => {
     setOpen(isOpen);
   }, [isOpen]);
 
+  const handleToggle = () => {
+    const newOpenState = !open;
+    setOpen(newOpenState);
+
+    // Announce state change to screen readers
+    const stateText = newOpenState ? 'expanded' : 'collapsed';
+    announce(`${header} ${stateText}`, { politeness: 'polite' });
+  };
+
   const handleClick = (e?: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    setOpen(!open);
+    handleToggle();
     if (onClick) {
       onClick(e);
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    switch (e.key) {
-      case 'Enter':
-      case ' ':
-        e.preventDefault();
-        handleClick();
-        break;
-      default:
-        break;
+  const handleKeyDown = (e?: React.KeyboardEvent<HTMLElement>) => {
+    // Handle Space and Enter key activation
+    if (e?.key === ' ' || e?.key === 'Enter') {
+      e.preventDefault();
+      handleToggle();
+    }
+    if (onKeyDown) {
+      onKeyDown(e);
     }
   };
 
@@ -79,19 +100,19 @@ export const AccordionItem: React.FC<Props> = ({
 
   return (
     <div className={styles['accordion-item']}>
-      <Header
-        id={`${uniqueItemId}-header`}
-        data-testid={`${itemId}-header`}
-        className={styles['header']}
-      >
+      <Header id={`${uniqueItemId}-header`} className={styles['header']}>
         <button
           onClick={handleClick}
           onKeyDown={handleKeyDown}
-          role="button"
           aria-controls={`${uniqueItemId}-body`}
           aria-expanded={open}
+          data-testid={`${uniqueItemId}-header`}
+          className={styles['accordion-button']}
         >
           {header}
+          <ScreenReaderOnly>
+            {open ? ', expanded' : ', collapsed'}
+          </ScreenReaderOnly>
           <Icon
             use="chevron"
             className={[
@@ -100,14 +121,16 @@ export const AccordionItem: React.FC<Props> = ({
             ]
               .filter(Boolean)
               .join(' ')}
+            aria-hidden="true"
           />
         </button>
       </Header>
       <section
         id={`${uniqueItemId}-body`}
         role="region"
-        data-testid={`${itemId}-body`}
+        data-testid={`${uniqueItemId}-body`}
         aria-labelledby={`${uniqueItemId}-header`}
+        hidden={!open}
         className={[styles['body'], styles[`is-${open ? 'open' : 'closed'}`]]
           .filter(Boolean)
           .join(' ')}

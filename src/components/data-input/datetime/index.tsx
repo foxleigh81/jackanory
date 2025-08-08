@@ -17,8 +17,13 @@ export const Datetime: React.FC<Props> = ({
   id,
   status,
   className,
+  error,
+  helperText,
+  required,
   ...props
 }: Props) => {
+  const inputId = id || changeCase(name, 'kebab');
+
   return (
     <input
       className={[
@@ -29,10 +34,14 @@ export const Datetime: React.FC<Props> = ({
       ]
         .filter(Boolean)
         .join(' ')}
-      id={id || changeCase(name, 'kebab')}
-      data-testid={id || changeCase(name, 'kebab')}
+      id={inputId}
+      data-testid={inputId}
       name={name}
       type="date"
+      aria-invalid={error ? 'true' : 'false'}
+      aria-required={required ? 'true' : 'false'}
+      aria-errormessage={error ? `${inputId}-error` : undefined}
+      aria-describedby={helperText ? `${inputId}-helper` : undefined}
       {...props}
     />
   );

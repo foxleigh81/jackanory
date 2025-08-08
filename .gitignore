@@ -40,6 +40,9 @@ Thumbs.db
 .augment/
 planfiles/
 *.plan.md
+.claude/
+CLAUDE.md
+
 # Playwright
 /test-results/
 /playwright-report/

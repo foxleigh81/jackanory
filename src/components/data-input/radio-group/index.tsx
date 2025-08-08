@@ -30,6 +30,10 @@ export interface Props extends InputComponent {
    * The onChange event handler for the radio group.
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /**
+   * The current value of the radio group (for controlled components).
+   */
+  value?: string;
 }
 
 /**
@@ -41,6 +45,7 @@ export const RadioGroup: React.FC<Props> = ({
   name,
   orientation = 'horizontal',
   onChange,
+  value: externalValue,
   ...props
 }: Props) => {
   const [radioOptions, setRadioOptions] = useState<InputOption[]>(options);
@@ -48,6 +53,19 @@ export const RadioGroup: React.FC<Props> = ({
   useEffect(() => {
     setRadioOptions(options);
   }, [options]);
+
+  // Update internal state when external value changes (React Hook Form controlled)
+  useEffect(() => {
+    setRadioOptions((currentOptions) =>
+      currentOptions.map((option) => ({
+        ...option,
+        checked:
+          externalValue !== undefined
+            ? option.value === externalValue
+            : option.checked || false
+      }))
+    );
+  }, [externalValue]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newOptions = radioOptions.map((option) => {
@@ -86,9 +104,9 @@ export const RadioGroup: React.FC<Props> = ({
         >
           <Radio
             name={name}
-            defaultValue={option.value || option.label}
+            value={option.value || option.label}
             data-testid={`${name}-${index}-input`}
-            defaultChecked={option.checked}
+            checked={option.checked}
             disabled={option.disabled}
             onChange={handleChange}
             {...props}
